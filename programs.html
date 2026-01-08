@@ -88,13 +88,6 @@
           </button>
           <button
             class="filter-btn"
-            data-filter="coding"
-            data-media-type="banani-button"
-          >
-            Coding
-          </button>
-          <button
-            class="filter-btn"
             data-filter="cybersecurity"
             data-media-type="banani-button"
           >
@@ -102,38 +95,24 @@
           </button>
           <button
             class="filter-btn"
-            data-filter="gamedev"
+            data-filter="development"
             data-media-type="banani-button"
           >
-            Game Dev
+            Development
           </button>
           <button
             class="filter-btn"
-            data-filter="uiux"
+            data-filter="robotics-ai"
             data-media-type="banani-button"
           >
-            UI/UX
+            Robotics & AI
           </button>
           <button
             class="filter-btn"
-            data-filter="datascience"
+            data-filter="design"
             data-media-type="banani-button"
           >
-            Data Science
-          </button>
-          <button
-            class="filter-btn"
-            data-filter="ai"
-            data-media-type="banani-button"
-          >
-            AI
-          </button>
-          <button
-            class="filter-btn"
-            data-filter="robotics"
-            data-media-type="banani-button"
-          >
-            Robotics
+            Design
           </button>
           <button
             class="filter-btn"
@@ -142,40 +121,37 @@
           >
             STEM
           </button>
-          <button
-            class="filter-btn"
-            data-filter="digital"
-            data-media-type="banani-button"
-          >
-            Digital Skills
-          </button>
         </div>
       </div>
 
       <!-- Course Grid -->
       <div class="courses-grid" id="coursesGrid">
-        <!-- Coding -->
-        <div class="course-card" data-category="coding">
+        <!-- Software & Game Development -->
+        <div
+          class="course-card"
+          data-category="development"
+          onclick="location.href='#'"
+        >
           <div class="course-image-container">
             <img
               src="https://images.unsplash.com/photo-1580894732444-8ecded7900cd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w2MjYyMDB8MHwxfHNlYXJjaHwxfHxjb2RpbmclMjBjbGFzc3Jvb218ZW58MHx8fHwxNzY3Njk2MDAwfDA&ixlib=rb-4.1.0&q=80&w=1080"
-              alt="Coding"
+              alt="Software Development"
               class="course-img"
             />
           </div>
           <div class="course-content">
             <div class="course-tags">
-              <span class="tag tag-type">Coding & Software Dev</span>
+              <span class="tag tag-type">Coding & Game Dev</span>
             </div>
-            <h3 class="course-title">Software Development</h3>
+            <h3 class="course-title">Software & Game Development</h3>
             <p class="course-desc">
-              Master the languages of the web and software. From HTML/CSS to
-              Python and JavaScript, build real applications.
+              From building interactive websites to creating immersive 3D games.
+              Master Python, JavaScript, and Unity engine.
             </p>
             <div class="course-footer">
               <button
                 class="btn btn-primary"
-                style="padding: 8px 24px; font-size: 14px"
+                style="padding: 8px 24px; font-size: 14px; width: 100%"
                 data-media-type="banani-button"
               >
                 View Details
@@ -184,8 +160,46 @@
           </div>
         </div>
 
-        <!-- Cybersecurity -->
-        <div class="course-card" data-category="cybersecurity">
+        <!-- Robotics & AI Systems -->
+        <div
+          class="course-card"
+          data-category="robotics-ai"
+          onclick="location.href='#'"
+        >
+          <div class="course-image-container">
+            <img
+              src="https://images.unsplash.com/photo-1535378437323-9555f374669e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w2MjYyMDB8MHwxfHNlYXJjaHwxfHxyb2JvdGljc3xlbnwwfHx8fDE3Njc2OTYwMDZ8MA&ixlib=rb-4.1.0&q=80&w=1080"
+              alt="Robotics & AI"
+              class="course-img"
+            />
+          </div>
+          <div class="course-content">
+            <div class="course-tags">
+              <span class="tag tag-type">Robotics & AI</span>
+            </div>
+            <h3 class="course-title">Robotics & AI Systems</h3>
+            <p class="course-desc">
+              Build intelligent machines and train AI models. A complete journey
+              through mechanical engineering and data science.
+            </p>
+            <div class="course-footer">
+              <button
+                class="btn btn-primary"
+                style="padding: 8px 24px; font-size: 14px; width: 100%"
+                data-media-type="banani-button"
+              >
+                View Details
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Cybersecurity & Safety -->
+        <div
+          class="course-card"
+          data-category="cybersecurity"
+          onclick="location.href='#'"
+        >
           <div class="course-image-container">
             <img
               src="https://images.unsplash.com/photo-1563206767-5b18f218e8de?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w2MjYyMDB8MHwxfHNlYXJjaHwxfHxjeWJlciUyMHNlY3VyaXR5fGVufDB8fHx8MTc2NzY5NjAwMXww&ixlib=rb-4.1.0&q=80&w=1080"
@@ -195,17 +209,17 @@
           </div>
           <div class="course-content">
             <div class="course-tags">
-              <span class="tag tag-type">Cybersecurity</span>
+              <span class="tag tag-type">Security & Ethics</span>
             </div>
-            <h3 class="course-title">Cyber Defense</h3>
+            <h3 class="course-title">Cybersecurity & Digital Safety</h3>
             <p class="course-desc">
-              Learn how to protect systems and networks. Understand ethical
-              hacking, encryption, and digital safety.
+              Learn to defend digital frontiers. Essential skills in ethical
+              hacking, encryption, and navigating the digital world safely.
             </p>
             <div class="course-footer">
               <button
                 class="btn btn-primary"
-                style="padding: 8px 24px; font-size: 14px"
+                style="padding: 8px 24px; font-size: 14px; width: 100%"
                 data-media-type="banani-button"
               >
                 View Details
@@ -214,58 +228,32 @@
           </div>
         </div>
 
-        <!-- Game Dev -->
-        <div class="course-card" data-category="gamedev">
-          <div class="course-image-container">
-            <img
-              src="https://images.unsplash.com/photo-1552820728-8b83bb6b773f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w2MjYyMDB8MHwxfHNlYXJjaHwxfHxnYW1lJTIwZGV2ZWxvcG1lbnR8ZW58MHx8fHwxNzY3Njk2MDAyfDA&ixlib=rb-4.1.0&q=80&w=1080"
-              alt="Game Dev"
-              class="course-img"
-            />
-          </div>
-          <div class="course-content">
-            <div class="course-tags">
-              <span class="tag tag-type">Game Development</span>
-            </div>
-            <h3 class="course-title">Game Design & Dev</h3>
-            <p class="course-desc">
-              Create your own worlds. Learn game logic, character design, and
-              physics engines like Unity and Roblox.
-            </p>
-            <div class="course-footer">
-              <button
-                class="btn btn-primary"
-                style="padding: 8px 24px; font-size: 14px"
-                data-media-type="banani-button"
-              >
-                View Details
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <!-- UI/UX -->
-        <div class="course-card" data-category="uiux">
+        <!-- Creative Design & UI/UX -->
+        <div
+          class="course-card"
+          data-category="design"
+          onclick="location.href='#'"
+        >
           <div class="course-image-container">
             <img
               src="https://images.unsplash.com/photo-1586717791821-3f44a5638d0f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w2MjYyMDB8MHwxfHNlYXJjaHwxfHx1aSUyMHV4JTIwZGVzaWdufGVufDB8fHx8MTc2NzY5NjAwM3ww&ixlib=rb-4.1.0&q=80&w=1080"
-              alt="UI/UX"
+              alt="UI/UX Design"
               class="course-img"
             />
           </div>
           <div class="course-content">
             <div class="course-tags">
-              <span class="tag tag-type">UI/UX Design</span>
+              <span class="tag tag-type">Design & Creativity</span>
             </div>
-            <h3 class="course-title">User Experience Design</h3>
+            <h3 class="course-title">Creative Design & UI/UX</h3>
             <p class="course-desc">
-              Design beautiful and intuitive interfaces. Learn wireframing,
-              prototyping, and user-centered design principles.
+              Where art meets technology. Design beautiful apps, user
+              interfaces, and digital experiences that people love.
             </p>
             <div class="course-footer">
               <button
                 class="btn btn-primary"
-                style="padding: 8px 24px; font-size: 14px"
+                style="padding: 8px 24px; font-size: 14px; width: 100%"
                 data-media-type="banani-button"
               >
                 View Details
@@ -274,98 +262,12 @@
           </div>
         </div>
 
-        <!-- Data Science -->
-        <div class="course-card" data-category="datascience">
-          <div class="course-image-container">
-            <img
-              src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w2MjYyMDB8MHwxfHNlYXJjaHwxfHxkYXRhJTIwc2NpZW5jZXxlbnwwfHx8fDE3Njc2OTYwMDR8MA&ixlib=rb-4.1.0&q=80&w=1080"
-              alt="Data Science"
-              class="course-img"
-            />
-          </div>
-          <div class="course-content">
-            <div class="course-tags">
-              <span class="tag tag-type">Data Science</span>
-            </div>
-            <h3 class="course-title">Data Analytics</h3>
-            <p class="course-desc">
-              Make sense of the world through data. Learn visualization,
-              statistics, and how to find stories in numbers.
-            </p>
-            <div class="course-footer">
-              <button
-                class="btn btn-primary"
-                style="padding: 8px 24px; font-size: 14px"
-                data-media-type="banani-button"
-              >
-                View Details
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <!-- AI -->
-        <div class="course-card" data-category="ai">
-          <div class="course-image-container">
-            <img
-              src="https://images.unsplash.com/photo-1677442136019-21780ecad995?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w2MjYyMDB8MHwxfHNlYXJjaHwxfHxhcnRpZmljaWFsJTIwaW50ZWxsaWdlbmNlfGVufDB8fHx8MTc2NzY5NjAwNXww&ixlib=rb-4.1.0&q=80&w=1080"
-              alt="AI"
-              class="course-img"
-            />
-          </div>
-          <div class="course-content">
-            <div class="course-tags">
-              <span class="tag tag-type">Artificial Intelligence</span>
-            </div>
-            <h3 class="course-title">AI & Machine Learning</h3>
-            <p class="course-desc">
-              Explore the future of tech. Understand neural networks, chatbots,
-              and how machines learn to think.
-            </p>
-            <div class="course-footer">
-              <button
-                class="btn btn-primary"
-                style="padding: 8px 24px; font-size: 14px"
-                data-media-type="banani-button"
-              >
-                View Details
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Robotics -->
-        <div class="course-card" data-category="robotics">
-          <div class="course-image-container">
-            <img
-              src="https://images.unsplash.com/photo-1535378437323-9555f374669e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w2MjYyMDB8MHwxfHNlYXJjaHwxfHxyb2JvdGljc3xlbnwwfHx8fDE3Njc2OTYwMDZ8MA&ixlib=rb-4.1.0&q=80&w=1080"
-              alt="Robotics"
-              class="course-img"
-            />
-          </div>
-          <div class="course-content">
-            <div class="course-tags">
-              <span class="tag tag-type">Robotics</span>
-            </div>
-            <h3 class="course-title">Robotics Engineering</h3>
-            <p class="course-desc">
-              Build and program robots using sensors and motors. Combine coding
-              with mechanical engineering.
-            </p>
-            <div class="course-footer">
-              <button
-                class="btn btn-primary"
-                style="padding: 8px 24px; font-size: 14px"
-                data-media-type="banani-button"
-              >
-                View Details
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <!-- STEM -->
-        <div class="course-card" data-category="stem">
+        <!-- STEM Innovation -->
+        <div
+          class="course-card"
+          data-category="stem"
+          onclick="location.href='#'"
+        >
           <div class="course-image-container">
             <img
               src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w2MjYyMDB8MHwxfHNlYXJjaHwxfHxzdGVtJTIwZWR1Y2F0aW9ufGVufDB8fHx8MTc2NzY5NjAwN3ww&ixlib=rb-4.1.0&q=80&w=1080"
@@ -375,47 +277,17 @@
           </div>
           <div class="course-content">
             <div class="course-tags">
-              <span class="tag tag-type">STEM Education</span>
+              <span class="tag tag-type">Science & Engineering</span>
             </div>
-            <h3 class="course-title">Science & Tech</h3>
+            <h3 class="course-title">STEM Innovation</h3>
             <p class="course-desc">
-              Hands-on experiments integrating science, technology, engineering,
-              and math for creative problem solving.
+              Hands-on science and engineering projects. Apply technology to
+              solve real-world problems through experimentation.
             </p>
             <div class="course-footer">
               <button
                 class="btn btn-primary"
-                style="padding: 8px 24px; font-size: 14px"
-                data-media-type="banani-button"
-              >
-                View Details
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Digital Skills -->
-        <div class="course-card" data-category="digital">
-          <div class="course-image-container">
-            <img
-              src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w2MjYyMDB8MHwxfHNlYXJjaHwxfHxkaWdpdGFsJTIwc2tpbGxzfGVufDB8fHx8MTc2NzY5NjAwOHww&ixlib=rb-4.1.0&q=80&w=1080"
-              alt="Digital Skills"
-              class="course-img"
-            />
-          </div>
-          <div class="course-content">
-            <div class="course-tags">
-              <span class="tag tag-type">Digital Skills</span>
-            </div>
-            <h3 class="course-title">Digital Literacy</h3>
-            <p class="course-desc">
-              Essential skills for the digital age. Internet safety,
-              productivity tools, and cloud collaboration.
-            </p>
-            <div class="course-footer">
-              <button
-                class="btn btn-primary"
-                style="padding: 8px 24px; font-size: 14px"
+                style="padding: 8px 24px; font-size: 14px; width: 100%"
                 data-media-type="banani-button"
               >
                 View Details

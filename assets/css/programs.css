@@ -85,46 +85,40 @@
 .course-card {
   background: white;
   border: 1px solid var(--border);
-  border-radius: 32px;
+  border-radius: 24px;
   overflow: hidden;
-  transition: transform 0.2s, box-shadow 0.2s;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   display: flex;
   flex-direction: column;
+  cursor: pointer;
 }
 
 .course-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+  border-color: rgba(0, 0, 0, 0);
 }
 
 .course-image-container {
-  height: 200px;
+  height: 240px;
   width: 100%;
   position: relative;
+  overflow: hidden;
 }
 
 .course-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: transform 0.5s ease;
 }
 
-.level-badge {
-  position: absolute;
-  top: 16px;
-  left: 16px;
-  background: rgba(255, 255, 255, 0.95);
-  backdrop-filter: blur(4px);
-  color: #2d3748;
-  padding: 6px 14px;
-  border-radius: 999px;
-  font-size: 12px;
-  font-weight: 700;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+.course-card:hover .course-img {
+  transform: scale(1.05);
 }
 
 .course-content {
-  padding: 32px;
+  padding: 24px 28px;
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -133,59 +127,52 @@
 .course-tags {
   display: flex;
   gap: 8px;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
 }
 
 .tag {
-  font-size: 12px;
+  font-size: 11px;
   padding: 4px 10px;
-  border-radius: 8px;
-  font-weight: 600;
-}
-
-.tag-age {
-  background: #e0f7fa;
-  color: #00838f;
+  border-radius: 6px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .tag-type {
-  background: #fff3e0;
-  color: #e65100;
+  background: #f0f4f8;
+  color: #4a5568;
 }
 
 .course-title {
-  font-size: 22px;
-  margin-bottom: 12px;
+  font-size: 20px;
+  margin-bottom: 10px;
+  line-height: 1.3;
 }
 
 .course-desc {
   color: #718096;
   font-size: 15px;
-  margin-bottom: 24px;
+  margin-bottom: 16px;
   flex: 1;
+  line-height: 1.5;
 }
 
 .course-footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-top: 1px solid #edf2f7;
-  padding-top: 20px;
   margin-top: auto;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+  height: 0;
+  overflow: hidden;
 }
 
-.course-price {
-  font-size: 18px;
-  font-weight: 800;
-  color: #2d3748;
-}
-
-.course-duration {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  color: #718096;
-  font-size: 14px;
+.course-card:hover .course-footer {
+  opacity: 1;
+  transform: translateY(0);
+  height: auto;
+  overflow: visible;
+  padding-top: 16px;
 }
 
 /* Badge utility */
