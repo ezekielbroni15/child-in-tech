@@ -74,57 +74,105 @@
 
     <main class="container">
       <!-- Filter Bar -->
-      <div class="filters-section" style="text-align: center">
+      <div
+        class="filters-section"
+        style="text-align: center; margin-bottom: 48px"
+      >
         <div class="filter-bar">
-          <button class="filter-btn active" data-media-type="banani-button">
-            All Programs
+          <button
+            class="filter-btn active"
+            data-filter="all"
+            data-media-type="banani-button"
+          >
+            All
           </button>
-          <button class="filter-btn" data-media-type="banani-button">
+          <button
+            class="filter-btn"
+            data-filter="coding"
+            data-media-type="banani-button"
+          >
             Coding
           </button>
-          <button class="filter-btn" data-media-type="banani-button">
+          <button
+            class="filter-btn"
+            data-filter="cybersecurity"
+            data-media-type="banani-button"
+          >
+            Cybersecurity
+          </button>
+          <button
+            class="filter-btn"
+            data-filter="gamedev"
+            data-media-type="banani-button"
+          >
+            Game Dev
+          </button>
+          <button
+            class="filter-btn"
+            data-filter="uiux"
+            data-media-type="banani-button"
+          >
+            UI/UX
+          </button>
+          <button
+            class="filter-btn"
+            data-filter="datascience"
+            data-media-type="banani-button"
+          >
+            Data Science
+          </button>
+          <button
+            class="filter-btn"
+            data-filter="ai"
+            data-media-type="banani-button"
+          >
+            AI
+          </button>
+          <button
+            class="filter-btn"
+            data-filter="robotics"
+            data-media-type="banani-button"
+          >
             Robotics
           </button>
-          <button class="filter-btn" data-media-type="banani-button">
-            AI &amp; Data
+          <button
+            class="filter-btn"
+            data-filter="stem"
+            data-media-type="banani-button"
+          >
+            STEM
           </button>
-          <button class="filter-btn" data-media-type="banani-button">
-            Camps
+          <button
+            class="filter-btn"
+            data-filter="digital"
+            data-media-type="banani-button"
+          >
+            Digital Skills
           </button>
         </div>
       </div>
 
       <!-- Course Grid -->
-      <div class="courses-grid">
-        <!-- Course 1 -->
-        <div class="course-card">
+      <div class="courses-grid" id="coursesGrid">
+        <!-- Coding -->
+        <div class="course-card" data-category="coding">
           <div class="course-image-container">
             <img
-              src="https://images.unsplash.com/photo-1628605007510-696cd5731961?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w2MjYyMDB8MHwxfHNlYXJjaHwxfHxjaGlsZCUyMGxlYXJuaW5nJTIwY29kaW5nJTIwdGFibGV0fGVufDB8fHx8MTc2NzY5NTk0MXww&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080"
-              alt="Kids coding with blocks"
+              src="https://images.unsplash.com/photo-1580894732444-8ecded7900cd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w2MjYyMDB8MHwxfHNlYXJjaHwxfHxjb2RpbmclMjBjbGFzc3Jvb218ZW58MHx8fHwxNzY3Njk2MDAwfDA&ixlib=rb-4.1.0&q=80&w=1080"
+              alt="Coding"
               class="course-img"
-              data-query="child learning coding tablet"
             />
-            <span class="level-badge">Beginner</span>
           </div>
           <div class="course-content">
             <div class="course-tags">
-              <span class="tag tag-age">Ages 5-7</span>
-              <span class="tag tag-type">Coding</span>
+              <span class="tag tag-type">Coding & Software Dev</span>
             </div>
-            <h3 class="course-title">Junior Coders: Scratch Jr</h3>
+            <h3 class="course-title">Software Development</h3>
             <p class="course-desc">
-              A fun introduction to programming logic using colorful blocks and
-              interactive stories.
+              Master the languages of the web and software. From HTML/CSS to
+              Python and JavaScript, build real applications.
             </p>
             <div class="course-footer">
-              <div class="course-duration">
-                <iconify-icon
-                  icon="lucide:clock"
-                  style="font-size: 16px"
-                ></iconify-icon>
-                8 Weeks
-              </div>
               <button
                 class="btn btn-primary"
                 style="padding: 8px 24px; font-size: 14px"
@@ -136,35 +184,175 @@
           </div>
         </div>
 
-        <!-- Course 2 -->
-        <div class="course-card">
+        <!-- Cybersecurity -->
+        <div class="course-card" data-category="cybersecurity">
           <div class="course-image-container">
             <img
-              src="https://images.unsplash.com/photo-1527689638836-411945a2b57c?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w2MjYyMDB8MHwxfHNlYXJjaHwxfHxjaGlsZCUyMGJ1aWxkaW5nJTIwbGVnbyUyMHJvYm90fGVufDB8fHx8MTc2NzY5NTk0NHww&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080"
-              alt="Building robot"
+              src="https://images.unsplash.com/photo-1563206767-5b18f218e8de?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w2MjYyMDB8MHwxfHNlYXJjaHwxfHxjeWJlciUyMHNlY3VyaXR5fGVufDB8fHx8MTc2NzY5NjAwMXww&ixlib=rb-4.1.0&q=80&w=1080"
+              alt="Cybersecurity"
               class="course-img"
-              data-query="child building lego robot"
             />
-            <span class="level-badge">Intermediate</span>
           </div>
           <div class="course-content">
             <div class="course-tags">
-              <span class="tag tag-age">Ages 8-12</span>
+              <span class="tag tag-type">Cybersecurity</span>
+            </div>
+            <h3 class="course-title">Cyber Defense</h3>
+            <p class="course-desc">
+              Learn how to protect systems and networks. Understand ethical
+              hacking, encryption, and digital safety.
+            </p>
+            <div class="course-footer">
+              <button
+                class="btn btn-primary"
+                style="padding: 8px 24px; font-size: 14px"
+                data-media-type="banani-button"
+              >
+                View Details
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Game Dev -->
+        <div class="course-card" data-category="gamedev">
+          <div class="course-image-container">
+            <img
+              src="https://images.unsplash.com/photo-1552820728-8b83bb6b773f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w2MjYyMDB8MHwxfHNlYXJjaHwxfHxnYW1lJTIwZGV2ZWxvcG1lbnR8ZW58MHx8fHwxNzY3Njk2MDAyfDA&ixlib=rb-4.1.0&q=80&w=1080"
+              alt="Game Dev"
+              class="course-img"
+            />
+          </div>
+          <div class="course-content">
+            <div class="course-tags">
+              <span class="tag tag-type">Game Development</span>
+            </div>
+            <h3 class="course-title">Game Design & Dev</h3>
+            <p class="course-desc">
+              Create your own worlds. Learn game logic, character design, and
+              physics engines like Unity and Roblox.
+            </p>
+            <div class="course-footer">
+              <button
+                class="btn btn-primary"
+                style="padding: 8px 24px; font-size: 14px"
+                data-media-type="banani-button"
+              >
+                View Details
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- UI/UX -->
+        <div class="course-card" data-category="uiux">
+          <div class="course-image-container">
+            <img
+              src="https://images.unsplash.com/photo-1586717791821-3f44a5638d0f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w2MjYyMDB8MHwxfHNlYXJjaHwxfHx1aSUyMHV4JTIwZGVzaWdufGVufDB8fHx8MTc2NzY5NjAwM3ww&ixlib=rb-4.1.0&q=80&w=1080"
+              alt="UI/UX"
+              class="course-img"
+            />
+          </div>
+          <div class="course-content">
+            <div class="course-tags">
+              <span class="tag tag-type">UI/UX Design</span>
+            </div>
+            <h3 class="course-title">User Experience Design</h3>
+            <p class="course-desc">
+              Design beautiful and intuitive interfaces. Learn wireframing,
+              prototyping, and user-centered design principles.
+            </p>
+            <div class="course-footer">
+              <button
+                class="btn btn-primary"
+                style="padding: 8px 24px; font-size: 14px"
+                data-media-type="banani-button"
+              >
+                View Details
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Data Science -->
+        <div class="course-card" data-category="datascience">
+          <div class="course-image-container">
+            <img
+              src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w2MjYyMDB8MHwxfHNlYXJjaHwxfHxkYXRhJTIwc2NpZW5jZXxlbnwwfHx8fDE3Njc2OTYwMDR8MA&ixlib=rb-4.1.0&q=80&w=1080"
+              alt="Data Science"
+              class="course-img"
+            />
+          </div>
+          <div class="course-content">
+            <div class="course-tags">
+              <span class="tag tag-type">Data Science</span>
+            </div>
+            <h3 class="course-title">Data Analytics</h3>
+            <p class="course-desc">
+              Make sense of the world through data. Learn visualization,
+              statistics, and how to find stories in numbers.
+            </p>
+            <div class="course-footer">
+              <button
+                class="btn btn-primary"
+                style="padding: 8px 24px; font-size: 14px"
+                data-media-type="banani-button"
+              >
+                View Details
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- AI -->
+        <div class="course-card" data-category="ai">
+          <div class="course-image-container">
+            <img
+              src="https://images.unsplash.com/photo-1677442136019-21780ecad995?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w2MjYyMDB8MHwxfHNlYXJjaHwxfHxhcnRpZmljaWFsJTIwaW50ZWxsaWdlbmNlfGVufDB8fHx8MTc2NzY5NjAwNXww&ixlib=rb-4.1.0&q=80&w=1080"
+              alt="AI"
+              class="course-img"
+            />
+          </div>
+          <div class="course-content">
+            <div class="course-tags">
+              <span class="tag tag-type">Artificial Intelligence</span>
+            </div>
+            <h3 class="course-title">AI & Machine Learning</h3>
+            <p class="course-desc">
+              Explore the future of tech. Understand neural networks, chatbots,
+              and how machines learn to think.
+            </p>
+            <div class="course-footer">
+              <button
+                class="btn btn-primary"
+                style="padding: 8px 24px; font-size: 14px"
+                data-media-type="banani-button"
+              >
+                View Details
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Robotics -->
+        <div class="course-card" data-category="robotics">
+          <div class="course-image-container">
+            <img
+              src="https://images.unsplash.com/photo-1535378437323-9555f374669e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w2MjYyMDB8MHwxfHNlYXJjaHwxfHxyb2JvdGljc3xlbnwwfHx8fDE3Njc2OTYwMDZ8MA&ixlib=rb-4.1.0&q=80&w=1080"
+              alt="Robotics"
+              class="course-img"
+            />
+          </div>
+          <div class="course-content">
+            <div class="course-tags">
               <span class="tag tag-type">Robotics</span>
             </div>
-            <h3 class="course-title">Robo-Builders League</h3>
+            <h3 class="course-title">Robotics Engineering</h3>
             <p class="course-desc">
-              Design, build, and code your own robots to navigate mazes and
-              complete tasks.
+              Build and program robots using sensors and motors. Combine coding
+              with mechanical engineering.
             </p>
             <div class="course-footer">
-              <div class="course-duration">
-                <iconify-icon
-                  icon="lucide:clock"
-                  style="font-size: 16px"
-                ></iconify-icon>
-                12 Weeks
-              </div>
               <button
                 class="btn btn-primary"
                 style="padding: 8px 24px; font-size: 14px"
@@ -176,35 +364,25 @@
           </div>
         </div>
 
-        <!-- Course 3 -->
-        <div class="course-card">
+        <!-- STEM -->
+        <div class="course-card" data-category="stem">
           <div class="course-image-container">
             <img
-              src="https://images.unsplash.com/photo-1701967341617-14499d8bf8c3?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w2MjYyMDB8MHwxfHNlYXJjaHwxfHx0ZWVuYWdlciUyMGNvZGluZyUyMGNvbXB1dGVyfGVufDB8fHx8MTc2NzY5NTk0Nnww&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080"
-              alt="Python coding"
+              src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w2MjYyMDB8MHwxfHNlYXJjaHwxfHxzdGVtJTIwZWR1Y2F0aW9ufGVufDB8fHx8MTc2NzY5NjAwN3ww&ixlib=rb-4.1.0&q=80&w=1080"
+              alt="STEM"
               class="course-img"
-              data-query="teenager coding computer"
             />
-            <span class="level-badge">Advanced</span>
           </div>
           <div class="course-content">
             <div class="course-tags">
-              <span class="tag tag-age">Ages 10-15</span>
-              <span class="tag tag-type">Coding</span>
+              <span class="tag tag-type">STEM Education</span>
             </div>
-            <h3 class="course-title">Python for Future Pros</h3>
+            <h3 class="course-title">Science & Tech</h3>
             <p class="course-desc">
-              Master real-world text-based coding with Python. Build games and
-              data apps.
+              Hands-on experiments integrating science, technology, engineering,
+              and math for creative problem solving.
             </p>
             <div class="course-footer">
-              <div class="course-duration">
-                <iconify-icon
-                  icon="lucide:clock"
-                  style="font-size: 16px"
-                ></iconify-icon>
-                16 Weeks
-              </div>
               <button
                 class="btn btn-primary"
                 style="padding: 8px 24px; font-size: 14px"
@@ -216,115 +394,25 @@
           </div>
         </div>
 
-        <!-- Course 4 -->
-        <div class="course-card">
+        <!-- Digital Skills -->
+        <div class="course-card" data-category="digital">
           <div class="course-image-container">
             <img
-              src="https://images.unsplash.com/photo-1764336222789-28fd1846c6e3?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w2MjYyMDB8MHwxfHNlYXJjaHwxfHxjeWJlciUyMHNlY3VyaXR5JTIwdGVjaG5vbG9neSUyMGNvbmNlcHR8ZW58MHx8fHwxNzY3Njk1OTQ5fDA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080"
-              alt="Cybersecurity concept"
+              src="https://images.unsplash.com/photo-1496181133206-80ce9b88a853?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w2MjYyMDB8MHwxfHNlYXJjaHwxfHxkaWdpdGFsJTIwc2tpbGxzfGVufDB8fHx8MTc2NzY5NjAwOHww&ixlib=rb-4.1.0&q=80&w=1080"
+              alt="Digital Skills"
               class="course-img"
-              data-query="cyber security technology concept"
             />
-            <span class="level-badge">Intermediate</span>
           </div>
           <div class="course-content">
             <div class="course-tags">
-              <span class="tag tag-age">Ages 12+</span>
-              <span class="tag tag-type">Cyber Security</span>
+              <span class="tag tag-type">Digital Skills</span>
             </div>
-            <h3 class="course-title">Junior Ethical Hacker</h3>
+            <h3 class="course-title">Digital Literacy</h3>
             <p class="course-desc">
-              Learn internet safety, encryption, and how to protect digital
-              identities responsibly.
+              Essential skills for the digital age. Internet safety,
+              productivity tools, and cloud collaboration.
             </p>
             <div class="course-footer">
-              <div class="course-duration">
-                <iconify-icon
-                  icon="lucide:clock"
-                  style="font-size: 16px"
-                ></iconify-icon>
-                10 Weeks
-              </div>
-              <button
-                class="btn btn-primary"
-                style="padding: 8px 24px; font-size: 14px"
-                data-media-type="banani-button"
-              >
-                View Details
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Course 5 -->
-        <div class="course-card">
-          <div class="course-image-container">
-            <img
-              src="https://images.unsplash.com/photo-1737644467636-6b0053476bb2?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w2MjYyMDB8MHwxfHNlYXJjaHwxfHxhcnRpZmljaWFsJTIwaW50ZWxsaWdlbmNlJTIwcm9ib3QlMjBmYWNlfGVufDB8fHx8MTc2NzY5NTk1Mnww&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080"
-              alt="AI robot"
-              class="course-img"
-              data-query="artificial intelligence robot face"
-            />
-            <span class="level-badge">All Levels</span>
-          </div>
-          <div class="course-content">
-            <div class="course-tags">
-              <span class="tag tag-age">Ages 9-14</span>
-              <span class="tag tag-type">AI &amp; Data</span>
-            </div>
-            <h3 class="course-title">AI Explorers</h3>
-            <p class="course-desc">
-              Discover how computers learn. Train your own AI models to
-              recognize images and sounds.
-            </p>
-            <div class="course-footer">
-              <div class="course-duration">
-                <iconify-icon
-                  icon="lucide:clock"
-                  style="font-size: 16px"
-                ></iconify-icon>
-                8 Weeks
-              </div>
-              <button
-                class="btn btn-primary"
-                style="padding: 8px 24px; font-size: 14px"
-                data-media-type="banani-button"
-              >
-                View Details
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <!-- Course 6 -->
-        <div class="course-card">
-          <div class="course-image-container">
-            <img
-              src="https://images.unsplash.com/photo-1676263813382-bb5ba4b63f91?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w2MjYyMDB8MHwxfHNlYXJjaHwxfHx2aWRlbyUyMGdhbWUlMjBkZXNpZ24lMjBzY3JlZW58ZW58MHx8fHwxNzY3Njk1OTU1fDA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080"
-              alt="Game design"
-              class="course-img"
-              data-query="video game design screen"
-            />
-            <span class="level-badge">Intermediate</span>
-          </div>
-          <div class="course-content">
-            <div class="course-tags">
-              <span class="tag tag-age">Ages 10+</span>
-              <span class="tag tag-type">Game Dev</span>
-            </div>
-            <h3 class="course-title">3D Game Design</h3>
-            <p class="course-desc">
-              Move beyond 2D. Create immersive 3D worlds and characters using
-              professional tools.
-            </p>
-            <div class="course-footer">
-              <div class="course-duration">
-                <iconify-icon
-                  icon="lucide:clock"
-                  style="font-size: 16px"
-                ></iconify-icon>
-                14 Weeks
-              </div>
               <button
                 class="btn btn-primary"
                 style="padding: 8px 24px; font-size: 14px"
@@ -354,6 +442,35 @@
         </button>
       </section>
     </main>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const filterBtns = document.querySelectorAll(".filter-btn");
+        const cards = document.querySelectorAll(".course-card");
+
+        filterBtns.forEach((btn) => {
+          btn.addEventListener("click", () => {
+            // Remove active class from all buttons
+            filterBtns.forEach((b) => b.classList.remove("active"));
+            // Add active class to clicked button
+            btn.classList.add("active");
+
+            const filterValue = btn.getAttribute("data-filter");
+
+            cards.forEach((card) => {
+              if (
+                filterValue === "all" ||
+                card.getAttribute("data-category") === filterValue
+              ) {
+                card.style.display = "block";
+              } else {
+                card.style.display = "none";
+              }
+            });
+          });
+        });
+      });
+    </script>
 
     <!-- Footer -->
     <footer class="footer">
