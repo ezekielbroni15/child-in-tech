@@ -1,0 +1,279 @@
+/* Events Page Styles */
+
+/* Header */
+.page-header {
+  background: #fffbf5;
+  padding: 80px 0 100px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.header-wave {
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 100%;
+  height: auto;
+  color: #ffffff;
+}
+
+.page-header h1 {
+  font-size: 48px;
+  margin-bottom: 16px;
+  position: relative;
+  z-index: 2;
+}
+
+.page-header p {
+  font-size: 20px;
+  color: #718096;
+  max-width: 600px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+/* Featured Event */
+.featured-section {
+  margin-top: -60px;
+  margin-bottom: 80px;
+  position: relative;
+  z-index: 10;
+}
+
+.featured-card {
+  background: white;
+  border-radius: 32px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+  display: flex;
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+.featured-image {
+  flex: 1.2;
+  position: relative;
+  min-height: 400px;
+}
+
+.featured-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.featured-badge {
+  position: absolute;
+  top: 24px;
+  left: 24px;
+  background: var(--primary);
+  color: white;
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 14px;
+}
+
+.featured-content {
+  flex: 1;
+  padding: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.featured-date {
+  color: var(--secondary);
+  font-weight: 800;
+  font-size: 16px;
+  margin-bottom: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.featured-title {
+  font-size: 36px;
+  margin-bottom: 16px;
+  color: #1a202c;
+}
+
+.featured-desc {
+  color: #718096;
+  font-size: 18px;
+  margin-bottom: 32px;
+}
+
+.info-row {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #4a5568;
+  font-weight: 600;
+}
+
+/* Events Grid */
+.section-title {
+  font-size: 32px;
+  margin-bottom: 40px;
+  text-align: center;
+}
+
+.events-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  margin-bottom: 100px;
+}
+
+.event-card {
+  background: white;
+  border-radius: 24px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  transition: transform 0.2s, box-shadow 0.2s;
+  display: flex;
+  flex-direction: column;
+}
+
+.event-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+}
+
+.event-img-wrap {
+  height: 220px;
+  position: relative;
+}
+
+.event-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.date-box {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: white;
+  border-radius: 12px;
+  padding: 8px 16px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.date-box .month {
+  display: block;
+  font-size: 12px;
+  font-weight: 800;
+  color: var(--secondary);
+  text-transform: uppercase;
+}
+
+.date-box .day {
+  display: block;
+  font-size: 20px;
+  font-weight: 800;
+  color: #1a202c;
+  line-height: 1;
+}
+
+.event-content {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.event-category {
+  color: var(--primary);
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
+.event-title {
+  font-size: 20px;
+  margin-bottom: 12px;
+  color: #1a202c;
+}
+
+.event-details {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 24px;
+  color: #718096;
+  font-size: 14px;
+}
+
+.event-detail-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.event-footer {
+  margin-top: auto;
+  padding-top: 20px;
+  border-top: 1px solid #edf2f7;
+}
+
+/* Newsletter */
+.newsletter-section {
+  background: var(--primary);
+  border-radius: 40px;
+  padding: 60px;
+  color: white;
+  text-align: center;
+  margin-bottom: 100px;
+  position: relative;
+  overflow: hidden;
+}
+
+.newsletter-bg-circle {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  top: -100px;
+  left: -100px;
+}
+
+.newsletter-bg-circle-2 {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  bottom: -50px;
+  right: -50px;
+}
+
+.newsletter-form {
+  display: flex;
+  gap: 16px;
+  max-width: 500px;
+  margin: 32px auto 0;
+}
+
+.newsletter-input {
+  flex: 1;
+  padding: 16px 24px;
+  border-radius: 999px;
+  border: none;
+  font-size: 16px;
+  outline: none;
+}

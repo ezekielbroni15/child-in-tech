@@ -1,0 +1,276 @@
+/* About Us Page Styles */
+
+/* Header */
+.page-header {
+  background: #fffbf5;
+  padding: 80px 0 120px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.header-wave {
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 100%;
+  height: auto;
+  color: #ffffff;
+}
+
+.page-header h1 {
+  font-size: 56px;
+  margin-bottom: 24px;
+  position: relative;
+  z-index: 2;
+}
+
+.page-header p {
+  font-size: 22px;
+  color: #718096;
+  max-width: 700px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+}
+
+/* Mission Section */
+.mission-section {
+  padding: 80px 0;
+}
+
+.mission-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.mission-text h4 {
+  color: var(--secondary);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.mission-text h2 {
+  font-size: 40px;
+  margin-bottom: 24px;
+  color: #1a202c;
+}
+
+.mission-text p {
+  font-size: 18px;
+  color: #4a5568;
+  margin-bottom: 24px;
+}
+
+.mission-stats {
+  display: flex;
+  gap: 40px;
+  margin-top: 32px;
+}
+
+.mission-stats h3 {
+  font-size: 32px;
+}
+
+.stat-primary {
+  color: var(--primary);
+}
+
+.stat-label {
+  color: #718096;
+}
+
+.stat-secondary {
+  color: var(--secondary);
+}
+.stat-accent {
+  color: var(--accent);
+}
+
+.mission-img {
+  width: 100%;
+  border-radius: 40px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+}
+
+/* Values Grid */
+.values-section {
+  padding: 80px 0;
+  background: #f7fafc;
+  position: relative;
+}
+
+.section-title {
+  font-size: 36px;
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+}
+
+.value-card {
+  background: white;
+  padding: 32px;
+  border-radius: 24px;
+  text-align: center;
+  transition: transform 0.2s;
+}
+
+.value-card:hover {
+  transform: translateY(-8px);
+}
+
+.value-icon-box {
+  width: 80px;
+  height: 80px;
+  background: #fff5f1;
+  color: var(--primary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 24px;
+  font-size: 32px;
+}
+
+.value-card:nth-child(2n) .value-icon-box {
+  background: #e6fffa;
+  color: var(--secondary);
+}
+
+.value-title {
+  font-size: 20px;
+  margin-bottom: 12px;
+}
+
+.value-desc {
+  color: #718096;
+  font-size: 15px;
+}
+
+/* Team Section */
+.team-section {
+  padding: 100px 0;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+}
+
+.team-description {
+  text-align: center;
+  max-width: 600px;
+  margin: -40px auto 60px;
+  color: #718096;
+}
+
+.team-card {
+  text-align: center;
+}
+
+.team-img {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 24px;
+  border: 4px solid white;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.team-name {
+  font-size: 20px;
+  margin-bottom: 4px;
+}
+
+.team-role {
+  color: var(--primary);
+  font-weight: 700;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Newsletter */
+.newsletter-section {
+  background: var(--primary);
+  border-radius: 40px;
+  padding: 80px 60px;
+  color: white;
+  text-align: center;
+  margin-bottom: 100px;
+  position: relative;
+  overflow: hidden;
+}
+
+.newsletter-bg-circle {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  top: -100px;
+  left: -100px;
+}
+
+.newsletter-bg-circle-2 {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  bottom: -50px;
+  right: -50px;
+}
+
+.newsletter-content {
+  position: relative;
+  z-index: 2;
+}
+
+.newsletter-title {
+  color: white;
+  margin-bottom: 24px;
+  font-size: 36px;
+}
+
+.newsletter-text {
+  opacity: 0.95;
+  font-size: 18px;
+  max-width: 600px;
+  margin: 0 auto 32px;
+}
+
+.newsletter-buttons {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+}
+
+.btn-white {
+  background: white;
+  color: var(--primary);
+  padding: 16px 40px;
+}
+
+.btn-transparent {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.footer-copyright {
+  border-top: 1px solid rgba(0, 0, 0, 0.05);
+  padding-top: 32px;
+  text-align: center;
+  color: #718096;
+  font-size: 14px;
+}

@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Events - Child in Tech</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@100;200;300;400;500;600;700;800;900&family=Geist:wght@100;200;300;400;500;600;700;800;900&family=IBM+Plex+Mono:wght@100;200;300;400;500;600;700&family=IBM+Plex+Sans:wght@100;200;300;400;500;600;700&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Nunito:wght@200;300;400;500;600;700;800;900&family=PT+Serif:wght@400;700&family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&family=Roboto:wght@100;300;400;500;700;900&family=Shantell+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/global.css" />
+    <link rel="stylesheet" href="assets/css/events.css" />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="container nav-content">
+        <div class="logo">
+          <div class="logo-icon">
+            <iconify-icon
+              icon="lucide:bot"
+              style="font-size: 24px"
+            ></iconify-icon>
+          </div>
+          Child In Tech
+        </div>
+        <div class="nav-links">
+          <a href="index.html" data-media-type="banani-button">Home</a>
+          <a href="programs.html" data-media-type="banani-button">Programs</a>
+          <a href="events.html" class="active" data-media-type="banani-button"
+            >Events</a
+          >
+          <a href="about-us.html" data-media-type="banani-button">About Us</a>
+          <a href="gallery.html" data-media-type="banani-button">Gallery</a>
+          <a href="contact-us.html" data-media-type="banani-button">Contact</a>
+        </div>
+        <a
+          href="programs.html"
+          class="btn btn-primary"
+          data-media-type="banani-button"
+        >
+          Join Programs
+        </a>
+      </div>
+    </nav>
+
+    <!-- Page Header -->
+    <header class="page-header">
+      <div class="container">
+        <h1>Workshops &amp; Events</h1>
+        <p>
+          Join us for hands-on learning, competitions, and community gatherings.
+        </p>
+      </div>
+      <svg
+        class="header-wave"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 1440 120"
+        preserveAspectRatio="none"
+      >
+        <path
+          fill="#FFFFFF"
+          fill-opacity="1"
+          d="M0,64L80,69.3C160,75,320,85,480,80C640,75,800,53,960,48C1120,43,1280,53,1360,58.7L1440,64L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"
+        ></path>
+      </svg>
+    </header>
+
+    <main class="container">
+      <!-- Featured Event -->
+      <section class="featured-section">
+        <div class="featured-card">
+          <div class="featured-image">
+            <img
+              src="https://images.unsplash.com/photo-1684009510237-02927c6d6e82?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w2MjYyMDB8MHwxfHNlYXJjaHwxfHxraWRzJTIwaGFja2F0aG9uJTIwZ3JvdXB8ZW58MHx8fHwxNzY3Njk2MDI2fDA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080"
+              alt="Kids robotics competition"
+              data-query="kids hackathon group"
+            />
+            <div class="featured-badge">Next Big Event</div>
+          </div>
+          <div class="featured-content">
+            <div class="featured-date">
+              <iconify-icon
+                icon="lucide:calendar"
+                style="font-size: 20px"
+              ></iconify-icon>
+              Oct 15 - 16, 2024
+            </div>
+            <h2 class="featured-title">Annual Junior Tech Hackathon</h2>
+            <p class="featured-desc">
+              Two days of innovation, coding, and pizza! Kids aged 8-14 compete
+              in teams to solve real-world problems using technology. Prizes for
+              creativity and teamwork.
+            </p>
+            <div class="info-row">
+              <div class="info-item">
+                <iconify-icon
+                  icon="lucide:map-pin"
+                  style="font-size: 20px; color: var(--secondary)"
+                ></iconify-icon>
+                Tech Innovation Center
+              </div>
+              <div class="info-item">
+                <iconify-icon
+                  icon="lucide:clock"
+                  style="font-size: 20px; color: var(--secondary)"
+                ></iconify-icon>
+                09:00 AM - 04:00 PM
+              </div>
+            </div>
+            <div style="display: flex; gap: 16px">
+              <button class="btn btn-primary" data-media-type="banani-button">
+                Register Now
+              </button>
+              <button class="btn btn-outline" data-media-type="banani-button">
+                Learn More
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Upcoming Events Grid -->
+      <h2 class="section-title">Upcoming Workshops &amp; Sessions</h2>
+      <div class="events-grid">
+        <!-- Event 1 -->
+        <div class="event-card">
+          <div class="event-img-wrap">
+            <img
+              src="https://images.unsplash.com/photo-1585259184459-143e91ffe31f?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w2MjYyMDB8MHwxfHNlYXJjaHwxfHxraWRzJTIwZHJvbmUlMjB3b3Jrc2hvcHxlbnwwfHx8fDE3Njc2OTYwMzB8MA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080"
+              alt="Drone workshop"
+              class="event-img"
+              data-query="kids drone workshop"
+            />
+            <div class="date-box">
+              <span class="month">Sep</span>
+              <span class="day">24</span>
+            </div>
+          </div>
+          <div class="event-content">
+            <div class="event-category">Workshop</div>
+            <h3 class="event-title">Drone Flying &amp; Coding Basics</h3>
+            <div class="event-details">
+              <div class="event-detail-item">
+                <iconify-icon
+                  icon="lucide:clock"
+                  style="font-size: 16px"
+                ></iconify-icon>
+                Saturday, 10:00 AM
+              </div>
+              <div class="event-detail-item">
+                <iconify-icon
+                  icon="lucide:map-pin"
+                  style="font-size: 16px"
+                ></iconify-icon>
+                Main Campus, Lab 3
+              </div>
+            </div>
+            <div class="event-footer">
+              <button
+                class="btn btn-outline"
+                style="width: 100%; font-size: 14px; padding: 10px"
+                data-media-type="banani-button"
+              >
+                Reserve Spot
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Event 2 -->
+        <div class="event-card">
+          <div class="event-img-wrap">
+            <img
+              src="https://images.unsplash.com/photo-1674049406486-4b1f6e1845fd?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w2MjYyMDB8MHwxfHNlYXJjaHwxfHxwYXJlbnQlMjBjaGlsZCUyMGNvZGluZ3xlbnwwfHx8fDE3Njc2OTYwMzR8MA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080"
+              alt="Parent child coding"
+              class="event-img"
+              data-query="parent child coding"
+            />
+            <div class="date-box">
+              <span class="month">Oct</span>
+              <span class="day">05</span>
+            </div>
+          </div>
+          <div class="event-content">
+            <div class="event-category">Family Day</div>
+            <h3 class="event-title">Parent &amp; Child Coding Jam</h3>
+            <div class="event-details">
+              <div class="event-detail-item">
+                <iconify-icon
+                  icon="lucide:clock"
+                  style="font-size: 16px"
+                ></iconify-icon>
+                Sunday, 02:00 PM
+              </div>
+              <div class="event-detail-item">
+                <iconify-icon
+                  icon="lucide:map-pin"
+                  style="font-size: 16px"
+                ></iconify-icon>
+                Community Hall
+              </div>
+            </div>
+            <div class="event-footer">
+              <button
+                class="btn btn-outline"
+                style="width: 100%; font-size: 14px; padding: 10px"
+                data-media-type="banani-button"
+              >
+                Reserve Spot
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Event 3 -->
+        <div class="event-card">
+          <div class="event-img-wrap">
+            <img
+              src="https://images.unsplash.com/photo-1663246544917-9fa8f65b8359?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w2MjYyMDB8MHwxfHNlYXJjaHwxfHxzY2hvb2wlMjBvcGVuJTIwaG91c2UlMjBldmVudHxlbnwwfHx8fDE3NTc1NzgyNDJ8MA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080"
+              alt="Open house"
+              class="event-img"
+              data-query="school open house event"
+            />
+            <div class="date-box">
+              <span class="month">Oct</span>
+              <span class="day">12</span>
+            </div>
+          </div>
+          <div class="event-content">
+            <div class="event-category">Open House</div>
+            <h3 class="event-title">Fall Semester Open Day</h3>
+            <div class="event-details">
+              <div class="event-detail-item">
+                <iconify-icon
+                  icon="lucide:clock"
+                  style="font-size: 16px"
+                ></iconify-icon>
+                Saturday, 09:00 AM
+              </div>
+              <div class="event-detail-item">
+                <iconify-icon
+                  icon="lucide:map-pin"
+                  style="font-size: 16px"
+                ></iconify-icon>
+                All Campuses
+              </div>
+            </div>
+            <div class="event-footer">
+              <button
+                class="btn btn-outline"
+                style="width: 100%; font-size: 14px; padding: 10px"
+                data-media-type="banani-button"
+              >
+                Reserve Spot
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Event 4 -->
+        <div class="event-card">
+          <div class="event-img-wrap">
+            <img
+              src="https://images.unsplash.com/photo-1727518913046-375981cf1629?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w2MjYyMDB8MHwxfHNlYXJjaHwxfHxraWRzJTIwc2NpZW5jZSUyMGV4cGVyaW1lbnQlMjBncm91cHxlbnwwfHx8fDE3Njc2OTYwNDB8MA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080"
+              alt="Science fair"
+              class="event-img"
+              data-query="kids science experiment group"
+            />
+            <div class="date-box">
+              <span class="month">Nov</span>
+              <span class="day">08</span>
+            </div>
+          </div>
+          <div class="event-content">
+            <div class="event-category">Exhibition</div>
+            <h3 class="event-title">Science &amp; Tech Fair 2024</h3>
+            <div class="event-details">
+              <div class="event-detail-item">
+                <iconify-icon
+                  icon="lucide:clock"
+                  style="font-size: 16px"
+                ></iconify-icon>
+                Friday, 10:00 AM
+              </div>
+              <div class="event-detail-item">
+                <iconify-icon
+                  icon="lucide:map-pin"
+                  style="font-size: 16px"
+                ></iconify-icon>
+                City Convention Center
+              </div>
+            </div>
+            <div class="event-footer">
+              <button
+                class="btn btn-outline"
+                style="width: 100%; font-size: 14px; padding: 10px"
+                data-media-type="banani-button"
+              >
+                Reserve Spot
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Event 5 -->
+        <div class="event-card">
+          <div class="event-img-wrap">
+            <img
+              src="https://images.unsplash.com/photo-1715347783170-87337f31ef19?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w2MjYyMDB8MHwxfHNlYXJjaHwxfHx0ZWFjaGVyJTIwc3R1ZGVudCUyMGRpc2N1c3Npb258ZW58MHx8fHwxNzY3Njk2MDQ0fDA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080"
+              alt="Teachers and kids"
+              class="event-img"
+              data-query="teacher student discussion"
+            />
+            <div class="date-box">
+              <span class="month">Nov</span>
+              <span class="day">15</span>
+            </div>
+          </div>
+          <div class="event-content">
+            <div class="event-category">Webinar</div>
+            <h3 class="event-title">Parenting in the Digital Age</h3>
+            <div class="event-details">
+              <div class="event-detail-item">
+                <iconify-icon
+                  icon="lucide:clock"
+                  style="font-size: 16px"
+                ></iconify-icon>
+                Wednesday, 07:00 PM
+              </div>
+              <div class="event-detail-item">
+                <iconify-icon
+                  icon="lucide:video"
+                  style="font-size: 16px"
+                ></iconify-icon>
+                Online (Zoom)
+              </div>
+            </div>
+            <div class="event-footer">
+              <button
+                class="btn btn-outline"
+                style="width: 100%; font-size: 14px; padding: 10px"
+                data-media-type="banani-button"
+              >
+                Reserve Spot
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Event 6 -->
+        <div class="event-card">
+          <div class="event-img-wrap">
+            <img
+              src="https://images.unsplash.com/photo-1717588282722-ab1beb899c26?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w2MjYyMDB8MHwxfHNlYXJjaHwxfHx2aWRlbyUyMGdhbWUlMjBwbGF5aW5nJTIwa2lkc3xlbnwwfHx8fDE3Njc2OTYwNDd8MA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080"
+              alt="Game jam"
+              class="event-img"
+              data-query="video game playing kids"
+            />
+            <div class="date-box">
+              <span class="month">Dec</span>
+              <span class="day">10</span>
+            </div>
+          </div>
+          <div class="event-content">
+            <div class="event-category">Competition</div>
+            <h3 class="event-title">Winter Game Jam</h3>
+            <div class="event-details">
+              <div class="event-detail-item">
+                <iconify-icon
+                  icon="lucide:clock"
+                  style="font-size: 16px"
+                ></iconify-icon>
+                Saturday, 09:00 AM
+              </div>
+              <div class="event-detail-item">
+                <iconify-icon
+                  icon="lucide:map-pin"
+                  style="font-size: 16px"
+                ></iconify-icon>
+                Lab 1 &amp; 2
+              </div>
+            </div>
+            <div class="event-footer">
+              <button
+                class="btn btn-outline"
+                style="width: 100%; font-size: 14px; padding: 10px"
+                data-media-type="banani-button"
+              >
+                Reserve Spot
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Past Events Grid -->
+      <h2 class="section-title">Past Events</h2>
+      <div class="events-grid">
+        <!-- Past Event 1 -->
+        <div class="event-card" style="background: #f7fafc">
+          <div class="event-img-wrap">
+            <img
+              data-query="kids robotics class"
+              alt="Past robotics workshop"
+              class="event-img"
+              src="https://images.unsplash.com/photo-1581916459131-90da1f9c7162?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w2MjYyMDB8MHwxfHNlYXJjaHwxfHxraWRzJTIwcm9ib3RpY3MlMjBjbGFzc3xlbnwwfHx8fDE3NTg2MzI2MDZ8MA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080"
+            />
+            <div class="date-box" style="background: #ffffff">
+              <span class="month">Aug</span>
+              <span class="day">10</span>
+            </div>
+          </div>
+          <div class="event-content">
+            <div class="event-category">Workshop</div>
+            <h3 class="event-title">Intro to Robotics Week</h3>
+            <div class="event-details">
+              <div class="event-detail-item">
+                <iconify-icon
+                  icon="lucide:clock"
+                  style="font-size: 16px"
+                ></iconify-icon>
+                Completed
+              </div>
+              <div class="event-detail-item">
+                <iconify-icon
+                  icon="lucide:users"
+                  style="font-size: 16px"
+                ></iconify-icon>
+                60 young makers joined
+              </div>
+            </div>
+            <div class="event-footer">
+              <button
+                class="btn btn-outline"
+                style="width: 100%; font-size: 14px; padding: 10px"
+                data-media-type="banani-button"
+              >
+                View Highlights
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Past Event 2 -->
+        <div class="event-card" style="background: #f7fafc">
+          <div class="event-img-wrap">
+            <img
+              data-query="kids coding bootcamp"
+              alt="Past coding bootcamp"
+              class="event-img"
+              src="https://images.unsplash.com/photo-1540058404349-2e5fabf32d75?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w2MjYyMDB8MHwxfHNlYXJjaHwxfHxraWRzJTIwY29kaW5nJTIwYm9vdGNhbXB8ZW58MHx8fHwxNzY3Njk2MjE1fDA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080"
+            />
+            <div class="date-box" style="background: #ffffff">
+              <span class="month">Jul</span>
+              <span class="day">22</span>
+            </div>
+          </div>
+          <div class="event-content">
+            <div class="event-category">Bootcamp</div>
+            <h3 class="event-title">Summer Coding Adventure</h3>
+            <div class="event-details">
+              <div class="event-detail-item">
+                <iconify-icon
+                  icon="lucide:clock"
+                  style="font-size: 16px"
+                ></iconify-icon>
+                Completed
+              </div>
+              <div class="event-detail-item">
+                <iconify-icon
+                  icon="lucide:star"
+                  style="font-size: 16px"
+                ></iconify-icon>
+                25 apps built by kids
+              </div>
+            </div>
+            <div class="event-footer">
+              <button
+                class="btn btn-outline"
+                style="width: 100%; font-size: 14px; padding: 10px"
+                data-media-type="banani-button"
+              >
+                View Highlights
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Past Event 3 -->
+        <div class="event-card" style="background: #f7fafc">
+          <div class="event-img-wrap">
+            <img
+              data-query="kids technology fair"
+              alt="Past tech fair"
+              class="event-img"
+              src="https://images.unsplash.com/photo-1761372981432-861b791df4dd?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w2MjYyMDB8MHwxfHNlYXJjaHwxfHxraWRzJTIwdGVjaG5vbG9neSUyMGZhaXJ8ZW58MHx8fHwxNzY3Njk2MjE3fDA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080"
+            />
+            <div class="date-box" style="background: #ffffff">
+              <span class="month">Jun</span>
+              <span class="day">05</span>
+            </div>
+          </div>
+          <div class="event-content">
+            <div class="event-category">Exhibition</div>
+            <h3 class="event-title">Innovation Showcase Day</h3>
+            <div class="event-details">
+              <div class="event-detail-item">
+                <iconify-icon
+                  icon="lucide:clock"
+                  style="font-size: 16px"
+                ></iconify-icon>
+                Completed
+              </div>
+              <div class="event-detail-item">
+                <iconify-icon
+                  icon="lucide:award"
+                  style="font-size: 16px"
+                ></iconify-icon>
+                10 projects awarded
+              </div>
+            </div>
+            <div class="event-footer">
+              <button
+                class="btn btn-outline"
+                style="width: 100%; font-size: 14px; padding: 10px"
+                data-media-type="banani-button"
+              >
+                View Highlights
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Newsletter Strip -->
+      <section class="newsletter-section">
+        <div class="newsletter-bg-circle"></div>
+        <div class="newsletter-bg-circle-2"></div>
+        <div style="position: relative; z-index: 2">
+          <h2 style="color: white; margin-bottom: 16px; font-size: 32px">
+            Don't Miss Out!
+          </h2>
+          <p style="opacity: 0.9; font-size: 18px">
+            Subscribe to get notified about new workshops and free events.
+          </p>
+          <form class="newsletter-form">
+            <input
+              type="email"
+              class="newsletter-input"
+              placeholder="Enter your email address"
+            />
+            <button
+              class="btn"
+              style="background: var(--secondary); color: white"
+              type="button"
+              data-media-type="banani-button"
+            >
+              Subscribe
+            </button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <div class="logo">
+              <div class="logo-icon">
+                <iconify-icon
+                  icon="lucide:bot"
+                  style="font-size: 24px"
+                ></iconify-icon>
+              </div>
+              Child In Tech
+            </div>
+            <p>
+              Inspiring the next generation of innovators, creators, and leaders
+              through technology education.
+            </p>
+            <div class="social-links" style="margin-top: 24px">
+              <a href="#" class="social-icon" data-media-type="banani-button"
+                ><iconify-icon
+                  icon="lucide:facebook"
+                  style="font-size: 20px"
+                ></iconify-icon
+              ></a>
+              <a href="#" class="social-icon" data-media-type="banani-button"
+                ><iconify-icon
+                  icon="lucide:instagram"
+                  style="font-size: 20px"
+                ></iconify-icon
+              ></a>
+              <a href="#" class="social-icon" data-media-type="banani-button"
+                ><iconify-icon
+                  icon="lucide:twitter"
+                  style="font-size: 20px"
+                ></iconify-icon
+              ></a>
+            </div>
+          </div>
+          <div class="footer-col">
+            <h4>Company</h4>
+            <div class="footer-links">
+              <a href="#" data-media-type="banani-button">About Us</a>
+              <a href="#" data-media-type="banani-button">Careers</a>
+              <a href="#" data-media-type="banani-button">Blog</a>
+              <a href="#" data-media-type="banani-button">Contact</a>
+            </div>
+          </div>
+          <div class="footer-col">
+            <h4>Programs</h4>
+            <div class="footer-links">
+              <a href="#" data-media-type="banani-button">Robotics</a>
+              <a href="#" data-media-type="banani-button">Coding</a>
+              <a href="#" data-media-type="banani-button">AI for Kids</a>
+              <a href="#" data-media-type="banani-button">Summer Camps</a>
+            </div>
+          </div>
+          <div class="footer-col">
+            <h4>Support</h4>
+            <div class="footer-links">
+              <a href="#" data-media-type="banani-button">Help Center</a>
+              <a href="#" data-media-type="banani-button">Terms of Service</a>
+              <a href="#" data-media-type="banani-button">Privacy Policy</a>
+              <a href="#" data-media-type="banani-button">Parent Guide</a>
+            </div>
+          </div>
+        </div>
+        <div
+          style="
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+            padding-top: 32px;
+            text-align: center;
+            color: #718096;
+            font-size: 14px;
+          "
+        >
+          © 2024 Child In Tech Academy. All rights reserved.
+        </div>
+      </div>
+    </footer>
+    <script src="https://code.iconify.design/iconify-icon/3.0.0/iconify-icon.min.js"></script>
+  </body>
+</html>

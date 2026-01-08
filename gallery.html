@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gallery - Child in Tech</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@100;200;300;400;500;600;700;800;900&family=Geist:wght@100;200;300;400;500;600;700;800;900&family=IBM+Plex+Mono:wght@100;200;300;400;500;600;700&family=IBM+Plex+Sans:wght@100;200;300;400;500;600;700&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Nunito:wght@200;300;400;500;600;700;800;900&family=PT+Serif:wght@400;700&family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&family=Roboto:wght@100;300;400;500;700;900&family=Shantell+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/global.css" />
+    <link rel="stylesheet" href="assets/css/gallery.css" />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="container nav-content">
+        <div class="logo">
+          <div class="logo-icon">
+            <iconify-icon
+              icon="lucide:bot"
+              style="font-size: 24px"
+            ></iconify-icon>
+          </div>
+          Child In Tech
+        </div>
+        <div class="nav-links">
+          <a href="index.html" data-media-type="banani-button">Home</a>
+          <a href="programs.html" data-media-type="banani-button">Programs</a>
+          <a href="events.html" data-media-type="banani-button">Events</a>
+          <a href="about-us.html" data-media-type="banani-button">About Us</a>
+          <a href="gallery.html" class="active" data-media-type="banani-button"
+            >Gallery</a
+          >
+          <a href="contact-us.html" data-media-type="banani-button">Contact</a>
+        </div>
+        <a
+          href="programs.html"
+          class="btn btn-primary"
+          data-media-type="banani-button"
+        >
+          Join Programs
+        </a>
+      </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="page-header">
+      <div class="container">
+        <h1>Moments of Joy</h1>
+        <p>Peek inside our classrooms and see the future innovators at work.</p>
+      </div>
+      <svg
+        class="header-wave"
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 1440 120"
+        preserveAspectRatio="none"
+      >
+        <path
+          fill="#FFFFFF"
+          fill-opacity="1"
+          d="M0,64L80,69.3C160,75,320,85,480,80C640,75,800,53,960,48C1120,43,1280,53,1360,58.7L1440,64L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"
+        ></path>
+      </svg>
+    </header>
+
+    <main class="container gallery-section">
+      <!-- Decorations -->
+      <div class="decoration-circle circle-1"></div>
+      <div class="decoration-circle circle-2"></div>
+      <div class="decoration-circle circle-3"></div>
+
+      <!-- Filters -->
+      <div class="gallery-filters">
+        <button class="filter-btn active" data-media-type="banani-button">
+          All Moments
+        </button>
+        <button class="filter-btn" data-media-type="banani-button">
+          Robotics
+        </button>
+        <button class="filter-btn" data-media-type="banani-button">
+          Coding Class
+        </button>
+        <button class="filter-btn" data-media-type="banani-button">
+          Events
+        </button>
+        <button class="filter-btn" data-media-type="banani-button">
+          Projects
+        </button>
+      </div>
+
+      <!-- Grid -->
+      <div class="gallery-grid">
+        <!-- Item 1 -->
+        <div class="gallery-item" data-media-type="banani-button">
+          <img
+            src="https://images.unsplash.com/photo-1741279426915-8826b7bc342b?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w2MjYyMDB8MHwxfHNlYXJjaHwxfHxraWRzJTIwc2Nob29sJTIwY29kaW5nJTIwaGFwcHl8ZW58MHx8fHwxNzY3Njk2MzgxfDA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080"
+            alt="Kids Learning"
+            data-query="kids school coding happy"
+          />
+          <div class="gallery-overlay">
+            <div class="overlay-tag">Coding</div>
+            <div class="overlay-title">First Lines of Code</div>
+          </div>
+        </div>
+
+        <!-- Item 2 -->
+        <div class="gallery-item" data-media-type="banani-button">
+          <img
+            src="https://images.unsplash.com/photo-1581916459131-90da1f9c7162?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w2MjYyMDB8MHwxfHNlYXJjaHwxfHxraWRzJTIwcm9ib3RpY3MlMjBjbGFzc3xlbnwwfHx8fDE3NTg2MzI2MDZ8MA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080"
+            alt="Robotics"
+            data-query="kids robotics class"
+          />
+          <div class="gallery-overlay">
+            <div class="overlay-tag">Robotics</div>
+            <div class="overlay-title">Building Robot Friends</div>
+          </div>
+        </div>
+
+        <!-- Item 3 -->
+        <div class="gallery-item" data-media-type="banani-button">
+          <img
+            src="https://images.unsplash.com/photo-1557734864-c78b6dfef1b1?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w2MjYyMDB8MHwxfHNlYXJjaHwxfHxjaGlsZHJlbiUyMHN0dWRlbnRzJTIwdGVhbXdvcmslMjBjbGFzc3Jvb218ZW58MHx8fHwxNzY3Njk2Mzg0fDA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080"
+            alt="Teamwork"
+            data-query="children students teamwork classroom"
+          />
+          <div class="gallery-overlay">
+            <div class="overlay-tag">Projects</div>
+            <div class="overlay-title">Team Collaboration</div>
+          </div>
+        </div>
+
+        <!-- Item 4 -->
+        <div class="gallery-item" data-media-type="banani-button">
+          <img
+            src="https://images.unsplash.com/photo-1737131821355-2c9fc3958e1f?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w2MjYyMDB8MHwxfHNlYXJjaHwxfHxraWQlMjB1c2luZyUyMHZyJTIwaGVhZHNldCUyMGVkdWNhdGlvbnxlbnwwfHx8fDE3Njc2OTYzODV8MA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080"
+            alt="VR Learning"
+            data-query="kid using vr headset education"
+          />
+          <div class="gallery-overlay">
+            <div class="overlay-tag">VR &amp; AR</div>
+            <div class="overlay-title">Virtual Field Trips</div>
+          </div>
+        </div>
+
+        <!-- Item 5 -->
+        <div class="gallery-item" data-media-type="banani-button">
+          <img
+            src="https://images.unsplash.com/photo-1741279426915-8826b7bc342b?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w2MjYyMDB8MHwxfHNlYXJjaHwxfHxoYXBweSUyMGNoaWxkJTIwc3R1ZGVudCUyMHRhYmxldHxlbnwwfHx8fDE3Njc2OTYzODd8MA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080"
+            alt="Happy Student"
+            data-query="happy child student tablet"
+          />
+          <div class="gallery-overlay">
+            <div class="overlay-tag">Events</div>
+            <div class="overlay-title">Demo Day 2024</div>
+          </div>
+        </div>
+
+        <!-- Item 6 -->
+        <div class="gallery-item" data-media-type="banani-button">
+          <img
+            src="https://images.unsplash.com/photo-1715866734224-0b9eb2ac5fd6?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w2MjYyMDB8MHwxfHNlYXJjaHwxfHx0ZWFjaGVyJTIwaGVscGluZyUyMHN0dWRlbnQlMjBjb21wdXRlcnxlbnwwfHx8fDE3Njc2OTYzODh8MA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080"
+            alt="Mentorship"
+            data-query="teacher helping student computer"
+          />
+          <div class="gallery-overlay">
+            <div class="overlay-tag">Mentorship</div>
+            <div class="overlay-title">Expert Guidance</div>
+          </div>
+        </div>
+
+        <!-- Item 7 -->
+        <div class="gallery-item" data-media-type="banani-button">
+          <img
+            src="https://images.unsplash.com/photo-1542666836-b0b37e7e22d3?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w2MjYyMDB8MHwxfHNlYXJjaHwxfHxraWRzJTIwc2NpZW5jZSUyMGV4cGVyaW1lbnQlMjBmdW58ZW58MHx8fHwxNzYzMDIwNTQwfDA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080"
+            alt="Science"
+            data-query="kids science experiment fun"
+          />
+          <div class="gallery-overlay">
+            <div class="overlay-tag">STEM</div>
+            <div class="overlay-title">Science Fair Winners</div>
+          </div>
+        </div>
+
+        <!-- Item 8 -->
+        <div class="gallery-item" data-media-type="banani-button">
+          <img
+            src="https://images.unsplash.com/photo-1674049406486-4b1f6e1845fd?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w2MjYyMDB8MHwxfHNlYXJjaHwxfHxsaXR0bGUlMjBnaXJsJTIwY29tcHV0ZXIlMjBjb2RpbmclMjBzbWlsaW5nfGVufDB8fHx8MTc2NzY5NjM5MXww&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080"
+            alt="Girl Coding"
+            data-query="little girl computer coding smiling"
+          />
+          <div class="gallery-overlay">
+            <div class="overlay-tag">Coding</div>
+            <div class="overlay-title">Girls in Tech</div>
+          </div>
+        </div>
+
+        <!-- Item 9 -->
+        <div class="gallery-item" data-media-type="banani-button">
+          <img
+            src="https://images.unsplash.com/photo-1557734864-c78b6dfef1b1?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w2MjYyMDB8MHwxfHNlYXJjaHwxfHxraWRzJTIwZ3JvdXAlMjBhY3Rpdml0eSUyMHNjaG9vbHxlbnwwfHx8fDE3Njc2OTYzOTJ8MA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080"
+            alt="Group Activity"
+            data-query="kids group activity school"
+          />
+          <div class="gallery-overlay">
+            <div class="overlay-tag">Community</div>
+            <div class="overlay-title">Summer Camp Fun</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Video Highlight -->
+      <!-- Videos Library -->
+      <section class="video-section">
+        <div class="video-header">
+          <div>
+            <div class="video-title">Video Library</div>
+            <div class="video-subtitle">
+              Browse highlights from our classes, projects, and events. Each
+              short clip captures the joy of learning at Child In Tech.
+            </div>
+          </div>
+          <button class="btn btn-primary" data-media-type="banani-button">
+            View All Videos
+          </button>
+        </div>
+
+        <div class="videos-grid">
+          <div class="video-card" data-media-type="banani-button">
+            <div class="video-thumb">
+              <img
+                data-query="kids coding class video thumbnail"
+                alt="Kids coding video thumbnail"
+                src="https://images.unsplash.com/photo-1642436751413-95d51a3d95aa?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w2MjYyMDB8MHwxfHNlYXJjaHwxfHxraWRzJTIwY29kaW5nJTIwY2xhc3MlMjB2aWRlbyUyMHRodW1ibmFpbHxlbnwwfHx8fDE3Njc2OTY3ODV8MA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080"
+              />
+              <div class="video-play-icon">
+                <iconify-icon
+                  icon="lucide:play"
+                  style="font-size: 24px"
+                ></iconify-icon>
+              </div>
+            </div>
+            <div class="video-info">
+              <div class="video-info-title">
+                Intro to Coding: Scratch Adventures
+              </div>
+              <div class="video-info-meta">
+                2:15 · Beginner · Classroom recap
+              </div>
+            </div>
+          </div>
+
+          <div class="video-card" data-media-type="banani-button">
+            <div class="video-thumb">
+              <img
+                data-query="kids robotics workshop video thumbnail"
+                alt="Robotics workshop video thumbnail"
+                src="https://images.unsplash.com/photo-1676764589917-e1e659bd9774?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w2MjYyMDB8MHwxfHNlYXJjaHwxfHxraWRzJTIwcm9ib3RpY3MlMjB3b3Jrc2hvcCUyMHZpZGVvJTIwdGh1bWJuYWlsfGVufDB8fHx8MTc2NzY5Njc4N3ww&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080"
+              />
+              <div class="video-play-icon">
+                <iconify-icon
+                  icon="lucide:play"
+                  style="font-size: 24px"
+                ></iconify-icon>
+              </div>
+            </div>
+            <div class="video-info">
+              <div class="video-info-title">
+                Robotics Lab: Meet the Mini-Bots
+              </div>
+              <div class="video-info-meta">
+                3:02 · Robotics · Project showcase
+              </div>
+            </div>
+          </div>
+
+          <div class="video-card" data-media-type="banani-button">
+            <div class="video-thumb">
+              <img
+                data-query="kid using vr headset classroom video thumbnail"
+                alt="VR learning video thumbnail"
+                src="https://images.unsplash.com/photo-1737131821355-2c9fc3958e1f?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w2MjYyMDB8MHwxfHNlYXJjaHwxfHxraWQlMjB1c2luZyUyMHZyJTIwaGVhZHNldCUyMGNsYXNzcm9vbSUyMHZpZGVvJTIwdGh1bWJuYWlsfGVufDB8fHx8MTc2NzY5Njc4OXww&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080"
+              />
+              <div class="video-play-icon">
+                <iconify-icon
+                  icon="lucide:play"
+                  style="font-size: 24px"
+                ></iconify-icon>
+              </div>
+            </div>
+            <div class="video-info">
+              <div class="video-info-title">VR Field Trip: Journey to Mars</div>
+              <div class="video-info-meta">
+                1:48 · VR &amp; AR · Experience highlight
+              </div>
+            </div>
+          </div>
+
+          <div class="video-card" data-media-type="banani-button">
+            <div class="video-thumb">
+              <img
+                data-query="happy kids tech camp video thumbnail"
+                alt="Tech camp video thumbnail"
+                src="https://images.unsplash.com/photo-1640544634610-fac94ff37c21?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w2MjYyMDB8MHwxfHNlYXJjaHwxfHxoYXBweSUyMGtpZHMlMjB0ZWNoJTIwY2FtcCUyMHZpZGVvJTIwdGh1bWJuYWlsfGVufDB8fHx8MTc2NzY5Njc4OXww&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080"
+              />
+              <div class="video-play-icon">
+                <iconify-icon
+                  icon="lucide:play"
+                  style="font-size: 24px"
+                ></iconify-icon>
+              </div>
+            </div>
+            <div class="video-info">
+              <div class="video-info-title">
+                Summer Tech Camp Highlights 2024
+              </div>
+              <div class="video-info-meta">
+                2:59 · Events · Parent favorites
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Mini CTA -->
+      <div class="newsletter-section">
+        <div style="position: relative; z-index: 2">
+          <h2 style="color: white; margin-bottom: 24px; font-size: 32px">
+            Want to be part of the fun?
+          </h2>
+          <p
+            style="
+              opacity: 0.95;
+              font-size: 18px;
+              max-width: 600px;
+              margin: 0 auto 32px;
+            "
+          >
+            Follow us on Instagram for daily updates or join our programs today.
+          </p>
+          <button
+            class="btn"
+            style="background: white; color: var(--primary); padding: 16px 40px"
+            data-media-type="banani-button"
+          >
+            Follow on Instagram
+          </button>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <div class="logo">
+              <div class="logo-icon">
+                <iconify-icon
+                  icon="lucide:bot"
+                  style="font-size: 24px"
+                ></iconify-icon>
+              </div>
+              Child In Tech
+            </div>
+            <p>
+              Inspiring the next generation of innovators, creators, and leaders
+              through technology education.
+            </p>
+            <div class="social-links" style="margin-top: 24px">
+              <a href="#" class="social-icon" data-media-type="banani-button"
+                ><iconify-icon
+                  icon="lucide:facebook"
+                  style="font-size: 20px"
+                ></iconify-icon
+              ></a>
+              <a href="#" class="social-icon" data-media-type="banani-button"
+                ><iconify-icon
+                  icon="lucide:instagram"
+                  style="font-size: 20px"
+                ></iconify-icon
+              ></a>
+              <a href="#" class="social-icon" data-media-type="banani-button"
+                ><iconify-icon
+                  icon="lucide:twitter"
+                  style="font-size: 20px"
+                ></iconify-icon
+              ></a>
+            </div>
+          </div>
+          <div class="footer-col">
+            <h4>Company</h4>
+            <div class="footer-links">
+              <a href="#" data-media-type="banani-button">About Us</a>
+              <a href="#" data-media-type="banani-button">Careers</a>
+              <a href="#" data-media-type="banani-button">Blog</a>
+              <a href="#" data-media-type="banani-button">Contact</a>
+            </div>
+          </div>
+          <div class="footer-col">
+            <h4>Programs</h4>
+            <div class="footer-links">
+              <a href="#" data-media-type="banani-button">Robotics</a>
+              <a href="#" data-media-type="banani-button">Coding</a>
+              <a href="#" data-media-type="banani-button">AI for Kids</a>
+              <a href="#" data-media-type="banani-button">Summer Camps</a>
+            </div>
+          </div>
+          <div class="footer-col">
+            <h4>Support</h4>
+            <div class="footer-links">
+              <a href="#" data-media-type="banani-button">Help Center</a>
+              <a href="#" data-media-type="banani-button">Terms of Service</a>
+              <a href="#" data-media-type="banani-button">Privacy Policy</a>
+              <a href="#" data-media-type="banani-button">Parent Guide</a>
+            </div>
+          </div>
+        </div>
+        <div
+          style="
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+            padding-top: 32px;
+            text-align: center;
+            color: #718096;
+            font-size: 14px;
+          "
+        >
+          © 2024 Child In Tech Academy. All rights reserved.
+        </div>
+      </div>
+    </footer>
+    <script src="https://code.iconify.design/iconify-icon/3.0.0/iconify-icon.min.js"></script>
+  </body>
+</html>
