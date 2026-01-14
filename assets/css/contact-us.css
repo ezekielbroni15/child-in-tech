@@ -270,3 +270,174 @@
   color: #718096;
   font-size: 14px;
 }
+
+/* ============================================
+   RESPONSIVE DESIGN - CONTACT US PAGE
+   ============================================ */
+
+/* Tablet (1023px and below) */
+@media (max-width: 1023px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .faq-section {
+    padding: 60px;
+  }
+}
+
+/* Mobile (767px and below) */
+@media (max-width: 767px) {
+  .page-header {
+    padding: 50px 0 80px;
+  }
+
+  .page-header h1 {
+    font-size: 36px;
+  }
+
+  .page-header p {
+    font-size: 18px;
+  }
+
+  .contact-section {
+    padding: 40px 0 80px;
+  }
+
+  .contact-card {
+    padding: 32px 24px;
+    border-radius: 24px;
+  }
+
+  .contact-card h2 {
+    font-size: 22px;
+  }
+
+  .form-group {
+    margin-bottom: 20px;
+  }
+
+  .info-title {
+    font-size: 28px;
+  }
+
+  .info-text {
+    font-size: 16px;
+  }
+
+  .contact-methods {
+    gap: 24px;
+    margin-bottom: 32px;
+  }
+
+  .contact-icon {
+    width: 48px;
+    height: 48px;
+  }
+
+  .contact-details h3 {
+    font-size: 16px;
+  }
+
+  .contact-details p {
+    font-size: 15px;
+  }
+
+  .map-container {
+    height: 200px;
+  }
+
+  .faq-section {
+    padding: 48px 24px;
+    border-radius: 24px;
+    margin-top: 60px;
+  }
+
+  .faq-header {
+    margin-bottom: 40px;
+  }
+
+  .faq-header h2 {
+    font-size: 28px;
+  }
+
+  .faq-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .faq-item {
+    padding: 24px;
+  }
+
+  .faq-question {
+    font-size: 16px;
+  }
+
+  .faq-answer {
+    font-size: 15px;
+  }
+}
+
+/* Small Mobile (639px and below) */
+@media (max-width: 639px) {
+  .page-header h1 {
+    font-size: 32px;
+  }
+
+  .page-header p {
+    font-size: 16px;
+  }
+
+  .contact-card {
+    padding: 28px 20px;
+  }
+
+  .info-title {
+    font-size: 26px;
+  }
+
+  .faq-header h2 {
+    font-size: 26px;
+  }
+
+  .faq-item {
+    padding: 20px;
+  }
+}
+
+/* 4K Screens (3840px+) */
+@media (min-width: 3840px) {
+  .page-header h1 {
+    font-size: 84px;
+  }
+
+  .page-header p {
+    font-size: 32px;
+  }
+
+  .contact-grid {
+    gap: 80px;
+  }
+
+  .contact-card {
+    padding: 64px;
+  }
+
+  .info-title {
+    font-size: 48px;
+  }
+
+  .faq-section {
+    padding: 100px;
+  }
+
+  .faq-header h2 {
+    font-size: 56px;
+  }
+
+  .faq-grid {
+    gap: 40px;
+  }
+}

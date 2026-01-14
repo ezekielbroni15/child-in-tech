@@ -280,3 +280,178 @@
   position: relative;
   overflow: hidden;
 }
+
+/* ============================================
+   RESPONSIVE DESIGN - GALLERY PAGE
+   ============================================ */
+
+/* Tablet (1023px and below) */
+@media (max-width: 1023px) {
+  .gallery-grid {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 24px;
+  }
+
+  .videos-grid {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 20px;
+  }
+
+  .video-section {
+    padding: 28px 28px 32px;
+  }
+}
+
+/* Mobile (767px and below) */
+@media (max-width: 767px) {
+  .page-header {
+    padding: 50px 0 80px;
+  }
+
+  .page-header h1 {
+    font-size: 36px;
+  }
+
+  .page-header p {
+    font-size: 18px;
+  }
+
+  .gallery-section {
+    padding: 40px 0 80px;
+  }
+
+  .gallery-filters {
+    gap: 12px;
+    margin-bottom: 32px;
+  }
+
+  .filter-btn {
+    padding: 8px 20px;
+    font-size: 14px;
+  }
+
+  .gallery-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .gallery-item {
+    border-radius: 24px;
+  }
+
+  .overlay-title {
+    font-size: 16px;
+  }
+
+  .overlay-tag {
+    font-size: 12px;
+  }
+
+  .video-section {
+    margin-top: 48px;
+    padding: 24px;
+    border-radius: 24px;
+  }
+
+  .video-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .video-title {
+    font-size: 22px;
+  }
+
+  .video-subtitle {
+    font-size: 15px;
+  }
+
+  .videos-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .video-play-icon {
+    width: 48px;
+    height: 48px;
+  }
+
+  .newsletter-section {
+    padding: 48px 24px;
+    border-radius: 24px;
+    margin-top: 60px;
+  }
+}
+
+/* Small Mobile (639px and below) */
+@media (max-width: 639px) {
+  .page-header h1 {
+    font-size: 32px;
+  }
+
+  .page-header p {
+    font-size: 16px;
+  }
+
+  .gallery-filters {
+    gap: 8px;
+  }
+
+  .filter-btn {
+    padding: 6px 16px;
+    font-size: 13px;
+  }
+
+  .video-title {
+    font-size: 20px;
+  }
+
+  .video-subtitle {
+    font-size: 14px;
+  }
+
+  .video-info-title {
+    font-size: 15px;
+  }
+}
+
+/* 4K Screens (3840px+) */
+@media (min-width: 3840px) {
+  .page-header h1 {
+    font-size: 84px;
+  }
+
+  .page-header p {
+    font-size: 32px;
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+    gap: 40px;
+  }
+
+  .gallery-item {
+    border-radius: 40px;
+  }
+
+  .overlay-title {
+    font-size: 24px;
+  }
+
+  .video-section {
+    padding: 48px;
+  }
+
+  .video-title {
+    font-size: 36px;
+  }
+
+  .videos-grid {
+    grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+    gap: 32px;
+  }
+
+  .newsletter-section {
+    padding: 80px 60px;
+  }
+}

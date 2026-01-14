@@ -274,3 +274,201 @@
   color: #718096;
   font-size: 14px;
 }
+
+/* ============================================
+   RESPONSIVE DESIGN - ABOUT US PAGE
+   ============================================ */
+
+/* Tablet (1023px and below) */
+@media (max-width: 1023px) {
+  .mission-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .mission-image {
+    order: -1;
+  }
+
+  .values-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  .team-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+  }
+
+  .newsletter-section {
+    padding: 60px 40px;
+  }
+}
+
+/* Mobile (767px and below) */
+@media (max-width: 767px) {
+  .page-header {
+    padding: 50px 0 80px;
+  }
+
+  .page-header h1 {
+    font-size: 36px;
+  }
+
+  .page-header p {
+    font-size: 18px;
+  }
+
+  .mission-section {
+    padding: 60px 0;
+  }
+
+  .mission-text h2 {
+    font-size: 32px;
+  }
+
+  .mission-text p {
+    font-size: 16px;
+  }
+
+  .mission-stats {
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .mission-stats h3 {
+    font-size: 28px;
+  }
+
+  .mission-img {
+    border-radius: 24px;
+  }
+
+  .values-section {
+    padding: 60px 0;
+  }
+
+  .section-title {
+    font-size: 28px;
+    margin-bottom: 40px;
+  }
+
+  .values-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .value-card {
+    padding: 28px;
+  }
+
+  .value-icon-box {
+    width: 70px;
+    height: 70px;
+    font-size: 28px;
+  }
+
+  .team-section {
+    padding: 80px 0;
+  }
+
+  .team-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .team-img {
+    width: 150px;
+    height: 150px;
+  }
+
+  .newsletter-section {
+    padding: 48px 24px;
+    border-radius: 24px;
+    margin-bottom: 60px;
+  }
+
+  .newsletter-title {
+    font-size: 28px;
+  }
+
+  .newsletter-text {
+    font-size: 16px;
+  }
+
+  .newsletter-buttons {
+    flex-direction: column;
+  }
+
+  .newsletter-buttons .btn {
+    width: 100%;
+  }
+}
+
+/* Small Mobile (639px and below) */
+@media (max-width: 639px) {
+  .page-header h1 {
+    font-size: 32px;
+  }
+
+  .page-header p {
+    font-size: 16px;
+  }
+
+  .mission-text h2 {
+    font-size: 28px;
+  }
+
+  .section-title {
+    font-size: 26px;
+  }
+
+  .newsletter-title {
+    font-size: 24px;
+  }
+
+  .btn-white,
+  .btn-transparent {
+    padding: 12px 32px;
+  }
+}
+
+/* 4K Screens (3840px+) */
+@media (min-width: 3840px) {
+  .page-header h1 {
+    font-size: 84px;
+  }
+
+  .page-header p {
+    font-size: 32px;
+  }
+
+  .mission-text h2 {
+    font-size: 60px;
+  }
+
+  .section-title {
+    font-size: 56px;
+  }
+
+  .values-grid {
+    gap: 40px;
+  }
+
+  .team-grid {
+    gap: 48px;
+  }
+
+  .team-img {
+    width: 240px;
+    height: 240px;
+  }
+
+  .newsletter-section {
+    padding: 100px 80px;
+  }
+
+  .newsletter-title {
+    font-size: 56px;
+  }
+}

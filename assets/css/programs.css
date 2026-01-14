@@ -158,23 +158,6 @@
   line-height: 1.5;
 }
 
-.course-footer {
-  margin-top: auto;
-  opacity: 0;
-  transform: translateY(10px);
-  transition: all 0.3s ease;
-  height: 0;
-  overflow: hidden;
-}
-
-.course-card:hover .course-footer {
-  opacity: 1;
-  transform: translateY(0);
-  height: auto;
-  overflow: visible;
-  padding-top: 16px;
-}
-
 /* Badge utility */
 .badge {
   display: inline-flex;
@@ -228,4 +211,144 @@
       transparent 20%
     ),
     radial-gradient(circle at 80% 20%, white 0%, transparent 20%);
+}
+
+/* ============================================
+   RESPONSIVE DESIGN - PROGRAMS PAGE
+   ============================================ */
+
+/* Tablet (1023px and below) */
+@media (max-width: 1023px) {
+  .courses-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  .page-header {
+    padding: 60px 0 80px;
+  }
+
+  .page-header h1 {
+    font-size: 40px;
+  }
+
+  .cta-strip {
+    padding: 48px;
+    margin-bottom: 80px;
+  }
+}
+
+/* Mobile (767px and below) */
+@media (max-width: 767px) {
+  .page-header {
+    padding: 50px 0 70px;
+  }
+
+  .page-header h1 {
+    font-size: 32px;
+  }
+
+  .page-header p {
+    font-size: 17px;
+  }
+
+  .filters-section {
+    margin-top: -30px;
+    margin-bottom: 40px;
+  }
+
+  .filter-bar {
+    flex-wrap: wrap;
+    padding: 8px;
+  }
+
+  .filter-btn {
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+
+  .courses-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    margin-bottom: 60px;
+  }
+
+  .course-image-container {
+    height: 200px;
+  }
+
+  .course-content {
+    padding: 20px;
+  }
+
+  .course-title {
+    font-size: 18px;
+  }
+
+  .course-desc {
+    font-size: 14px;
+  }
+
+  .cta-strip {
+    padding: 40px 24px;
+    border-radius: 24px;
+    margin-bottom: 60px;
+  }
+
+  .cta-strip h2 {
+    font-size: 28px;
+  }
+
+  .cta-strip p {
+    font-size: 16px;
+    margin-bottom: 24px;
+  }
+}
+
+/* Small Mobile (639px and below) */
+@media (max-width: 639px) {
+  .page-header h1 {
+    font-size: 28px;
+  }
+
+  .page-header p {
+    font-size: 16px;
+  }
+
+  .filter-bar {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .cta-strip h2 {
+    font-size: 24px;
+  }
+}
+
+/* 4K Screens (3840px+) */
+@media (min-width: 3840px) {
+  .page-header h1 {
+    font-size: 72px;
+  }
+
+  .page-header p {
+    font-size: 28px;
+  }
+
+  .courses-grid {
+    gap: 40px;
+  }
+
+  .course-image-container {
+    height: 320px;
+  }
+
+  .cta-strip {
+    padding: 80px;
+  }
+
+  .cta-strip h2 {
+    font-size: 56px;
+  }
 }
