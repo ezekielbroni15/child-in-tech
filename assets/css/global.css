@@ -450,6 +450,11 @@ a {
   z-index: 1001;
 }
 
+/* Enforce consistent size for hamburger icon */
+.mobile-toggle iconify-icon {
+  font-size: 32px !important;
+}
+
 .close-menu {
   background: none;
   border: none;
@@ -501,6 +506,8 @@ a {
   display: block;
   padding: 8px 0;
   border-bottom: 1px solid transparent;
+  color: var(--foreground);
+  text-decoration: none;
 }
 
 .mobile-nav-links a:hover,
@@ -515,9 +522,31 @@ a {
   font-size: 16px;
 }
 
-/* Show toggle on mobile/tablet */
+/* Logo Image Styles */
+.logo-img {
+  height: 60px;
+  width: auto;
+  display: block;
+}
+
 @media (max-width: 1023px) {
   .mobile-toggle {
     display: block;
+  }
+
+  /* Hide navbar links on tablet/mobile */
+  .nav-links {
+    display: none;
+  }
+
+  /* Hide the desktop CTA button on tablet/mobile to prevent overlap */
+  .navbar .btn {
+    display: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .logo-img {
+    height: 48px; /* Slightly smaller on mobile */
   }
 }
