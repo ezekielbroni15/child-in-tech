@@ -603,3 +603,101 @@ a {
   cursor: not-allowed;
   pointer-events: none;
 }
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+
+/* Keyframes */
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes waveFlow {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+/* Utility Classes for JS Observer */
+.animate-on-scroll {
+  opacity: 0; /* Hidden initially */
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  will-change: opacity, transform;
+}
+
+/* When visible, animation triggers */
+.animate-visible {
+  opacity: 1;
+}
+
+.animate-visible[data-animate="left"] {
+  animation: slideInLeft 0.8s ease-out forwards;
+}
+
+.animate-visible[data-animate="right"] {
+  animation: slideInRight 0.8s ease-out forwards;
+}
+
+.animate-visible[data-animate="up"] {
+  animation: slideInUp 0.8s ease-out forwards;
+}
+
+/* Wave Animation */
+.header-wave path {
+  animation: waveFlow 20s linear infinite;
+}
+
+/* Blob Animation */
+.hero-blob,
+.blob-decoration,
+.cta-bg-shape,
+.newsletter-bg-circle,
+.newsletter-bg-circle-2,
+.decoration-circle {
+  animation: float 6s ease-in-out infinite;
+}

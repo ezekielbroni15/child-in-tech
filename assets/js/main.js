@@ -28,4 +28,22 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     });
   }
+
+  // Animation Observer
+  const observerOptions = {
+    threshold: 0.15, // Trigger when 15% visible
+    rootMargin: "0px 0px -50px 0px", // Offset slightly so it doesn't trigger too early at very bottom
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("animate-visible");
+        observer.unobserve(entry.target); // Only animate once
+      }
+    });
+  }, observerOptions);
+
+  const animatedElements = document.querySelectorAll(".animate-on-scroll");
+  animatedElements.forEach((el) => observer.observe(el));
 });
