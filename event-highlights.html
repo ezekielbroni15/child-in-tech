@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Past Highlights - Child in Tech</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Nunito:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/global.css" />
+    <style>
+      .highlights-hero {
+        padding: 120px 0 80px;
+        background: #fffdf7;
+        text-align: center;
+      }
+
+      .stats-strip {
+        background: var(--primary);
+        color: white;
+        padding: 60px 0;
+        border-radius: 40px;
+        margin-bottom: 80px;
+      }
+
+      .stat-item {
+        text-align: center;
+      }
+
+      .stat-number {
+        font-size: 48px;
+        font-weight: 800;
+        margin-bottom: 8px;
+      }
+
+      .masonry-grid {
+        column-count: 3;
+        column-gap: 24px;
+      }
+
+      .masonry-item {
+        break-inside: avoid;
+        margin-bottom: 24px;
+        border-radius: 24px;
+        overflow: hidden;
+      }
+
+      .masonry-item img {
+        width: 100%;
+        display: block;
+        transition: transform 0.3s;
+      }
+
+      .masonry-item:hover img {
+        transform: scale(1.05);
+      }
+
+      @media (max-width: 768px) {
+        .masonry-grid {
+          column-count: 1;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="container nav-content">
+        <a href="index.html" class="logo-link">
+          <img src="assets/image/logo.png" alt="Logo" class="logo-img" />
+        </a>
+        <div class="nav-links">
+          <a href="events.html">Back to Events</a>
+        </div>
+      </div>
+    </nav>
+
+    <header class="highlights-hero">
+      <div class="container">
+        <h1
+          class="animate-on-scroll"
+          data-animate="up"
+          style="font-size: 56px; margin-bottom: 24px"
+        >
+          Moments of Brilliance
+        </h1>
+        <p
+          class="animate-on-scroll"
+          data-animate="up"
+          style="
+            font-size: 20px;
+            color: #718096;
+            max-width: 700px;
+            margin: 0 auto;
+          "
+        >
+          Relive the excitement, creativity, and discovery from our past
+          workshops and cohorts.
+        </p>
+      </div>
+    </header>
+
+    <div class="container animate-on-scroll" data-animate="up">
+      <div class="stats-strip">
+        <div
+          style="
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+          "
+        >
+          <div class="stat-item">
+            <div class="stat-number">500+</div>
+            <div>Students Trained</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">120</div>
+            <div>Projects Built</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">15</div>
+            <div>Partner Schools</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section class="container" style="padding-bottom: 100px">
+      <div class="masonry-grid animate-on-scroll" data-animate="up">
+        <div class="masonry-item">
+          <img
+            src="https://images.unsplash.com/photo-1543689604-6fe8dbcd1f59?q=80&w=1080&auto=format&fit=crop"
+            alt="Highlight 1"
+          />
+        </div>
+        <div class="masonry-item">
+          <img
+            src="https://images.unsplash.com/photo-1715347783170-87337f31ef19?q=80&w=1080&auto=format&fit=crop"
+            alt="Highlight 2"
+          />
+        </div>
+        <div class="masonry-item">
+          <img
+            src="https://images.unsplash.com/photo-1581916459131-90da1f9c7162?q=80&w=1080&auto=format&fit=crop"
+            alt="Highlight 3"
+          />
+        </div>
+        <div class="masonry-item">
+          <img
+            src="https://images.unsplash.com/photo-1684009510237-02927c6d6e82?q=80&w=1080&auto=format&fit=crop"
+            alt="Highlight 4"
+          />
+        </div>
+        <div class="masonry-item">
+          <img
+            src="https://images.unsplash.com/photo-1540058404349-2e5fabf32d75?q=80&w=1080&auto=format&fit=crop"
+            alt="Highlight 5"
+          />
+        </div>
+        <div class="masonry-item">
+          <img
+            src="https://images.unsplash.com/photo-1761372981432-861b791df4dd?q=80&w=1080&auto=format&fit=crop"
+            alt="Highlight 6"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer Copy -->
+    <script src="https://code.iconify.design/iconify-icon/3.0.0/iconify-icon.min.js"></script>
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>

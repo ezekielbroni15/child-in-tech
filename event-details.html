@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Innoventure Tour 1.0 - Child in Tech</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Nunito:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/global.css" />
+    <style>
+      /* Page Specific Styles */
+      .event-hero {
+        position: relative;
+        padding: 160px 0 100px;
+        color: white;
+        background: radial-gradient(
+            circle at center,
+            rgba(0, 0, 0, 0.4),
+            rgba(0, 0, 0, 0.7)
+          ),
+          url("https://images.unsplash.com/photo-1684009510237-02927c6d6e82?q=80&w=1920&auto=format&fit=crop");
+        background-size: cover;
+        background-position: center;
+        text-align: center;
+      }
+
+      .event-hero h1 {
+        font-size: 64px;
+        margin-bottom: 24px;
+        text-align: center;
+        text-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      }
+
+      .detail-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(10px);
+        padding: 8px 16px;
+        border-radius: 999px;
+        margin-bottom: 32px;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+      }
+
+      .overview-section {
+        padding: 100px 0;
+      }
+
+      .overview-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 60px;
+        align-items: center;
+      }
+
+      @media (max-width: 960px) {
+        .overview-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .timeline-section {
+        padding: 100px 0;
+        background: #fdfdfd;
+      }
+
+      .timeline {
+        position: relative;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .timeline::before {
+        content: "";
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 2px;
+        height: 100%;
+        background: var(--border);
+      }
+
+      .timeline-item {
+        display: flex;
+        justify-content: flex-end;
+        padding-right: 50px;
+        position: relative;
+        margin-bottom: 60px;
+        width: 50%;
+      }
+
+      .timeline-item:nth-child(even) {
+        align-self: flex-end;
+        justify-content: flex-start;
+        padding-left: 50px;
+        padding-right: 0;
+        margin-left: 50%;
+      }
+
+      .timeline-dot {
+        position: absolute;
+        right: -8px;
+        top: 0;
+        width: 18px;
+        height: 18px;
+        background: var(--primary);
+        border-radius: 50%;
+        border: 4px solid white;
+        box-shadow: 0 0 0 2px var(--primary);
+      }
+
+      .timeline-item:nth-child(even) .timeline-dot {
+        left: -10px;
+        right: auto;
+      }
+
+      .timeline-content {
+        background: white;
+        padding: 24px;
+        border-radius: 24px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        border: 1px solid #f0f0f0;
+      }
+
+      .time-label {
+        color: var(--secondary);
+        font-weight: 700;
+        font-size: 14px;
+        margin-bottom: 8px;
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar (Simplified) -->
+    <nav class="navbar">
+      <div class="container nav-content">
+        <a href="index.html" class="logo-link">
+          <img src="assets/image/logo.png" alt="Logo" class="logo-img" />
+        </a>
+        <div class="nav-links">
+          <a href="events.html">Back to Events</a>
+        </div>
+        <a href="#register" class="btn btn-primary">Register Now</a>
+      </div>
+    </nav>
+
+    <!-- Hero -->
+    <header class="event-hero">
+      <div class="container" style="position: relative; z-index: 2">
+        <div class="detail-badge">
+          <iconify-icon icon="lucide:calendar"></iconify-icon> Jan 30, 2026
+          <span style="opacity: 0.5; margin: 0 8px">|</span>
+          <iconify-icon icon="lucide:map-pin"></iconify-icon> LetiArt
+        </div>
+        <h1 class="animate-on-scroll" data-animate="up">
+          INNOVENTURE TOUR 1.0
+        </h1>
+        <p
+          style="
+            font-size: 20px;
+            max-width: 600px;
+            margin: 0 auto 40px;
+            opacity: 0.9;
+          "
+          class="animate-on-scroll"
+          data-animate="up"
+        >
+          An unforgettable day of tech discovery for young minds.
+        </p>
+        <button
+          id="heroRegisterBtn"
+          class="btn btn-primary btn-hero animate-on-scroll"
+          data-animate="up"
+        >
+          Secure Your Spot
+        </button>
+      </div>
+    </header>
+
+    <!-- Overview -->
+    <section class="overview-section">
+      <div class="container overview-grid">
+        <div class="animate-on-scroll" data-animate="left">
+          <h2 style="font-size: 40px; margin-bottom: 24px">
+            What is the Innoventure Tour?
+          </h2>
+          <p style="font-size: 18px; color: #4a5568; margin-bottom: 24px">
+            This isn't just a field trip; it's a journey into the future. We're
+            taking 50 curious kids inside <strong>LetiArt</strong>, one of the
+            leading game design and animation studios.
+          </p>
+          <p style="font-size: 18px; color: #4a5568; margin-bottom: 32px">
+            They'll see how their favorite games are made, talk to real
+            developers, and participate in a mini "Game Jam" session where they
+            create their own character concepts.
+          </p>
+          <div style="display: flex; gap: 32px">
+            <div>
+              <h3 style="font-size: 32px; color: var(--primary)">5Hrs</h3>
+              <p style="color: #718096; font-size: 14px">Duration</p>
+            </div>
+            <div>
+              <h3 style="font-size: 32px; color: var(--secondary)">50</h3>
+              <p style="color: #718096; font-size: 14px">Spots Only</p>
+            </div>
+            <div>
+              <h3 style="font-size: 32px; color: #ffbf69">7-14</h3>
+              <p style="color: #718096; font-size: 14px">Age Group</p>
+            </div>
+          </div>
+        </div>
+        <div class="animate-on-scroll" data-animate="right">
+          <img
+            src="https://images.unsplash.com/photo-1531482615713-2afd69097998?q=80&w=1080&auto=format&fit=crop"
+            style="
+              width: 100%;
+              border-radius: 32px;
+              box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            "
+            alt="Kids learning"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- Schedule -->
+    <section class="timeline-section">
+      <div class="container">
+        <h2 style="text-align: center; font-size: 36px; margin-bottom: 60px">
+          Event Schedule
+        </h2>
+        <div class="timeline">
+          <div class="timeline-item animate-on-scroll" data-animate="left">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <span class="time-label">09:00 AM</span>
+              <h3>Arrival & Welcome</h3>
+              <p style="color: #718096; margin-top: 8px">
+                Check-in, swag bag distribution, and team introductions.
+              </p>
+            </div>
+          </div>
+          <div class="timeline-item animate-on-scroll" data-animate="right">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <span class="time-label">10:00 AM</span>
+              <h3>Studio Tour</h3>
+              <p style="color: #718096; margin-top: 8px">
+                Behind-the-scenes look at the animation and coding stations.
+              </p>
+            </div>
+          </div>
+          <div class="timeline-item animate-on-scroll" data-animate="left">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <span class="time-label">12:00 PM</span>
+              <h3>Lunch & Networking</h3>
+              <p style="color: #718096; margin-top: 8px">
+                Healthy lunch and Q&A session with senior developers.
+              </p>
+            </div>
+          </div>
+          <div class="timeline-item animate-on-scroll" data-animate="right">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <span class="time-label">01:00 PM</span>
+              <h3>Mini Game Jam</h3>
+              <p style="color: #718096; margin-top: 8px">
+                Kids brainstorm and sketch their own game character concepts.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <script src="https://code.iconify.design/iconify-icon/3.0.0/iconify-icon.min.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script>
+      // Calendar Logic for Hero Button
+      document
+        .getElementById("heroRegisterBtn")
+        .addEventListener("click", () => {
+          const event = {
+            title: "INNOVENTURE TOUR 1.0",
+            description:
+              "One day of exploration, discovery, and fun! Kids visit real tech companies, ask questions, try hands-on activities, and take home awesome souvenirs.",
+            location: "LetiArt",
+            startTime: "20260130T090000",
+            endTime: "20260130T140000",
+          };
+          const icsContent = [
+            "BEGIN:VCALENDAR",
+            "VERSION:2.0",
+            "PRODID:-//ChildInTech//Events//EN",
+            "BEGIN:VEVENT",
+            `SUMMARY:${event.title}`,
+            `DESCRIPTION:${event.description}`,
+            `LOCATION:${event.location}`,
+            `DTSTART:${event.startTime}`,
+            `DTEND:${event.endTime}`,
+            "BEGIN:VALARM",
+            "TRIGGER:-PT24H",
+            "ACTION:DISPLAY",
+            `DESCRIPTION:Reminder: ${event.title} is tomorrow!`,
+            "END:VALARM",
+            "END:VEVENT",
+            "END:VCALENDAR",
+          ].join("\r\n");
+          const blob = new Blob([icsContent], {
+            type: "text/calendar;charset=utf-8",
+          });
+          const link = document.createElement("a");
+          link.href = URL.createObjectURL(blob);
+          link.download = "innoventure_tour.ics";
+          document.body.appendChild(link);
+          link.click();
+          document.body.removeChild(link);
+        });
+    </script>
+  </body>
+</html>
