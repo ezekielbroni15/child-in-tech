@@ -61,12 +61,6 @@
         align-items: center;
       }
 
-      @media (max-width: 960px) {
-        .overview-grid {
-          grid-template-columns: 1fr;
-        }
-      }
-
       .timeline-section {
         padding: 100px 0;
         background: #fdfdfd;
@@ -136,6 +130,98 @@
         font-size: 14px;
         margin-bottom: 8px;
         display: block;
+      }
+
+      /* Responsive Media Queries */
+
+      /* Tablet (1023px and below) */
+      @media (max-width: 1023px) {
+        .event-hero {
+          padding: 120px 0 80px;
+        }
+
+        .event-hero h1 {
+          font-size: 48px;
+        }
+
+        .overview-grid {
+          grid-template-columns: 1fr;
+          gap: 40px;
+        }
+      }
+
+      /* Mobile (767px and below) */
+      @media (max-width: 767px) {
+        .event-hero h1 {
+          font-size: 36px;
+        }
+
+        .overview-section,
+        .timeline-section {
+          padding: 60px 0;
+        }
+
+        /* Stack Overview stats */
+        .overview-grid > .animate-on-scroll > div[style*="display: flex"] {
+          flex-direction: row;
+          flex-wrap: wrap;
+          gap: 24px !important;
+        }
+
+        /* Timeline Reset for Mobile */
+        .timeline::before {
+          left: 20px;
+        }
+
+        .timeline-item {
+          width: 100%;
+          padding-right: 0;
+          padding-left: 50px;
+          margin-bottom: 40px;
+        }
+
+        .timeline-item:nth-child(even) {
+          margin-left: 0;
+          padding-left: 50px;
+        }
+
+        .timeline-dot {
+          left: 12px;
+          right: auto;
+        }
+
+        .timeline-item:nth-child(even) .timeline-dot {
+          left: 12px;
+        }
+      }
+
+      /* 4K (3840px+) */
+      @media (min-width: 3840px) {
+        .event-hero {
+          padding: 240px 0 160px;
+        }
+        .event-hero h1 {
+          font-size: 96px;
+        }
+        .overview-section,
+        .timeline-section {
+          padding: 160px 0;
+        }
+        .timeline {
+          max-width: 1200px;
+        }
+        .timeline-content {
+          padding: 40px;
+        }
+        .time-label {
+          font-size: 20px;
+        }
+        .timeline-content h3 {
+          font-size: 32px;
+        }
+        .timeline-content p {
+          font-size: 24px;
+        }
       }
     </style>
   </head>
