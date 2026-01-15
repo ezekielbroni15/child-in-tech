@@ -40,41 +40,36 @@
 .gallery-section {
   padding: 60px 0 100px;
   position: relative;
-  overflow: hidden;
+  /* overflow: hidden; Removed to allow circles to be fully visible */
 }
 
 /* Background Decorations */
 .decoration-circle {
   position: absolute;
   border-radius: 50%;
-  z-index: -1;
+  z-index: 0; /* Visible but behind content */
 }
 .circle-1 {
   width: 400px;
   height: 400px;
-  background: rgba(255, 125, 5, 0.08); /* Slightly more visible */
+  background: rgba(255, 125, 5, 0.08);
   top: 5%;
-  left: -100px; /* Keep it on the side but large enough to see */
+  left: -100px; /* Left side */
 }
 .circle-2 {
-  width: 300px;
-  height: 300px;
-  background: rgba(46, 196, 182, 0.12);
-  bottom: 15%;
-  right: -80px;
+  width: 350px;
+  height: 350px;
+  background: rgba(46, 196, 182, 0.1);
+  top: 40%;
+  right: -100px; /* Right side */
 }
 .circle-3 {
   width: 250px;
   height: 250px;
-  background: rgba(
-    255,
-    200,
-    100,
-    0.1
-  ); /* Changed color and made transparent for visibility */
-  top: 45%;
-  left: -50px; /* Moved to left side */
-  transform: none; /* Removed centering transform */
+  background: rgba(255, 200, 100, 0.1);
+  bottom: 5%;
+  left: -60px; /* Left side */
+  transform: none;
 }
 
 /* Filters */
