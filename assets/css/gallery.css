@@ -179,7 +179,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 48px;
+  font-size: 24px; /* Reduced from 48px */
   color: white;
   opacity: 0;
   transition: opacity 0.3s ease;
@@ -205,6 +205,8 @@
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.3s ease, visibility 0.3s ease;
+  padding: 20px; /* Add padding to prevent edge touching */
+  box-sizing: border-box;
 }
 
 .lightbox.active {
@@ -213,17 +215,21 @@
 }
 
 .lightbox-content {
-  max-width: 90%;
-  max-height: 90%;
+  /* Remove fixed max-width/height percentages, let image define it but capped */
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  position: relative;
+  max-width: 100%;
+  max-height: 100%;
 }
 
 .lightbox-content img {
-  max-width: 100%;
-  max-height: 90vh;
+  display: block;
+  max-width: 90vw; /* Constrain width */
+  max-height: 85vh; /* Constrain height - reduced from 90vh to show top/bottom better */
+  width: auto;
+  height: auto;
   object-fit: contain;
   border-radius: 8px;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
@@ -238,26 +244,31 @@
 /* Lightbox Controls */
 .lightbox-close {
   position: absolute;
-  top: 24px;
-  right: 24px;
-  width: 48px;
-  height: 48px;
+  top: 10px; /* Position inside top-right of the CONTENT (image wrapper) */
+  right: 10px;
+  width: 40px; /* Slightly smaller */
+  height: 40px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.1);
-  border: 2px solid rgba(255, 255, 255, 0.3);
+  background: rgba(
+    0,
+    0,
+    0,
+    0.5
+  ); /* Stronger background for contrast on image */
+  border: 1px solid rgba(255, 255, 255, 0.3);
   color: white;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: all 0.2s ease;
-  z-index: 10001;
-  backdrop-filter: blur(10px);
+  z-index: 10002; /* Higher than nav */
+  backdrop-filter: blur(4px);
 }
 
 .lightbox-close:hover {
-  background: rgba(255, 255, 255, 0.2);
-  border-color: rgba(255, 255, 255, 0.5);
+  background: rgba(0, 0, 0, 0.8);
+  border-color: rgba(255, 255, 255, 0.8);
   transform: rotate(90deg);
 }
 
