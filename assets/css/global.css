@@ -261,6 +261,7 @@ a {
 .footer-nav-group {
   display: flex;
   gap: 80px;
+  flex-wrap: wrap;
 }
 
 .footer-col h4 {
