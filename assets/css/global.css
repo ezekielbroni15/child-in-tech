@@ -84,30 +84,78 @@ a {
   border-radius: 9999px;
   font-weight: 700;
   font-size: 16px;
-  transition: transform 0.2s, background-color 0.2s;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: pointer;
   white-space: nowrap;
   border: none;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
 }
 
 .btn:active {
-  transform: scale(0.98);
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
 }
 
 .btn-primary {
   background-color: var(--primary);
   color: var(--primary-foreground);
+  box-shadow: 0 4px 14px 0 rgba(255, 125, 5, 0.39);
+}
+
+.btn-primary:hover {
+  background-color: #ff8e25;
+  box-shadow: 0 6px 20px rgba(255, 125, 5, 0.23);
 }
 
 .btn-secondary {
   background-color: var(--secondary);
   color: var(--secondary-foreground);
+  box-shadow: 0 4px 14px 0 rgba(46, 196, 182, 0.39);
+}
+
+.btn-secondary:hover {
+  background-color: #3adacb;
+  box-shadow: 0 6px 20px rgba(46, 196, 182, 0.23);
 }
 
 .btn-outline {
   background-color: transparent;
   border: 2px solid var(--border);
   color: var(--foreground);
+}
+
+.btn-outline:hover {
+  border-color: var(--foreground);
+  background-color: var(--foreground);
+  color: white;
+}
+
+/* Shine Effect Configuration */
+.btn-primary::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: 0.5s;
+}
+
+.btn-primary:hover::after {
+  left: 100%;
 }
 
 .section-spacing {
