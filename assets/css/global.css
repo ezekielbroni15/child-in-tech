@@ -690,6 +690,7 @@ a {
 /* Wave Animation */
 .header-wave path {
   animation: waveFlow 20s linear infinite;
+  transform-box: fill-box;
 }
 
 /* Blob Animation */
