@@ -596,6 +596,11 @@ a {
 }
 
 @media (max-width: 1023px) {
+  html,
+  body {
+    padding-top: 10px !important;
+  }
+
   .mobile-toggle {
     display: block;
   }
