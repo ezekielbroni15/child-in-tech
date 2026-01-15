@@ -391,6 +391,11 @@ a {
 
 /* Mobile Landscape & Small Tablet (640px - 767px) */
 @media (max-width: 767px) {
+  html,
+  body {
+    padding-top: 10px !important;
+  }
+
   .container {
     padding: 0 16px;
   }
