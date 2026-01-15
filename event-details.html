@@ -198,15 +198,35 @@
         .mobile-visible {
           display: flex !important;
           margin-left: auto;
-          margin-right: 12px;
+          margin-right: 8px;
+          align-items: center;
         }
-        .mobile-visible-btn {
-          display: inline-flex !important;
-          padding: 8px 12px;
+
+        /* Compact text size */
+        .mobile-visible a {
           font-size: 13px;
         }
+
+        .mobile-visible-btn {
+          display: inline-flex !important;
+          padding: 6px 10px;
+          font-size: 12px;
+          height: auto;
+          min-height: unset;
+        }
+
+        /* Hero Button Mobile Tweak */
+        #heroRegisterBtn {
+          width: auto;
+          min-width: 200px;
+          max-width: 80%;
+          font-size: 16px;
+          padding: 12px 24px;
+        }
+
         .nav-content {
           justify-content: space-between;
+          padding: 0 12px !important;
         }
       }
 
@@ -249,10 +269,10 @@
         </a>
         <!-- Inline style to ensure visibility on mobile for this specific page -->
         <div class="nav-links mobile-visible">
-          <a href="events.html" style="font-weight: 600">Back to Events</a>
+          <a href="events.html" style="font-weight: 600">Back</a>
         </div>
         <a href="#register" class="btn btn-primary mobile-visible-btn"
-          >Register Now</a
+          >Register</a
         >
       </div>
     </nav>
