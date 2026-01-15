@@ -19,10 +19,12 @@
 }
 
 .page-header h1 {
-  font-size: 48px;
-  margin-bottom: 16px;
+  font-size: 56px;
+  margin-bottom: 24px;
   position: relative;
   z-index: 2;
+  color: #1a202c;
+  font-weight: 800;
 }
 
 .page-header p {
