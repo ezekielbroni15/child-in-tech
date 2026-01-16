@@ -627,14 +627,37 @@
       </div>
     </div>
 
+    <!-- Error Modal -->
+    <div class="modal-overlay" id="errorModal">
+      <div class="success-modal">
+        <button class="modal-close" id="errorModalCloseBtn">
+          <iconify-icon icon="lucide:x" style="font-size: 24px"></iconify-icon>
+        </button>
+        <div class="error-icon">
+          <iconify-icon icon="lucide:alert-circle"></iconify-icon>
+        </div>
+        <h3>Oops!</h3>
+        <p id="errorMsg">
+          Something went wrong while trying to subscribe. Please try again.
+        </p>
+        <button class="btn btn-primary btn-start-new" id="errorModalOkBtn">
+          Try Again
+        </button>
+      </div>
+    </div>
+
     <script>
       document.addEventListener("DOMContentLoaded", () => {
         const subscribeForm = document.getElementById("subscribeForm");
         const subscribeBtn = document.getElementById("subscribeBtn");
         const emailInput = document.getElementById("subscribeEmail");
         const successModal = document.getElementById("successModal");
+        const errorModal = document.getElementById("errorModal");
         const modalCloseBtn = document.getElementById("modalCloseBtn");
         const modalOkBtn = document.getElementById("modalOkBtn");
+        const errorModalCloseBtn =
+          document.getElementById("errorModalCloseBtn");
+        const errorModalOkBtn = document.getElementById("errorModalOkBtn");
 
         function showModal() {
           successModal.classList.add("active");
@@ -644,13 +667,32 @@
           successModal.classList.remove("active");
         }
 
+        function showErrorModal() {
+          errorModal.classList.add("active");
+        }
+
+        function hideErrorModal() {
+          errorModal.classList.remove("active");
+        }
+
         if (modalCloseBtn) modalCloseBtn.addEventListener("click", hideModal);
         if (modalOkBtn) modalOkBtn.addEventListener("click", hideModal);
+
+        if (errorModalCloseBtn)
+          errorModalCloseBtn.addEventListener("click", hideErrorModal);
+        if (errorModalOkBtn)
+          errorModalOkBtn.addEventListener("click", hideErrorModal);
 
         // Close on overlay click
         if (successModal) {
           successModal.addEventListener("click", (e) => {
             if (e.target === successModal) hideModal();
+          });
+        }
+
+        if (errorModal) {
+          errorModal.addEventListener("click", (e) => {
+            if (e.target === errorModal) hideErrorModal();
           });
         }
 
@@ -685,12 +727,22 @@
                   showModal();
                   emailInput.value = "";
                 } else {
-                  alert(data.error || "Oops! Something went wrong.");
+                  // Show Error Modal with message
+                  const errorMsg = document.getElementById("errorMsg");
+                  if (errorMsg)
+                    errorMsg.textContent =
+                      data.error || "Oops! Something went wrong.";
+                  showErrorModal();
                 }
               })
               .catch((error) => {
                 console.error("Error:", error);
-                alert("Oops! Something went wrong. Please try again later.");
+                // Show Error Modal with default message
+                const errorMsg = document.getElementById("errorMsg");
+                if (errorMsg)
+                  errorMsg.textContent =
+                    "Oops! Something went wrong. Please try again later.";
+                showErrorModal();
               })
               .finally(() => {
                 subscribeBtn.innerText = originalBtnText;

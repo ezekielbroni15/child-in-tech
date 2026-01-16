@@ -316,6 +316,26 @@
       </div>
     </div>
 
+    <!-- Error Modal -->
+    <div class="modal-overlay" id="errorModal">
+      <div class="success-modal">
+        <button class="modal-close" id="errorModalCloseBtn">
+          <iconify-icon icon="lucide:x" style="font-size: 24px"></iconify-icon>
+        </button>
+        <div class="error-icon">
+          <iconify-icon icon="lucide:alert-circle"></iconify-icon>
+        </div>
+        <h3>Sending Failed</h3>
+        <p id="errorMsg">
+          We couldn't send your message. Please make sure you are online or try
+          again later.
+        </p>
+        <button class="btn btn-primary btn-start-new" id="errorModalOkBtn">
+          Try Again
+        </button>
+      </div>
+    </div>
+
     <script>
       document.addEventListener("DOMContentLoaded", () => {
         const sendBtn = document.getElementById("sendMessageBtn");
@@ -327,12 +347,25 @@
         const modalCloseBtn = document.getElementById("modalCloseBtn");
         const modalOkBtn = document.getElementById("modalOkBtn");
 
+        const errorModal = document.getElementById("errorModal");
+        const errorModalCloseBtn =
+          document.getElementById("errorModalCloseBtn");
+        const errorModalOkBtn = document.getElementById("errorModalOkBtn");
+
         function showModal() {
           successModal.classList.add("active");
         }
 
         function hideModal() {
           successModal.classList.remove("active");
+        }
+
+        function showErrorModal() {
+          errorModal.classList.add("active");
+        }
+
+        function hideErrorModal() {
+          errorModal.classList.remove("active");
         }
 
         function validateEmail(email) {
@@ -405,17 +438,21 @@
                     subjectInput.value = "";
                     messageInput.value = "";
                   } else {
-                    alert(
-                      data.error ||
-                        "Oops! There was a problem submitting your form"
-                    );
+                    const errorMsg = document.getElementById("errorMsg");
+                    if (errorMsg)
+                      errorMsg.textContent =
+                        data.error ||
+                        "Oops! There was a problem submitting your form";
+                    showErrorModal();
                   }
                 })
                 .catch((error) => {
                   console.error("Error:", error);
-                  alert(
-                    "Oops! There was a problem submitting your form. Make sure you are running on a server (localhost)."
-                  );
+                  const errorMsg = document.getElementById("errorMsg");
+                  if (errorMsg)
+                    errorMsg.textContent =
+                      "Oops! There was a problem submitting your form. Make sure you are running on a server (localhost).";
+                  showErrorModal();
                 })
                 .finally(() => {
                   sendBtn.innerText = originalBtnText;
@@ -428,10 +465,21 @@
         if (modalCloseBtn) modalCloseBtn.addEventListener("click", hideModal);
         if (modalOkBtn) modalOkBtn.addEventListener("click", hideModal);
 
+        if (errorModalCloseBtn)
+          errorModalCloseBtn.addEventListener("click", hideErrorModal);
+        if (errorModalOkBtn)
+          errorModalOkBtn.addEventListener("click", hideErrorModal);
+
         // Close on overlay click
         if (successModal) {
           successModal.addEventListener("click", (e) => {
             if (e.target === successModal) hideModal();
+          });
+        }
+
+        if (errorModal) {
+          errorModal.addEventListener("click", (e) => {
+            if (e.target === errorModal) hideErrorModal();
           });
         }
       });

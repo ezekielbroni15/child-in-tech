@@ -475,7 +475,7 @@
   position: relative;
   transform: scale(0.9);
   transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
-  box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
 }
 
 .modal-overlay.active .success-modal {
@@ -531,3 +531,19 @@
   width: 100%;
 }
 
+/* Error Modal Styling */
+.error-icon {
+  width: 80px;
+  height: 80px;
+  background: #fff5f5;
+  color: #e53e3e; /* Red-600 */
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 24px;
+}
+
+.error-icon iconify-icon {
+  font-size: 40px;
+}
