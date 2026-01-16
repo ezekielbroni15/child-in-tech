@@ -586,16 +586,18 @@
             Subscribe to get notified about new LearnLab sessions and free
             events.
           </p>
-          <form class="newsletter-form">
+          <form class="newsletter-form" id="subscribeForm">
             <input
               type="email"
+              id="subscribeEmail"
               class="newsletter-input"
               placeholder="Enter your email address"
             />
             <button
+              id="subscribeBtn"
               class="btn"
               style="background: var(--secondary); color: white"
-              type="button"
+              type="submit"
               data-media-type="banani-button"
             >
               Subscribe
@@ -604,6 +606,60 @@
         </div>
       </section>
     </main>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const subscribeForm = document.getElementById("subscribeForm");
+        const subscribeBtn = document.getElementById("subscribeBtn");
+        const emailInput = document.getElementById("subscribeEmail");
+
+        if (subscribeForm) {
+          subscribeForm.addEventListener("submit", (e) => {
+            e.preventDefault(); // Prevent default form submission
+
+            const email = emailInput.value.trim();
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            if (!email || !emailRegex.test(email)) {
+              alert("Please enter a valid email address.");
+              return;
+            }
+
+            // Show loading state
+            const originalBtnText = subscribeBtn.innerText;
+            subscribeBtn.innerText = "Subscribing...";
+            subscribeBtn.disabled = true;
+
+            const formData = new FormData();
+            formData.append("email", email);
+
+            fetch("subscribe.php", {
+              method: "POST",
+              body: formData,
+            })
+              .then((response) => response.json())
+              .then((data) => {
+                if (data.success) {
+                  alert(
+                    "Thanks for subscribing! You've been added to our list."
+                  );
+                  emailInput.value = "";
+                } else {
+                  alert(data.error || "Oops! Something went wrong.");
+                }
+              })
+              .catch((error) => {
+                console.error("Error:", error);
+                alert("Oops! Something went wrong. Please try again later.");
+              })
+              .finally(() => {
+                subscribeBtn.innerText = originalBtnText;
+                subscribeBtn.disabled = false;
+              });
+          });
+        }
+      });
+    </script>
 
     <!-- Footer -->
     <footer class="footer">
