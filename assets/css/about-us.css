@@ -161,12 +161,6 @@
   padding: 100px 0;
 }
 
-.team-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 40px;
-}
-
 .team-description {
   text-align: center;
   max-width: 600px;
@@ -199,6 +193,93 @@
   font-size: 14px;
   text-transform: uppercase;
   letter-spacing: 1px;
+}
+
+/* Team Carousel */
+.team-carousel-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  position: relative;
+  padding: 0 20px;
+}
+
+.team-carousel-track-container {
+  overflow: hidden;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Boost specificity to ensure styles apply */
+.team-carousel-track-container ul.team-carousel-track {
+  display: flex !important;
+  flex-flow: row nowrap !important;
+  width: 100% !important;
+  margin: 0;
+  padding: 20px 0;
+  list-style: none;
+  transition: transform 0.4s ease-in-out;
+}
+
+.team-carousel-track li.carousel-slide {
+  flex: 0 0 25% !important; /* Force 4 items per row */
+  max-width: 25% !important;
+  box-sizing: border-box;
+  padding: 0 15px;
+  display: block !important; /* Ensure list item isn't somehow inline */
+}
+
+.carousel-btn {
+  background: white;
+  border: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  color: var(--primary);
+  z-index: 10;
+  transition: all 0.2s;
+  flex-shrink: 0;
+}
+
+.carousel-btn:hover {
+  background: var(--primary);
+  color: white;
+  transform: scale(1.1);
+}
+
+.carousel-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Carousel Responsive Breakpoints */
+@media (max-width: 1024px) {
+  .team-carousel-track li.carousel-slide {
+    flex: 0 0 33.33% !important;
+    max-width: 33.33% !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .team-carousel-track li.carousel-slide {
+    flex: 0 0 50% !important;
+    max-width: 50% !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .team-carousel-track li.carousel-slide {
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+  }
 }
 
 /* Newsletter */
@@ -297,11 +378,6 @@
     gap: 24px;
   }
 
-  .team-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 32px;
-  }
-
   .newsletter-section {
     padding: 60px 40px;
   }
@@ -372,11 +448,6 @@
 
   .team-section {
     padding: 80px 0;
-  }
-
-  .team-grid {
-    grid-template-columns: 1fr;
-    gap: 40px;
   }
 
   .team-img {
@@ -455,10 +526,6 @@
 
   .values-grid {
     gap: 40px;
-  }
-
-  .team-grid {
-    gap: 48px;
   }
 
   .team-img {
