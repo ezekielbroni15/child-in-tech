@@ -607,11 +607,52 @@
       </section>
     </main>
 
+    <!-- Success Modal -->
+    <div class="modal-overlay" id="successModal">
+      <div class="success-modal">
+        <button class="modal-close" id="modalCloseBtn">
+          <iconify-icon icon="lucide:x" style="font-size: 24px"></iconify-icon>
+        </button>
+        <div class="success-icon">
+          <iconify-icon icon="lucide:check"></iconify-icon>
+        </div>
+        <h3>Subscribed!</h3>
+        <p>
+          Thank you for subscribing to our newsletter! You'll now receive
+          updates about LearnLab sessions and events.
+        </p>
+        <button class="btn btn-primary btn-start-new" id="modalOkBtn">
+          Awesome!
+        </button>
+      </div>
+    </div>
+
     <script>
       document.addEventListener("DOMContentLoaded", () => {
         const subscribeForm = document.getElementById("subscribeForm");
         const subscribeBtn = document.getElementById("subscribeBtn");
         const emailInput = document.getElementById("subscribeEmail");
+        const successModal = document.getElementById("successModal");
+        const modalCloseBtn = document.getElementById("modalCloseBtn");
+        const modalOkBtn = document.getElementById("modalOkBtn");
+
+        function showModal() {
+          successModal.classList.add("active");
+        }
+
+        function hideModal() {
+          successModal.classList.remove("active");
+        }
+
+        if (modalCloseBtn) modalCloseBtn.addEventListener("click", hideModal);
+        if (modalOkBtn) modalOkBtn.addEventListener("click", hideModal);
+
+        // Close on overlay click
+        if (successModal) {
+          successModal.addEventListener("click", (e) => {
+            if (e.target === successModal) hideModal();
+          });
+        }
 
         if (subscribeForm) {
           subscribeForm.addEventListener("submit", (e) => {
@@ -640,9 +681,8 @@
               .then((response) => response.json())
               .then((data) => {
                 if (data.success) {
-                  alert(
-                    "Thanks for subscribing! You've been added to our list."
-                  );
+                  // Show Success Modal
+                  showModal();
                   emailInput.value = "";
                 } else {
                   alert(data.error || "Oops! Something went wrong.");
