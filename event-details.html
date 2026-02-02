@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -38,12 +38,13 @@
         position: relative;
         padding: 160px 0 100px;
         color: white;
-        background: radial-gradient(
+        background:
+          radial-gradient(
             circle at center,
             rgba(0, 0, 0, 0.4),
             rgba(0, 0, 0, 0.7)
           ),
-          url("assets/image/IMG_3903.JPG");
+          url("assets/image/IMG_3898.JPG");
         background-size: cover;
         background-position: center;
         text-align: center;
@@ -310,16 +311,16 @@
     <header class="event-hero">
       <div class="container" style="position: relative; z-index: 2">
         <div class="detail-badge">
-          <iconify-icon icon="lucide:calendar"></iconify-icon> Jan 30, 2026
+          <iconify-icon icon="lucide:calendar"></iconify-icon> Feb 14, 2026
           <span style="opacity: 0.5; margin: 0 8px">|</span>
-          <iconify-icon icon="lucide:map-pin"></iconify-icon> LetiArt
+          <iconify-icon icon="lucide:map-pin"></iconify-icon> TBA
         </div>
         <h1
           class="animate-on-scroll"
           data-animate="up"
           style="color: #ffffff; text-shadow: 0 0 20px rgba(255, 255, 255, 0.6)"
         >
-          INNOVENTURE TOUR 1.0
+          CHOCOLATE WITH TECH
         </h1>
         <p
           style="
@@ -331,7 +332,8 @@
           class="animate-on-scroll"
           data-animate="up"
         >
-          An unforgettable day of tech discovery for young minds.
+          Discover the sweet science and technology behind everyone's favorite
+          treat.
         </p>
         <button
           id="heroRegisterBtn"
@@ -348,17 +350,16 @@
       <div class="container overview-grid">
         <div class="animate-on-scroll" data-animate="left">
           <h2 style="font-size: 40px; margin-bottom: 24px">
-            What is the Innoventure Tour?
+            What is Chocolate with Tech?
           </h2>
           <p style="font-size: 18px; color: #4a5568; margin-bottom: 24px">
-            This isn't just a field trip; it's a journey into the future. We're
-            taking 50+ curious kids inside <strong>LetiArt</strong>, one of the
-            leading game design and animation studios.
+            It's a delicious dive into STEM! We're exploring how technology
+            transforms simple cocoa beans into the chocolate bars we love.
           </p>
           <p style="font-size: 18px; color: #4a5568; margin-bottom: 32px">
-            They'll see how their favorite games are made, talk to real
-            developers, and participate in a mini "Game Jam" session where they
-            create their own character concepts.
+            Kids will learn about the chemistry of tempering, 3D chocolate
+            printing, and sustainable farming tech, all while enjoying some
+            tasty experiments.
           </p>
           <div style="display: flex; gap: 32px">
             <div>
@@ -377,7 +378,7 @@
         </div>
         <div class="animate-on-scroll" data-animate="right">
           <img
-            src="assets/image/IMG_3896.JPG"
+            src="assets/image/IMG_3898.JPG"
             style="
               width: 100%;
               border-radius: 32px;
@@ -433,10 +434,9 @@
             <div class="timeline-dot"></div>
             <div class="timeline-content">
               <span class="time-label">01:00 PM</span>
-              <h3>Transition Between Companies</h3>
+              <h3>Tasting & Closing</h3>
               <p style="color: #718096; margin-top: 8px">
-                Groups move together to the next company with volunteer escorts
-                managing movement.
+                Review of the day's lessons and a fun tasting session.
               </p>
             </div>
           </div>
@@ -584,12 +584,12 @@
       // Calendar Logic
       function addToCalendar() {
         const event = {
-          title: "INNOVENTURE TOUR 1.0",
+          title: "CHOCOLATE WITH TECH",
           description:
-            "One day of exploration, discovery, and fun! Kids visit real tech companies, ask questions, try hands-on activities, and take home awesome souvenirs.",
-          location: "LetiArt",
-          startTime: "20260130T090000",
-          endTime: "20260130T140000",
+            "Join us for a sweet learning experience where technology meets chocolate! Kids will explore the science behind chocolate making.",
+          location: "TBA",
+          startTime: "20260214T090000",
+          endTime: "20260214T140000",
         };
 
         const icsContent = [
