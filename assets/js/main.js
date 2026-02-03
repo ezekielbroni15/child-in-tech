@@ -51,14 +51,35 @@ document.addEventListener("DOMContentLoaded", () => {
   const registerBtn = document.getElementById("registerBtn");
 
   if (registerBtn) {
-    registerBtn.addEventListener("click", () => {
+    registerBtn.addEventListener("click", (e) => {
+      const btn = e.currentTarget;
+      // Navigate to the parent card to find title and description
+      // Adjust the ".featured-card" selector if your structure changes
+      const card =
+        btn.closest(".featured-card") ||
+        document.querySelector(".featured-card");
+
+      let title = "Event";
+      let description = "Join us for an exciting event!";
+
+      if (card) {
+        const titleEl = card.querySelector(".featured-title");
+        const descEl = card.querySelector(".featured-desc");
+        if (titleEl) title = titleEl.innerText.trim();
+        if (descEl) description = descEl.innerText.trim();
+      }
+
+      // Get values from button data attributes, with fallbacks
+      const location = btn.getAttribute("data-location") || "TBA";
+      const startTime = btn.getAttribute("data-start") || "20260101T090000";
+      const endTime = btn.getAttribute("data-end") || "20260101T100000";
+
       const event = {
-        title: "INNOVENTURE TOUR 1.0",
-        description:
-          "One day of exploration, discovery, and fun! Kids visit real tech companies, ask questions, try hands-on activities, and take home awesome souvenirs.",
-        location: "LetiArt",
-        startTime: "20260130T090000", // YYYYMMDDTHHMMSS
-        endTime: "20260130T140000",
+        title: title,
+        description: description,
+        location: location,
+        startTime: startTime,
+        endTime: endTime,
       };
 
       const icsContent = [
@@ -90,7 +111,7 @@ document.addEventListener("DOMContentLoaded", () => {
       });
       const link = document.createElement("a");
       link.href = URL.createObjectURL(blob);
-      link.download = "innoventure_tour.ics";
+      link.download = `${title.replace(/\s+/g, "_").toLowerCase()}.ics`;
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
@@ -237,7 +258,7 @@ document.addEventListener("DOMContentLoaded", () => {
       (e) => {
         touchStartX = e.changedTouches[0].screenX;
       },
-      { passive: true }
+      { passive: true },
     );
 
     lightboxModal.addEventListener(
@@ -246,7 +267,7 @@ document.addEventListener("DOMContentLoaded", () => {
         touchEndX = e.changedTouches[0].screenX;
         handleSwipe();
       },
-      { passive: true }
+      { passive: true },
     );
   }
 
