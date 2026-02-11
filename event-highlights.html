@@ -66,25 +66,39 @@
         line-height: 1;
       }
 
-      .masonry-grid {
-        column-count: 3;
-        column-gap: 24px;
+      /* Responsive Grid for Highlights */
+      .highlights-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 32px;
       }
 
-      .masonry-item {
-        break-inside: avoid;
-        margin-bottom: 24px;
-        border-radius: 24px;
+      .highlight-item {
+        position: relative;
         overflow: hidden;
+        border-radius: 32px;
+        aspect-ratio: 4/3; /* Enforce uniform aspect ratio */
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); /* Match gallery shadow */
+        transition:
+          transform 0.3s ease,
+          box-shadow 0.3s ease;
+        background: white;
       }
 
-      .masonry-item img {
+      .highlight-item img {
         width: 100%;
+        height: 100%;
+        object-fit: cover; /* Ensure image fills the box without distortion */
         display: block;
-        transition: transform 0.3s;
+        transition: transform 0.5s ease;
       }
 
-      .masonry-item:hover img {
+      .highlight-item:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      }
+
+      .highlight-item:hover img {
         transform: scale(1.05);
       }
 
@@ -105,8 +119,9 @@
           font-size: 40px;
         }
 
-        .masonry-grid {
-          column-count: 2; /* Switch to 2 columns on tablet */
+        .highlights-grid {
+          grid-template-columns: repeat(2, 1fr); /* 2 columns on tablet */
+          gap: 20px;
         }
       }
 
@@ -117,7 +132,7 @@
         }
 
         .highlights-hero h1 {
-          font-size: 36px !important; /* Force override inline style if needed, or update inline style */
+          font-size: 36px !important;
         }
 
         .stats-strip {
@@ -130,8 +145,13 @@
           gap: 40px;
         }
 
-        .masonry-grid {
-          column-count: 1; /* Single column on mobile */
+        .highlights-grid {
+          grid-template-columns: 1fr; /* Single column on mobile */
+          gap: 20px;
+        }
+
+        .highlight-item {
+          border-radius: 24px;
         }
 
         /* Nav Overrides */
@@ -162,8 +182,9 @@
         .stat-item div:last-child {
           font-size: 24px;
         }
-        .masonry-grid {
-          column-count: 4; /* More columns on huge screens */
+        .highlights-grid {
+          grid-template-columns: repeat(4, 1fr); /* 4 columns on huge screens */
+          gap: 40px;
         }
       }
     </style>
@@ -210,57 +231,63 @@
       <div class="stats-strip">
         <div class="stats-grid">
           <div class="stat-item">
-            <div class="stat-number">500+</div>
-            <div>Students Trained</div>
+            <div class="stat-number">50+</div>
+            <div>Students Participants</div>
           </div>
           <div class="stat-item">
-            <div class="stat-number">120</div>
-            <div>Projects Built</div>
+            <div class="stat-number">3+</div>
+            <div>Hours Exploring</div>
           </div>
           <div class="stat-item">
-            <div class="stat-number">15</div>
-            <div>Partner Schools</div>
+            <div class="stat-number">8+</div>
+            <div>Sessions</div>
           </div>
         </div>
       </div>
     </div>
 
     <section class="container" style="padding-bottom: 100px">
-      <div class="masonry-grid animate-on-scroll" data-animate="up">
-        <div class="masonry-item">
+      <div class="highlights-grid animate-on-scroll" data-animate="up">
+        <div class="highlight-item">
           <img
-            src="https://images.unsplash.com/photo-1543689604-6fe8dbcd1f59?q=80&w=1080&auto=format&fit=crop"
+            src="assets/image/IMG_6627.jpg"
             alt="Highlight 1"
+            loading="lazy"
           />
         </div>
-        <div class="masonry-item">
+        <div class="highlight-item">
           <img
-            src="https://images.unsplash.com/photo-1715347783170-87337f31ef19?q=80&w=1080&auto=format&fit=crop"
+            src="assets/image/IMG_6580.jpg"
             alt="Highlight 2"
+            loading="lazy"
           />
         </div>
-        <div class="masonry-item">
+        <div class="highlight-item">
           <img
-            src="https://images.unsplash.com/photo-1581916459131-90da1f9c7162?q=80&w=1080&auto=format&fit=crop"
+            src="assets/image/IMG_6575.jpg"
             alt="Highlight 3"
+            loading="lazy"
           />
         </div>
-        <div class="masonry-item">
+        <div class="highlight-item">
           <img
-            src="https://images.unsplash.com/photo-1684009510237-02927c6d6e82?q=80&w=1080&auto=format&fit=crop"
+            src="assets/image/IMG_6594.jpg"
             alt="Highlight 4"
+            loading="lazy"
           />
         </div>
-        <div class="masonry-item">
+        <div class="highlight-item">
           <img
-            src="https://images.unsplash.com/photo-1540058404349-2e5fabf32d75?q=80&w=1080&auto=format&fit=crop"
+            src="assets/image/IMG_6600.jpg"
             alt="Highlight 5"
+            loading="lazy"
           />
         </div>
-        <div class="masonry-item">
+        <div class="highlight-item">
           <img
-            src="https://images.unsplash.com/photo-1761372981432-861b791df4dd?q=80&w=1080&auto=format&fit=crop"
+            src="assets/image/IMG_6655.jpg"
             alt="Highlight 6"
+            loading="lazy"
           />
         </div>
       </div>
