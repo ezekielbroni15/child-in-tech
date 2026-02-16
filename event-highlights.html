@@ -319,8 +319,17 @@
         const galleryGrid = document.getElementById("gallery-grid");
         galleryGrid.innerHTML = data.images
           .map(
-            (img) => `
-          <div class="highlight-item" style="min-height: 250px; width: 100%;">
+            (img, index) => `
+          <div 
+            class="highlight-item" 
+            style="
+              min-height: 250px; 
+              width: 100%; 
+              opacity: 0; 
+              animation: slideInUp 0.6s ease-out forwards; 
+              animation-delay: ${index * 0.1}s
+            "
+          >
             <img
               src="assets/image/${img}"
               alt="${data.title} Moment"
