@@ -324,11 +324,10 @@
         galleryGrid.innerHTML = data.images
           .map(
             (img) => `
-          <div class="highlight-item">
+          <div class="highlight-item" style="min-height: 250px; width: 100%;">
             <img
               src="assets/image/${img}"
               alt="${data.title} Moment"
-              loading="lazy"
             />
           </div>
         `,
