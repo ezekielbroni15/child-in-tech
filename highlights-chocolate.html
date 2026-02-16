@@ -1,0 +1,520 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chocolate with Tech Highlights - Child In Tech</title>
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="assets/image/favicon_io/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="assets/image/favicon_io/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="assets/image/favicon_io/favicon-16x16.png"
+    />
+    <link rel="manifest" href="assets/image/favicon_io/site.webmanifest" />
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Nunito:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="assets/css/global.css" />
+    <style>
+      /* Page Specific Styles */
+      .highlights-hero {
+        padding: 120px 0 80px;
+        background: #fffdf7;
+        text-align: center;
+      }
+
+      .stats-strip {
+        background: var(--primary);
+        color: white;
+        padding: 60px 0;
+        border-radius: 40px;
+        margin-bottom: 80px;
+      }
+
+      /* Stats Grid Container */
+      .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+      }
+
+      .stat-item {
+        text-align: center;
+      }
+
+      .stat-number {
+        font-size: 48px;
+        font-weight: 800;
+        margin-bottom: 8px;
+        line-height: 1;
+      }
+
+      /* Responsive Grid for Highlights */
+      .highlights-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 32px;
+      }
+
+      .highlight-item {
+        position: relative;
+        overflow: hidden;
+        border-radius: 32px;
+        aspect-ratio: 4/3; /* Enforce uniform aspect ratio */
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05); /* Match gallery shadow */
+        transition:
+          transform 0.3s ease,
+          box-shadow 0.3s ease;
+        background: white;
+      }
+
+      .highlight-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* Ensure image fills the box without distortion */
+        display: block;
+        transition: transform 0.3s ease;
+      }
+
+      .highlight-item:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      }
+
+      .highlight-item:hover img {
+        transform: scale(1.05);
+      }
+
+      /* Responsive Media Queries */
+
+      /* Tablet (1023px and below) */
+      @media (max-width: 1023px) {
+        /* Force visibility of nav elements on tablet */
+        .nav-links {
+          display: flex !important;
+        }
+
+        .highlights-hero {
+          padding: 100px 0 60px;
+        }
+
+        .stats-number {
+          font-size: 40px;
+        }
+
+        .highlights-grid {
+          grid-template-columns: repeat(2, 1fr); /* 2 columns on tablet */
+          gap: 20px;
+        }
+      }
+
+      /* Mobile (767px and below) */
+      @media (max-width: 767px) {
+        .highlights-hero {
+          padding: 80px 0 40px;
+        }
+
+        .highlights-hero h1 {
+          font-size: 36px !important;
+        }
+
+        .stats-strip {
+          padding: 40px 24px;
+          border-radius: 24px;
+        }
+
+        .stats-grid {
+          grid-template-columns: 1fr; /* Stack stats on mobile */
+          gap: 40px;
+        }
+
+        .highlights-grid {
+          grid-template-columns: 1fr; /* Single column on mobile */
+          gap: 20px;
+        }
+
+        .highlight-item {
+          border-radius: 24px;
+        }
+
+        /* Nav Overrides */
+        .mobile-visible {
+          display: flex !important;
+          margin-left: auto;
+        }
+        .nav-content {
+          justify-content: space-between;
+        }
+      }
+
+      /* 4K (3840px+) */
+      @media (min-width: 3840px) {
+        .highlights-hero {
+          padding: 240px 0 160px;
+        }
+        .highlights-hero h1 {
+          font-size: 96px !important;
+        }
+        .stats-strip {
+          padding: 100px 0;
+          border-radius: 60px;
+        }
+        .stat-number {
+          font-size: 80px;
+        }
+        .stat-item div:last-child {
+          font-size: 24px;
+        }
+        .highlights-grid {
+          grid-template-columns: repeat(4, 1fr); /* 4 columns on huge screens */
+          gap: 40px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="container nav-content">
+        <a href="index.html" class="logo-link">
+          <img src="assets/image/logo.png" alt="Logo" class="logo-img" />
+        </a>
+        <div class="nav-links mobile-visible">
+          <a href="events.html" style="font-weight: 600">Back to Events</a>
+        </div>
+      </div>
+    </nav>
+
+    <header class="highlights-hero">
+      <div class="container">
+        <h1
+          class="animate-on-scroll"
+          data-animate="up"
+          style="font-size: 56px; margin-bottom: 24px"
+        >
+          Chocolate with Tech
+        </h1>
+        <p
+          class="animate-on-scroll"
+          data-animate="up"
+          style="
+            font-size: 20px;
+            color: #718096;
+            max-width: 700px;
+            margin: 0 auto;
+          "
+        >
+          A sweet journey into technology and innovation. Relive the moments of
+          discovery and fun!
+        </p>
+      </div>
+    </header>
+
+    <div class="container animate-on-scroll" data-animate="up">
+      <div class="stats-strip">
+        <div class="stats-grid">
+          <div class="stat-item">
+            <div class="stat-number">180+</div>
+            <div>Students Participants</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">2+</div>
+            <div>Hours Exploring</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">1</div>
+            <div>Unforgettable Day</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section class="container" style="padding-bottom: 100px">
+      <div class="highlights-grid animate-on-scroll" data-animate="up">
+        <!-- Range IMG_3874 to IMG_3908 -->
+        <div class="highlight-item">
+          <img
+            src="assets/image/IMG-6656.JPG"
+            alt="Chocolate with Tech Moment"
+            loading="lazy"
+          />
+        </div>
+        <div class="highlight-item">
+          <img
+            src="assets/image/IMG-6657.JPG"
+            alt="Chocolate with Tech Moment"
+            loading="lazy"
+          />
+        </div>
+        <div class="highlight-item">
+          <img
+            src="assets/image/IMG-6658.JPG"
+            alt="Chocolate with Tech Moment"
+            loading="lazy"
+          />
+        </div>
+        <div class="highlight-item">
+          <img
+            src="assets/image/IMG-6659.JPG"
+            alt="Chocolate with Tech Moment"
+            loading="lazy"
+          />
+        </div>
+        <div class="highlight-item">
+          <img
+            src="assets/image/IMG-6662.JPG"
+            alt="Chocolate with Tech Moment"
+            loading="lazy"
+          />
+        </div>
+        <div class="highlight-item">
+          <img
+            src="assets/image/IMG-6663.JPG"
+            alt="Chocolate with Tech Moment"
+            loading="lazy"
+          />
+        </div>
+        <div class="highlight-item">
+          <img
+            src="assets/image/IMG-6668.JPG"
+            alt="Chocolate with Tech Moment"
+            loading="lazy"
+          />
+        </div>
+        <div class="highlight-item">
+          <img
+            src="assets/image/IMG-6669.JPG"
+            alt="Chocolate with Tech Moment"
+            loading="lazy"
+          />
+        </div>
+        <div class="highlight-item">
+          <img
+            src="assets/image/IMG-6670.JPG"
+            alt="Chocolate with Tech Moment"
+            loading="lazy"
+          />
+        </div>
+        <div class="highlight-item">
+          <img
+            src="assets/image/IMG-6671.JPG"
+            alt="Chocolate with Tech Moment"
+            loading="lazy"
+          />
+        </div>
+        <div class="highlight-item">
+          <img
+            src="assets/image/IMG-6673.JPG"
+            alt="Chocolate with Tech Moment"
+            loading="lazy"
+          />
+        </div>
+        <div class="highlight-item">
+          <img
+            src="assets/image/IMG-6674.JPG"
+            alt="Chocolate with Tech Moment"
+            loading="lazy"
+          />
+        </div>
+        <div class="highlight-item">
+          <img
+            src="assets/image/IMG-6676.JPG"
+            alt="Chocolate with Tech Moment"
+            loading="lazy"
+          />
+        </div>
+        <div class="highlight-item">
+          <img
+            src="assets/image/IMG-6677.JPG"
+            alt="Chocolate with Tech Moment"
+            loading="lazy"
+          />
+        </div>
+        <div class="highlight-item">
+          <img
+            src="assets/image/IMG-6678.JPG"
+            alt="Chocolate with Tech Moment"
+            loading="lazy"
+          />
+        </div>
+        <div class="highlight-item">
+          <img
+            src="assets/image/IMG-6679.JPG"
+            alt="Chocolate with Tech Moment"
+            loading="lazy"
+          />
+        </div>
+        <div class="highlight-item">
+          <img
+            src="assets/image/IMG-6680.JPG"
+            alt="Chocolate with Tech Moment"
+            loading="lazy"
+          />
+        </div>
+        <div class="highlight-item">
+          <img
+            src="assets/image/IMG-6681.JPG"
+            alt="Chocolate with Tech Moment"
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <a href="index.html" class="logo-link">
+              <img
+                src="assets/image/logo.png"
+                alt="Child In Tech Logo"
+                class="logo-img"
+              />
+            </a>
+            <p>
+              Inspiring the next generation of innovators, creators, and leaders
+              through technology education.
+            </p>
+            <div class="social-links footer-social-links">
+              <a
+                href="https://www.linkedin.com/company/child-in-tech/"
+                class="social-icon"
+                target="_blank"
+                data-media-type="banani-button"
+              >
+                <iconify-icon
+                  icon="lucide:linkedin"
+                  style="font-size: 20px"
+                ></iconify-icon>
+              </a>
+              <a
+                href="https://www.instagram.com/child_intech?igsh=MTh3azFmNGx1dTY2dA=="
+                class="social-icon"
+                target="_blank"
+                data-media-type="banani-button"
+              >
+                <iconify-icon
+                  icon="lucide:instagram"
+                  style="font-size: 20px"
+                ></iconify-icon>
+              </a>
+              <a
+                href="https://x.com/childintech?s=21"
+                class="social-icon"
+                target="_blank"
+                data-media-type="banani-button"
+              >
+                <iconify-icon
+                  icon="lucide:twitter"
+                  style="font-size: 20px"
+                ></iconify-icon>
+              </a>
+              <a
+                href="https://www.facebook.com/profile.php?id=100088884975496&mibextid=ZbWKwL"
+                class="social-icon"
+                target="_blank"
+                data-media-type="banani-button"
+              >
+                <iconify-icon
+                  icon="lucide:facebook"
+                  style="font-size: 20px"
+                ></iconify-icon>
+              </a>
+              <a
+                href="https://www.tiktok.com/@childintech23?_t=8deeEg2y9gr&_r=1"
+                class="social-icon"
+                target="_blank"
+                data-media-type="banani-button"
+              >
+                <iconify-icon
+                  icon="ic:baseline-tiktok"
+                  style="font-size: 20px"
+                ></iconify-icon>
+              </a>
+              <a
+                href="https://www.threads.net/@child_intech"
+                class="social-icon"
+                target="_blank"
+                data-media-type="banani-button"
+              >
+                <iconify-icon
+                  icon="simple-icons:threads"
+                  style="font-size: 20px"
+                ></iconify-icon>
+              </a>
+            </div>
+          </div>
+
+          <div class="footer-nav-group">
+            <div class="footer-col">
+              <h4>Company</h4>
+              <div class="footer-links">
+                <a href="about-us.html" data-media-type="banani-button"
+                  >About Us</a
+                >
+                <a href="events.html">Events</a>
+                <a href="gallery.html">Gallery</a>
+                <a href="contact-us.html">Contact</a>
+              </div>
+            </div>
+            <div class="footer-col">
+              <h4>LearnLab</h4>
+              <div class="footer-links">
+                <a href="programs.html?filter=robotics">Robotics</a>
+                <a href="programs.html?filter=coding">Coding</a>
+                <a href="programs.html?filter=ai">AI for Kids</a>
+                <a href="programs.html?filter=summer-camp">Cyber Security</a>
+              </div>
+            </div>
+            <div class="footer-col">
+              <h4>Get in Touch</h4>
+              <div class="footer-links">
+                <a
+                  href="https://maps.google.com/?q=Teiman-Abokobi,Accra,Ghana"
+                  target="_blank"
+                  >Teiman- Abokobi, Accra</a
+                >
+                <a href="tel:+233593115517">+233 593115517</a>
+                <a href="mailto:childintech@gmail.com">childintech@gmail.com</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          style="
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+            padding-top: 32px;
+            text-align: center;
+            color: #718096;
+            font-size: 14px;
+          "
+        >
+          © 2026 Child In Tech Academy. All rights reserved.
+        </div>
+      </div>
+    </footer>
+
+    <!-- Footer Copy -->
+    <script src="https://code.iconify.design/iconify-icon/3.0.0/iconify-icon.min.js"></script>
+    <script src="assets/js/main.js?v=2"></script>
+  </body>
+</html>
