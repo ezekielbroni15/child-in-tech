@@ -2,11 +2,16 @@
 // ============================================================
 //  POST /register.php — handle registration form
 // ============================================================
+// Buffer all output so PHP warnings don't corrupt our JSON
+ob_start();
+
 header('Content-Type: application/json');
+set_time_limit(60);
 require_once __DIR__ . '/db/connect.php';
 
 // --- Only accept POST
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+    ob_end_clean();
     http_response_code(405);
     echo json_encode(['success' => false, 'error' => 'Method not allowed']);
     exit;
@@ -22,6 +27,7 @@ $school    = trim(filter_input(INPUT_POST, 'school',    FILTER_SANITIZE_SPECIAL_
 
 // --- Validate required fields
 if (!$tour_id || !$full_name || !$email) {
+    ob_end_clean();
     echo json_encode(['success' => false, 'error' => 'Please fill in all required fields.']);
     exit;
 }
@@ -33,6 +39,7 @@ try {
     $tour = $stmt->fetch();
 
     if (!$tour) {
+        ob_end_clean();
         echo json_encode(['success' => false, 'error' => 'Selected tour is not available.']);
         exit;
     }
@@ -43,15 +50,24 @@ try {
     $count = (int)$stmt->fetchColumn();
 
     if ($count >= $tour['max_slots']) {
+        ob_end_clean();
         echo json_encode(['success' => false, 'error' => 'Sorry, this tour is fully booked!']);
         exit;
     }
 
-    // --- Check if email already registered for this tour
-    $stmt = $pdo->prepare("SELECT id FROM registrations WHERE tour_id = ? AND email = ?");
+    // --- Already registered? Return their existing ticket so they can still access it
+    $stmt = $pdo->prepare("SELECT ticket_id FROM registrations WHERE tour_id = ? AND email = ?");
     $stmt->execute([$tour_id, $email]);
-    if ($stmt->fetch()) {
-        echo json_encode(['success' => false, 'error' => 'This email is already registered for this tour.']);
+    $existing = $stmt->fetch();
+    if ($existing) {
+        ob_end_clean();
+        echo json_encode([
+            'success'            => true,
+            'ticket_id'          => $existing['ticket_id'],
+            'ticket_url'         => 'ticket.php?id=' . urlencode($existing['ticket_id']),
+            'email_sent'         => false,
+            'already_registered' => true,
+        ]);
         exit;
     }
 
@@ -68,25 +84,82 @@ try {
     $stmt->execute([$ticket_id, $tour_id, $full_name, $email, $phone, $age_group, $school]);
     $reg_id = $pdo->lastInsertId();
 
-    // --- Send confirmation email via PHPMailer
-    $emailSent = false;
+    // --- Build calendar links
+    $calStart = date('Ymd', strtotime($tour['tour_date'])) . 'T' . str_replace(':', '', substr($tour['time_start'], 0, 5)) . '00';
+    $calEnd   = date('Ymd', strtotime($tour['tour_date'])) . 'T' . str_replace(':', '', substr($tour['time_end'],   0, 5)) . '00';
+    $calTitle = urlencode('Innoventure Tour ' . $tour['tour_number'] . ' — Child In Tech');
+    $calLoc   = urlencode($tour['location']);
+    $calDesc  = urlencode('Ticket ID: ' . $ticket_id . '. One day of exploration at real tech companies!');
+
+    $googleCal = "https://calendar.google.com/calendar/render?action=TEMPLATE"
+               . "&text={$calTitle}&dates={$calStart}/{$calEnd}"
+               . "&location={$calLoc}&details={$calDesc}";
+    $icsUrl    = "calendar.php?ticket_id=" . urlencode($ticket_id);
+
+    // --- Build the success JSON response
+    $response = json_encode([
+        'success'    => true,
+        'ticket_id'  => $ticket_id,
+        'email_sent' => false,  // will attempt after responding
+        'ticket_url' => 'ticket.php?id=' . urlencode($ticket_id),
+        'google_cal' => $googleCal,
+        'ics_url'    => $icsUrl,
+        'registration' => [
+            'full_name'   => $full_name,
+            'email'       => $email,
+            'tour_number' => $tour['tour_number'],
+            'tour_date'   => $tour['tour_date'],
+            'time_start'  => $tour['time_start'],
+            'time_end'    => $tour['time_end'],
+            'location'    => $tour['location'],
+        ]
+    ]);
+
+    // =========================================================
+    //  RESPOND TO BROWSER IMMEDIATELY — don't make them wait
+    //  for email sending. Email happens below after flush.
+    // =========================================================
+    ob_end_clean();                        // discard any PHP warnings
+    header('Content-Length: ' . strlen($response));
+    echo $response;
+
+    // Flush response to browser right now
+    if (ob_get_level() > 0) ob_end_flush();
+    flush();
+    if (function_exists('fastcgi_finish_request')) {
+        fastcgi_finish_request();          // works on PHP-FPM
+    }
+
+    // =========================================================
+    //  NOW send the email in the background
+    //  (browser already has its response & is redirecting)
+    // =========================================================
+    ignore_user_abort(true);
+    set_time_limit(30);
+
     try {
         require_once __DIR__ . '/PHPMailer/src/PHPMailer.php';
         require_once __DIR__ . '/PHPMailer/src/SMTP.php';
         require_once __DIR__ . '/PHPMailer/src/Exception.php';
 
         $mail = new PHPMailer\PHPMailer\PHPMailer(true);
-
-        // --- Configure SMTP (update with your mail server)
         $mail->isSMTP();
-        $mail->Host       = 'smtp.gmail.com';   // Change to your SMTP host
+        $mail->Host       = 'smtp.gmail.com';
         $mail->SMTPAuth   = true;
-        $mail->Username   = 'ezekielbroni0@gmail.com';  // Your email
-        $mail->Password   = 'zqyb uezg wkyj yelh';       // Gmail App Password
+        $mail->Username   = 'broniezekiel0@gmail.com';
+        $mail->Password   = 'zqyb uezg wkyj yelh';
         $mail->SMTPSecure = PHPMailer\PHPMailer\PHPMailer::ENCRYPTION_STARTTLS;
         $mail->Port       = 587;
+        $mail->Timeout    = 20;
+        $mail->SMTPOptions = [
+            'ssl' => [
+                'verify_peer'       => false,
+                'verify_peer_name'  => false,
+                'allow_self_signed' => true,
+            ]
+        ];
 
-        $mail->setFrom('ezekielbroni0@gmail.com', 'Child In Tech');
+        $mail->setFrom('broniezekiel0@gmail.com', 'Child In Tech');
         $mail->addAddress($email, $full_name);
         $mail->isHTML(true);
 
@@ -98,44 +171,16 @@ try {
         $mail->Body    = buildEmailHTML($full_name, $ticket_id, $tour, $tourDate, $timeStart, $timeEnd);
         $mail->send();
 
-        // Mark email as sent
+        // Mark email as sent in DB
         $pdo->prepare("UPDATE registrations SET email_sent = 1 WHERE id = ?")->execute([$reg_id]);
-        $emailSent = true;
+
     } catch (Exception $e) {
-        // Email failure is non-fatal — registration still succeeds
+        // Email failed silently — registration is already saved and user has their ticket
+        // You can log this: error_log('Email failed for ' . $ticket_id . ': ' . $e->getMessage());
     }
 
-    // Build calendar links
-    $calStart  = date('Ymd', strtotime($tour['tour_date'])) . 'T' . str_replace(':', '', substr($tour['time_start'], 0, 5)) . '00';
-    $calEnd    = date('Ymd', strtotime($tour['tour_date'])) . 'T' . str_replace(':', '', substr($tour['time_end'],   0, 5)) . '00';
-    $calTitle  = urlencode('Innoventure Tour ' . $tour['tour_number'] . ' — Child In Tech');
-    $calLoc    = urlencode($tour['location']);
-    $calDesc   = urlencode('Ticket ID: ' . $ticket_id . '. One day of exploration at real tech companies!');
-
-    $googleCal = "https://calendar.google.com/calendar/render?action=TEMPLATE"
-               . "&text={$calTitle}&dates={$calStart}/{$calEnd}"
-               . "&location={$calLoc}&details={$calDesc}";
-    $icsUrl    = "calendar.php?ticket_id=" . urlencode($ticket_id);
-
-    echo json_encode([
-        'success'    => true,
-        'ticket_id'  => $ticket_id,
-        'email_sent' => $emailSent,
-        'ticket_url' => 'ticket.php?id=' . urlencode($ticket_id),
-        'google_cal' => $googleCal,
-        'ics_url'    => $icsUrl,
-        'registration' => [
-            'full_name'  => $full_name,
-            'email'      => $email,
-            'tour_number'=> $tour['tour_number'],
-            'tour_date'  => $tour['tour_date'],
-            'time_start' => $tour['time_start'],
-            'time_end'   => $tour['time_end'],
-            'location'   => $tour['location'],
-        ]
-    ]);
-
 } catch (PDOException $e) {
+    ob_end_clean();
     http_response_code(500);
     echo json_encode(['success' => false, 'error' => 'Registration failed. Please try again.']);
 }
@@ -144,7 +189,7 @@ try {
 //  Email HTML Template
 // ============================================================
 function buildEmailHTML($name, $ticket_id, $tour, $tourDate, $timeStart, $timeEnd) {
-    $tourNum = htmlspecialchars($tour['tour_number']);
+    $tourNum  = htmlspecialchars($tour['tour_number']);
     $location = htmlspecialchars($tour['location']);
     return "
     <div style='font-family: Inter, Arial, sans-serif; max-width: 600px; margin: 0 auto; background: #f8faff; padding: 32px 16px;'>
@@ -155,7 +200,7 @@ function buildEmailHTML($name, $ticket_id, $tour, $tourDate, $timeStart, $timeEn
       </div>
       <div style='background: white; border-radius: 0 0 20px 20px; padding: 32px; box-shadow: 0 4px 20px rgba(0,0,0,0.08);'>
         <p style='font-size: 16px; color: #333;'>Hi <strong>" . htmlspecialchars($name) . "</strong>,</p>
-        <p style='color: #555; line-height: 1.6;'>Your spot is confirmed for the Innoventure Tour {$tourNum}. Show your ticket at the event for entry.</p>
+        <p style='color: #555; line-height: 1.6;'>Your spot is confirmed for Innoventure Tour {$tourNum}. Show your ticket at the event for entry.</p>
         <div style='background: #f0f4ff; border-radius: 12px; padding: 20px; margin: 24px 0; text-align: center;'>
           <div style='font-family: monospace; font-size: 22px; font-weight: 700; color: #1a73e8; letter-spacing: 2px;'>{$ticket_id}</div>
           <div style='color: #888; font-size: 12px; margin-top: 4px;'>Ticket ID</div>
@@ -165,8 +210,8 @@ function buildEmailHTML($name, $ticket_id, $tour, $tourDate, $timeStart, $timeEn
           <tr><td style='padding: 8px 0; color: #888; font-size: 14px;'>⏰ Time</td><td style='padding: 8px 0; font-weight: 600;'>{$timeStart} – {$timeEnd}</td></tr>
           <tr><td style='padding: 8px 0; color: #888; font-size: 14px;'>📍 Location</td><td style='padding: 8px 0; font-weight: 600;'>{$location}</td></tr>
         </table>
-        <a href='https://childintech.com/ticket.php?id={$ticket_id}' style='display: block; background: linear-gradient(135deg, #1a73e8, #0d47a1); color: white; text-align: center; padding: 14px; border-radius: 10px; text-decoration: none; font-weight: 600; margin-top: 24px;'>View &amp; Download Your Ticket →</a>
-        <p style='color: #aaa; font-size: 12px; text-align: center; margin-top: 24px;'>Child In Tech Academy · childintech@gmail.com</p>
+        <a href='http://localhost/tech/ticket.php?id={$ticket_id}' style='display: block; background: linear-gradient(135deg, #1a73e8, #0d47a1); color: white; text-align: center; padding: 14px; border-radius: 10px; text-decoration: none; font-weight: 600; margin-top: 24px;'>View &amp; Download Your Ticket →</a>
+        <p style='color: #aaa; font-size: 12px; text-align: center; margin-top: 24px;'>Child In Tech Academy · broniezekiel0@gmail.com</p>
       </div>
     </div>";
 }
