@@ -157,7 +157,7 @@ $icsUrl    = "calendar.php?ticket_id=" . urlencode($reg['ticket_id']);
             <div class="ticket-qr-section">
               <?php
                 $qrData = urlencode($ticket_id);
-                $qrUrl  = "https://api.qrserver.com/v1/create-qr-code/?size=120x120&margin=4&color=0d-47-a1&bgcolor=ffffff&data={$qrData}";
+                $qrUrl  = "https://api.qrserver.com/v1/create-qr-code/?size=140x140&margin=6&color=0d47a1&bgcolor=ffffff&data={$qrData}";
               ?>
               <img
                 src="<?= $qrUrl ?>"
