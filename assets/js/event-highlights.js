@@ -47,6 +47,24 @@ const eventsData = {
       "IMG_6655.JPG",
     ],
   },
+  innoventure2: {
+    title: "Innoventure Tour 2.0",
+    description:
+      "An incredible day of exploration at Ghana Labs — kids experienced real tech companies, hands-on activities, and took home awesome souvenirs!",
+    stats: [
+      { value: "50+", label: "Students Participants" },
+      { value: "5+", label: "Hours Exploring" },
+      { value: "1", label: "Unforgettable Day" },
+    ],
+    images: [
+      "IMG_6627.JPG",
+      "IMG_6580.JPG",
+      "IMG_6575.JPG",
+      "IMG_6594.JPG",
+      "IMG_6600.JPG",
+      "IMG_6655.JPG",
+    ],
+  },
 };
 
 function loadEvent() {
