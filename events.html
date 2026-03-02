@@ -32,6 +32,7 @@
 
     <!-- CSS -->
     <link rel="stylesheet" href="assets/css/global.css" />
+    <link rel="stylesheet" href="assets/css/register.css" />
     <link rel="stylesheet" href="assets/css/events.css" />
   </head>
   <body>
@@ -138,12 +139,9 @@
               <button
                 id="registerBtn"
                 class="btn btn-primary"
-                data-media-type="banani-button"
-                data-start="20260307T090000"
-                data-end="20260307T140000"
-                data-location="TBA"
+                data-open-register
               >
-                Register Now
+                Secure Your Slot
               </button>
               <a
                 href="event-details.html"
@@ -744,7 +742,127 @@
       <a href="programs.html" class="btn btn-primary">Join Our Programs</a>
     </div>
 
+    <!-- ========== Registration Modal ========== -->
+    <div class="reg-overlay" id="regOverlay">
+      <div
+        class="reg-modal"
+        id="regModal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="regModalTitle"
+      >
+        <div class="reg-modal-header">
+          <div>
+            <h2 id="regModalTitle">Register for Innoventure Tour</h2>
+            <p>
+              Pick your Saturday, fill in your details, and get your ticket
+              instantly.
+            </p>
+          </div>
+          <button class="reg-close-btn" id="regCloseBtn" aria-label="Close">
+            ✕
+          </button>
+        </div>
+        <div id="regFormWrap">
+          <form class="reg-form" id="regForm" novalidate>
+            <div class="reg-field">
+              <label for="regTourSelect"
+                >Choose a Saturday <span class="required">*</span></label
+              >
+              <div class="reg-tour-select-wrap">
+                <select id="regTourSelect" name="tour_id" required>
+                  <option value="">Loading available dates…</option>
+                </select>
+              </div>
+            </div>
+            <div class="slot-bar-wrap" id="slotBarWrap">
+              <div class="slot-bar">
+                <div
+                  class="slot-bar-fill"
+                  id="slotBarFill"
+                  style="width: 0%"
+                ></div>
+              </div>
+              <div class="slot-text" id="slotText">-- slots left</div>
+            </div>
+            <div class="reg-input-row">
+              <div class="reg-field">
+                <label for="regFullName"
+                  >Full Name <span class="required">*</span></label
+                >
+                <input
+                  type="text"
+                  id="regFullName"
+                  name="full_name"
+                  placeholder="e.g. Ama Owusu"
+                  required
+                  autocomplete="name"
+                />
+              </div>
+              <div class="reg-field">
+                <label for="regEmail"
+                  >Email Address <span class="required">*</span></label
+                >
+                <input
+                  type="email"
+                  id="regEmail"
+                  name="email"
+                  placeholder="you@example.com"
+                  required
+                  autocomplete="email"
+                />
+              </div>
+            </div>
+            <div class="reg-input-row">
+              <div class="reg-field">
+                <label for="regPhone">Phone Number</label>
+                <input
+                  type="tel"
+                  id="regPhone"
+                  name="phone"
+                  placeholder="+233 XX XXX XXXX"
+                  autocomplete="tel"
+                />
+              </div>
+              <div class="reg-field">
+                <label for="regAgeGroup">Age Group</label>
+                <select id="regAgeGroup" name="age_group">
+                  <option value="">Select age range</option>
+                  <option value="6-9">6 – 9 years</option>
+                  <option value="10-12">10 – 12 years</option>
+                  <option value="13-15">13 – 15 years</option>
+                  <option value="16-17">16 – 17 years</option>
+                  <option value="parent">Parent / Guardian</option>
+                </select>
+              </div>
+            </div>
+            <div class="reg-field">
+              <label for="regSchool">School / Organization</label>
+              <input
+                type="text"
+                id="regSchool"
+                name="school"
+                placeholder="e.g. Accra Academy"
+                autocomplete="organization"
+              />
+            </div>
+            <div class="reg-error-msg" id="regError" role="alert"></div>
+            <button type="submit" class="reg-submit-btn" id="regSubmitBtn">
+              <div class="reg-spinner"></div>
+              <span class="reg-btn-text">Secure Your Slot →</span>
+            </button>
+            <p class="reg-terms">
+              By registering you agree to be contacted about this event. Your
+              information is kept private and not shared.
+            </p>
+          </form>
+        </div>
+      </div>
+    </div>
+    <!-- ===================================== -->
+
     <script src="https://code.iconify.design/iconify-icon/3.0.0/iconify-icon.min.js"></script>
-    <script src="assets/js/main.js?v=2"></script>
+    <script src="assets/js/main.js?v=3"></script>
+    <script src="assets/js/register.js?v=2"></script>
   </body>
 </html>

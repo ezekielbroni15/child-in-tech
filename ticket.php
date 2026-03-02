@@ -177,8 +177,27 @@ $icsUrl    = "calendar.php?ticket_id=" . urlencode($reg['ticket_id']);
     const TICKET_ID = <?= json_encode($reg['ticket_id']) ?>;
     const TOUR_NUM  = <?= json_encode($tourNum) ?>;
     let qrReady     = false;
+    let logoBase64  = null;
 
-    // ── Generate QR Code ──────────────────────────────────────
+    // ── Pre-load logo as base64 so html2canvas never has CORS issues ──
+    (function preloadLogo() {
+      const img = new Image();
+      img.crossOrigin = 'anonymous';
+      img.onload = function () {
+        try {
+          const c = document.createElement('canvas');
+          c.width  = img.naturalWidth;
+          c.height = img.naturalHeight;
+          c.getContext('2d').drawImage(img, 0, 0);
+          logoBase64 = c.toDataURL('image/png');
+        } catch(e) {
+          // If tainted, just leave null — html2canvas will still try
+        }
+      };
+      img.src = 'assets/image/logo.png?' + Date.now(); // cache-bust
+    })();
+
+    // ── Generate QR Code ──────────────────────────────────────────────
     QRCode.toCanvas(document.createElement('canvas'), TICKET_ID, {
       width: 120,
       margin: 1,
@@ -193,9 +212,7 @@ $icsUrl    = "calendar.php?ticket_id=" . urlencode($reg['ticket_id']);
       }
     });
 
-    // ── Download as PNG ───────────────────────────────────────
-    // We wait until QR is rendered, then use html2canvas.
-    // backgroundColor must be white (not null) for a proper PNG.
+    // ── Download as PNG ───────────────────────────────────────────────
     document.getElementById('downloadBtn').addEventListener('click', () => {
       const btn = document.getElementById('downloadBtn');
 
@@ -203,49 +220,53 @@ $icsUrl    = "calendar.php?ticket_id=" . urlencode($reg['ticket_id']);
         btn.textContent = 'Generating…';
         btn.disabled = true;
 
-        // Short delay so any pending repaints finish
         setTimeout(() => {
           html2canvas(document.getElementById('ticketCard'), {
-            scale: 3,
+            scale: 2,
             useCORS: true,
-            allowTaint: true,
+            allowTaint: false,
             backgroundColor: '#ffffff',
             logging: false,
+            imageTimeout: 0,
             onclone: (clonedDoc) => {
-              // Make sure the cloned ticket has explicit white bg
+              // Force white background
               const el = clonedDoc.getElementById('ticketCard');
-              if (el) el.style.backgroundColor = '#ffffff';
+              if (el) {
+                el.style.backgroundColor = '#ffffff';
+                el.style.boxShadow = 'none';
+              }
+              // Swap logo src to base64 to avoid any cross-origin block
+              if (logoBase64) {
+                clonedDoc.querySelectorAll('.ticket-logo').forEach(img => {
+                  img.src = logoBase64;
+                });
+              }
             }
           }).then(canvas => {
-            const link      = document.createElement('a');
-            link.download   = 'CIT-Ticket-' + TICKET_ID + '.png';
-            link.href       = canvas.toDataURL('image/png');
+            const link    = document.createElement('a');
+            link.download = 'CIT-Ticket-' + TICKET_ID + '.png';
+            link.href     = canvas.toDataURL('image/png');
             link.click();
-            btn.innerHTML   = '⬇ Download Ticket (PNG)';
-            btn.disabled    = false;
-          }).catch(err => {
-            console.error('Download failed:', err);
             btn.innerHTML = '⬇ Download Ticket (PNG)';
             btn.disabled  = false;
-            alert('Download failed. Please try again or take a screenshot.');
+          }).catch(err => {
+            console.error('html2canvas error:', err);
+            btn.innerHTML = '⬇ Download Ticket (PNG)';
+            btn.disabled  = false;
+            alert('Could not generate PNG. Please take a screenshot instead.');
           });
-        }, 200);
+        }, 300);
       }
 
-      // Wait for QR to be ready if not yet
       if (qrReady) {
         doCapture();
       } else {
         btn.textContent = 'Preparing…';
         btn.disabled = true;
-        const check = setInterval(() => {
-          if (qrReady) {
-            clearInterval(check);
-            doCapture();
-          }
+        const poll = setInterval(() => {
+          if (qrReady) { clearInterval(poll); doCapture(); }
         }, 100);
-        // Give up after 3s
-        setTimeout(() => { clearInterval(check); doCapture(); }, 3000);
+        setTimeout(() => { clearInterval(poll); doCapture(); }, 4000);
       }
     });
   </script>

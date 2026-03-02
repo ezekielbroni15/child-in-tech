@@ -10,7 +10,7 @@
 
 .ticket-page-wrapper {
   min-height: calc(100vh - 80px);
-  padding: 40px 20px 80px;
+  padding: 100px 20px 80px; /* top: clear fixed navbar (~80px) + extra breathing room */
   background: linear-gradient(145deg, #e8f0fe 0%, #f0f4ff 50%, #fce8ff 100%);
   display: flex;
   flex-direction: column;
@@ -312,11 +312,16 @@
 }
 
 .ticket-btn {
-  flex: 1;
-  min-width: 180px;
+  flex: 1 1 auto;
+  min-width: 160px;
+  max-width: 260px;
   text-align: center;
-  font-size: 14px;
+  font-size: 13px;
   white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-left: 14px;
+  padding-right: 14px;
 }
 
 .ticket-note {

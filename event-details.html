@@ -307,7 +307,7 @@
           class="btn btn-primary mobile-visible-btn"
           data-open-register
         >
-          Register
+          Secure Your Slot
         </button>
       </div>
     </nav>
@@ -631,119 +631,122 @@
           </button>
         </div>
 
-        <form class="reg-form" id="regForm" novalidate>
-          <!-- Tour Selection -->
-          <div class="reg-field">
-            <label for="regTourSelect"
-              >Choose a Saturday <span class="required">*</span></label
-            >
-            <div class="reg-tour-select-wrap">
-              <select id="regTourSelect" name="tour_id" required>
-                <option value="">Loading available dates…</option>
-              </select>
-            </div>
-          </div>
-
-          <!-- Slot Bar -->
-          <div class="slot-bar-wrap" id="slotBarWrap">
-            <div class="slot-bar">
-              <div
-                class="slot-bar-fill"
-                id="slotBarFill"
-                style="width: 0%"
-              ></div>
-            </div>
-            <div class="slot-text" id="slotText">-- slots left</div>
-          </div>
-
-          <!-- Name + Email -->
-          <div class="reg-input-row">
+        <div id="regFormWrap">
+          <form class="reg-form" id="regForm" novalidate>
+            <!-- Tour Selection -->
             <div class="reg-field">
-              <label for="regFullName"
-                >Full Name <span class="required">*</span></label
+              <label for="regTourSelect"
+                >Choose a Saturday <span class="required">*</span></label
               >
+              <div class="reg-tour-select-wrap">
+                <select id="regTourSelect" name="tour_id" required>
+                  <option value="">Loading available dates…</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Slot Bar -->
+            <div class="slot-bar-wrap" id="slotBarWrap">
+              <div class="slot-bar">
+                <div
+                  class="slot-bar-fill"
+                  id="slotBarFill"
+                  style="width: 0%"
+                ></div>
+              </div>
+              <div class="slot-text" id="slotText">-- slots left</div>
+            </div>
+
+            <!-- Name + Email -->
+            <div class="reg-input-row">
+              <div class="reg-field">
+                <label for="regFullName"
+                  >Full Name <span class="required">*</span></label
+                >
+                <input
+                  type="text"
+                  id="regFullName"
+                  name="full_name"
+                  placeholder="e.g. Ama Owusu"
+                  required
+                  autocomplete="name"
+                />
+              </div>
+              <div class="reg-field">
+                <label for="regEmail"
+                  >Email Address <span class="required">*</span></label
+                >
+                <input
+                  type="email"
+                  id="regEmail"
+                  name="email"
+                  placeholder="you@example.com"
+                  required
+                  autocomplete="email"
+                />
+              </div>
+            </div>
+
+            <!-- Phone + Age Group -->
+            <div class="reg-input-row">
+              <div class="reg-field">
+                <label for="regPhone">Phone Number</label>
+                <input
+                  type="tel"
+                  id="regPhone"
+                  name="phone"
+                  placeholder="+233 XX XXX XXXX"
+                  autocomplete="tel"
+                />
+              </div>
+              <div class="reg-field">
+                <label for="regAgeGroup">Age Group</label>
+                <select id="regAgeGroup" name="age_group">
+                  <option value="">Select age range</option>
+                  <option value="6-9">6 – 9 years</option>
+                  <option value="10-12">10 – 12 years</option>
+                  <option value="13-15">13 – 15 years</option>
+                  <option value="16-17">16 – 17 years</option>
+                  <option value="parent">Parent / Guardian</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- School -->
+            <div class="reg-field">
+              <label for="regSchool">School / Organization</label>
               <input
                 type="text"
-                id="regFullName"
-                name="full_name"
-                placeholder="e.g. Ama Owusu"
-                required
-                autocomplete="name"
+                id="regSchool"
+                name="school"
+                placeholder="e.g. Accra Academy"
+                autocomplete="organization"
               />
             </div>
-            <div class="reg-field">
-              <label for="regEmail"
-                >Email Address <span class="required">*</span></label
-              >
-              <input
-                type="email"
-                id="regEmail"
-                name="email"
-                placeholder="you@example.com"
-                required
-                autocomplete="email"
-              />
-            </div>
-          </div>
 
-          <!-- Phone + Age Group -->
-          <div class="reg-input-row">
-            <div class="reg-field">
-              <label for="regPhone">Phone Number</label>
-              <input
-                type="tel"
-                id="regPhone"
-                name="phone"
-                placeholder="+233 XX XXX XXXX"
-                autocomplete="tel"
-              />
-            </div>
-            <div class="reg-field">
-              <label for="regAgeGroup">Age Group</label>
-              <select id="regAgeGroup" name="age_group">
-                <option value="">Select age range</option>
-                <option value="6-9">6 – 9 years</option>
-                <option value="10-12">10 – 12 years</option>
-                <option value="13-15">13 – 15 years</option>
-                <option value="16-17">16 – 17 years</option>
-                <option value="parent">Parent / Guardian</option>
-              </select>
-            </div>
-          </div>
+            <!-- Error message -->
+            <div class="reg-error-msg" id="regError" role="alert"></div>
 
-          <!-- School -->
-          <div class="reg-field">
-            <label for="regSchool">School / Organization</label>
-            <input
-              type="text"
-              id="regSchool"
-              name="school"
-              placeholder="e.g. Accra Academy"
-              autocomplete="organization"
-            />
-          </div>
+            <!-- Submit -->
+            <button type="submit" class="reg-submit-btn" id="regSubmitBtn">
+              <div class="reg-spinner"></div>
+              <span class="reg-btn-text">Secure Your Slot →</span>
+            </button>
 
-          <!-- Error message -->
-          <div class="reg-error-msg" id="regError" role="alert"></div>
-
-          <!-- Submit -->
-          <button type="submit" class="reg-submit-btn" id="regSubmitBtn">
-            <div class="reg-spinner"></div>
-            <span class="reg-btn-text">Register Now →</span>
-          </button>
-
-          <p class="reg-terms">
-            By registering you agree to be contacted about this event. Your
-            information is kept private and not shared.
-          </p>
-        </form>
+            <p class="reg-terms">
+              By registering you agree to be contacted about this event. Your
+              information is kept private and not shared.
+            </p>
+          </form>
+        </div>
+        <!-- /regFormWrap -->
       </div>
     </div>
     <!-- ========================================= -->
 
     <script src="https://code.iconify.design/iconify-icon/3.0.0/iconify-icon.min.js"></script>
-    <script src="assets/js/main.js?v=2"></script>
-    <script src="assets/js/event-details.js"></script>
-    <script src="assets/js/register.js"></script>
+    <script src="assets/js/main.js?v=3"></script>
+    <script src="assets/js/event-details.js?v=2"></script>
+    <script src="assets/js/register.js?v=2"></script>
   </body>
 </html>
