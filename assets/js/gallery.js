@@ -104,6 +104,17 @@ const galleryImages = [
   { src: "IMG-6680.jpg", category: "events" },
   { src: "IMG-6681.jpg", category: "events" },
 
+  // Batch 5 (Innoventure 2.0 - IMG-6682 to IMG-6690)
+  { src: "IMG-6682.jpg", category: "events" },
+  { src: "IMG-6683.jpg", category: "events" },
+  { src: "IMG-6684.jpg", category: "events" },
+  { src: "IMG-6685.jpg", category: "events" },
+  { src: "IMG-6686.jpg", category: "events" },
+  { src: "IMG-6687.jpg", category: "events" },
+  { src: "IMG-6688.jpg", category: "events" },
+  { src: "IMG-6689.jpg", category: "events" },
+  { src: "IMG-6690.jpg", category: "events" },
+
   // Misc
   { src: "img.jpg", category: "fun" },
   { src: "img-2.jpg", category: "events" },
