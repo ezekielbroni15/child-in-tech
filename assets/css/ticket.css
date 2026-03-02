@@ -8,9 +8,14 @@
   box-sizing: border-box;
 }
 
+/* Override global body padding — ticket page needs to clear the fixed navbar */
+body {
+  padding-top: 0 !important;
+}
+
 .ticket-page-wrapper {
-  min-height: calc(100vh - 80px);
-  padding: 100px 20px 80px; /* top: clear fixed navbar (~80px) + extra breathing room */
+  min-height: 100vh;
+  padding: 80px 20px 80px; /* 80px top = navbar height on desktop */
   background: linear-gradient(145deg, #e8f0fe 0%, #f0f4ff 50%, #fce8ff 100%);
   display: flex;
   flex-direction: column;
@@ -372,7 +377,7 @@
 /* Mobile */
 @media (max-width: 480px) {
   .ticket-page-wrapper {
-    padding: 20px 12px 60px;
+    padding: 75px 12px 60px; /* 75px top clears 60px fixed navbar */
   }
   .ticket-card {
     flex-direction: column;

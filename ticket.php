@@ -147,9 +147,10 @@ $icsUrl    = "calendar.php?ticket_id=" . urlencode($reg['ticket_id']);
 
       <!-- Action Buttons -->
       <div class="ticket-actions">
-        <button id="downloadBtn" class="btn btn-primary ticket-btn">
+        <a href="ticket-png.php?id=<?= urlencode($ticket_id) ?>" download
+           class="btn btn-primary ticket-btn">
           ⬇ Download Ticket (PNG)
-        </button>
+        </a>
         <a href="<?= $googleCal ?>" target="_blank" class="btn btn-outline ticket-btn">
           📅 Add to Google Calendar
         </a>
@@ -168,10 +169,8 @@ $icsUrl    = "calendar.php?ticket_id=" . urlencode($reg['ticket_id']);
 
   <!-- QR Code library -->
   <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
-  <!-- html2canvas for PNG download -->
-  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
   <script src="https://code.iconify.design/iconify-icon/3.0.0/iconify-icon.min.js"></script>
-  <script src="assets/js/main.js?v=2"></script>
+  <script src="assets/js/main.js?v=3"></script>
 
   <script>
     const TICKET_ID = <?= json_encode($reg['ticket_id']) ?>;
