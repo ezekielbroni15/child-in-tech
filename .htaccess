@@ -1,0 +1,37 @@
+# ============================================================
+#  Child In Tech — Apache Security Rules
+# ============================================================
+
+# --- Security Headers ---
+<IfModule mod_headers.c>
+    Header always set X-Content-Type-Options "nosniff"
+    Header always set X-Frame-Options "SAMEORIGIN"
+    Header always set X-XSS-Protection "1; mode=block"
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+    Header always set Permissions-Policy "camera=(), microphone=(), geolocation=()"
+</IfModule>
+
+# --- Block direct access to sensitive files ---
+<FilesMatch "^(email_log\.txt|\.env|db\.sql|.*\.log)$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# --- Block access to PHPMailer internals ---
+<FilesMatch "^(SMTP|Exception|OAuth|POP3|DSNConfigurator|OAuthTokenProvider)\.php$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# --- Block directory listings ---
+Options -Indexes
+
+# --- Block access to db/ folder ---
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteRule ^db/.*$ - [F,L]
+</IfModule>
+
+# --- Prevent PHP error details leaking ---
+php_flag display_errors Off
+php_flag log_errors On

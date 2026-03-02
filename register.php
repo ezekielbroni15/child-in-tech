@@ -116,31 +116,16 @@ try {
     ]);
 
     // =========================================================
-    //  RESPOND TO BROWSER IMMEDIATELY — don't make them wait
-    //  for email sending. Email happens below after flush.
+    //  SEND EMAIL (synchronous, short timeout so it doesn't hang long)
     // =========================================================
-    ob_end_clean();                        // discard any PHP warnings
-    header('Content-Length: ' . strlen($response));
-    echo $response;
-
-    // Flush response to browser right now
-    if (ob_get_level() > 0) ob_end_flush();
-    flush();
-    if (function_exists('fastcgi_finish_request')) {
-        fastcgi_finish_request();          // works on PHP-FPM
-    }
-
-    // =========================================================
-    //  NOW send the email in the background
-    //  (browser already has its response & is redirecting)
-    // =========================================================
-    ignore_user_abort(true);
-    set_time_limit(30);
+    $email_sent = false;
+    $email_error = '';
+    $logFile = __DIR__ . '/email_log.txt';
 
     try {
-        require_once __DIR__ . '/PHPMailer/src/PHPMailer.php';
-        require_once __DIR__ . '/PHPMailer/src/SMTP.php';
-        require_once __DIR__ . '/PHPMailer/src/Exception.php';
+        require_once __DIR__ . '/PHPMailer/PHPMailer.php';
+        require_once __DIR__ . '/PHPMailer/SMTP.php';
+        require_once __DIR__ . '/PHPMailer/Exception.php';
 
         $mail = new PHPMailer\PHPMailer\PHPMailer(true);
         $mail->isSMTP();
@@ -150,7 +135,7 @@ try {
         $mail->Password   = 'zqybuezgwkyjyelh';
         $mail->SMTPSecure = PHPMailer\PHPMailer\PHPMailer::ENCRYPTION_STARTTLS;
         $mail->Port       = 587;
-        $mail->Timeout    = 20;
+        $mail->Timeout    = 10;
         $mail->SMTPOptions = [
             'ssl' => [
                 'verify_peer'       => false,
@@ -171,13 +156,20 @@ try {
         $mail->Body    = buildEmailHTML($full_name, $ticket_id, $tour, $tourDate, $timeStart, $timeEnd);
         $mail->send();
 
-        // Mark email as sent in DB
+        $email_sent = true;
         $pdo->prepare("UPDATE registrations SET email_sent = 1 WHERE id = ?")->execute([$reg_id]);
+        file_put_contents($logFile, date('[Y-m-d H:i:s]') . " EMAIL OK to $email for $ticket_id\n", FILE_APPEND);
 
     } catch (Exception $e) {
-        // Email failed silently — registration is already saved and user has their ticket
-        // You can log this: error_log('Email failed for ' . $ticket_id . ': ' . $e->getMessage());
+        $email_error = $e->getMessage();
+        file_put_contents($logFile, date('[Y-m-d H:i:s]') . " EMAIL FAIL to $email for $ticket_id: $email_error\n", FILE_APPEND);
     }
+
+    // =========================================================
+    //  RESPOND TO BROWSER
+    // =========================================================
+    ob_end_clean();
+    echo $response;
 
 } catch (PDOException $e) {
     ob_end_clean();
