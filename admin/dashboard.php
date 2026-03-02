@@ -39,6 +39,7 @@ $recent = $pdo->query("
 <body class="admin-body">
 
   <?php include 'partials/sidebar.php'; ?>
+  <?php include 'partials/topbar.php'; ?>
 
   <main class="admin-main">
     <div class="admin-topbar">
@@ -159,5 +160,6 @@ $recent = $pdo->query("
   </main>
 
   <script src="https://code.iconify.design/iconify-icon/3.0.0/iconify-icon.min.js"></script>
+  <script src="../assets/js/admin-mobile.js"></script>
 </body>
 </html>

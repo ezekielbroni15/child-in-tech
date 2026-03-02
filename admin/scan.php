@@ -65,6 +65,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 <body class="admin-body">
   <?php include 'partials/sidebar.php'; ?>
+  <?php include 'partials/topbar.php'; ?>
   <main class="admin-main">
     <div class="admin-topbar">
       <div>
@@ -117,5 +118,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <!-- html5-qrcode library -->
   <script src="https://cdn.jsdelivr.net/npm/html5-qrcode@2.3.8/html5-qrcode.min.js"></script>
   <script src="../assets/js/scan.js"></script>
+  <script src="../assets/js/admin-mobile.js"></script>
 </body>
 </html>

@@ -56,6 +56,7 @@ $tours = $pdo->query("
 </head>
 <body class="admin-body">
   <?php include 'partials/sidebar.php'; ?>
+  <?php include 'partials/topbar.php'; ?>
   <main class="admin-main">
     <div class="admin-topbar">
       <div>
@@ -166,5 +167,6 @@ $tours = $pdo->query("
       </div>
     </div>
   </main>
+  <script src="../assets/js/admin-mobile.js"></script>
 </body>
 </html>

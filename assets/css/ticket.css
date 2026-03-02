@@ -1,38 +1,44 @@
 /* ============================================================
-   ticket.css — Ticket Page Styles
+   ticket.css — Ticket Page Styles (Full Responsive Rewrite)
    ============================================================ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 
 .ticket-page-wrapper {
   min-height: calc(100vh - 80px);
-  padding: 40px 16px 80px;
+  padding: 40px 20px 80px;
   background: linear-gradient(145deg, #e8f0fe 0%, #f0f4ff 50%, #fce8ff 100%);
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-/* Success Banner */
+/* ── Success Banner ─────────────────────────────────────────── */
 .ticket-success-banner {
   display: flex;
   align-items: center;
   gap: 20px;
   background: white;
   border-radius: 20px;
-  padding: 24px 32px;
-  max-width: 720px;
+  padding: 22px 28px;
+  max-width: 780px;
   width: 100%;
-  margin-bottom: 32px;
+  margin-bottom: 28px;
   box-shadow: 0 4px 24px rgba(26, 115, 232, 0.12);
   border-left: 5px solid #1a73e8;
 }
 
 .success-check {
-  width: 56px;
-  height: 56px;
+  width: 52px;
+  height: 52px;
   border-radius: 50%;
   background: linear-gradient(135deg, #1a73e8, #0d47a1);
   color: white;
-  font-size: 24px;
+  font-size: 22px;
   font-weight: 700;
   display: flex;
   align-items: center;
@@ -41,11 +47,10 @@
 }
 
 .ticket-success-banner h1 {
-  font-size: 22px;
+  font-size: 20px;
   margin: 0 0 4px;
   color: #1a1a2e;
 }
-
 .ticket-success-banner p {
   margin: 0;
   color: #4a5568;
@@ -53,24 +58,22 @@
 }
 
 .ticket-outer {
-  max-width: 720px;
+  max-width: 780px;
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 24px;
+  gap: 20px;
 }
 
-/* ============================================================
-   The Ticket Card
-   ============================================================ */
+/* ── The Ticket Card ────────────────────────────────────────── */
 .ticket-card {
   width: 100%;
   background: white;
   border-radius: 24px;
   box-shadow:
-    0 20px 60px rgba(26, 115, 232, 0.2),
-    0 4px 20px rgba(0, 0, 0, 0.08);
+    0 20px 60px rgba(26, 115, 232, 0.18),
+    0 4px 20px rgba(0, 0, 0, 0.07);
   display: flex;
   overflow: hidden;
   position: relative;
@@ -79,7 +82,7 @@
 
 /* Left colored strip */
 .ticket-strip {
-  width: 40px;
+  width: 44px;
   background: linear-gradient(180deg, #1a73e8 0%, #0d47a1 50%, #7b2ff7 100%);
   display: flex;
   align-items: center;
@@ -88,7 +91,7 @@
 }
 
 .ticket-strip-text {
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(255, 255, 255, 0.65);
   font-size: 9px;
   font-weight: 600;
   letter-spacing: 3px;
@@ -96,29 +99,28 @@
   transform: rotate(180deg);
   text-transform: uppercase;
   white-space: nowrap;
-  font-family: "Space Grotesk", monospace;
 }
 
 /* Body */
 .ticket-body {
   flex: 1;
-  padding: 32px;
+  padding: 32px 36px;
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  position: relative;
+  gap: 22px;
   background:
     radial-gradient(
-      circle at 90% 10%,
-      rgba(26, 115, 232, 0.05) 0%,
-      transparent 50%
+      circle at 95% 8%,
+      rgba(26, 115, 232, 0.06) 0%,
+      transparent 45%
     ),
     radial-gradient(
-      circle at 10% 90%,
+      circle at 5% 92%,
       rgba(123, 47, 247, 0.05) 0%,
-      transparent 50%
+      transparent 45%
     ),
     white;
+  min-width: 0; /* prevent flex overflow */
 }
 
 /* Header row */
@@ -126,27 +128,29 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 12px;
 }
 
 .ticket-logo-area {
   display: flex;
   align-items: center;
   gap: 12px;
+  flex: 1;
+  min-width: 0;
 }
 
 .ticket-logo {
-  height: 44px;
+  height: 40px;
   width: auto;
   object-fit: contain;
+  flex-shrink: 0;
 }
-
 .ticket-org {
   font-size: 15px;
   font-weight: 700;
   color: #1a1a2e;
   letter-spacing: -0.3px;
 }
-
 .ticket-event-tag {
   font-size: 10px;
   font-weight: 600;
@@ -156,20 +160,20 @@
 }
 
 .ticket-tour-badge {
-  width: 72px;
-  height: 72px;
+  width: 68px;
+  height: 68px;
   border-radius: 50%;
   background: linear-gradient(135deg, #1a73e8, #7b2ff7);
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  box-shadow: 0 4px 16px rgba(26, 115, 232, 0.4);
+  box-shadow: 0 4px 16px rgba(26, 115, 232, 0.35);
 }
 
 .ticket-tour-num {
   color: white;
-  font-size: 22px;
+  font-size: 20px;
   font-weight: 800;
   letter-spacing: -1px;
 }
@@ -188,32 +192,31 @@
   letter-spacing: 2px;
   color: #8899bb;
   text-transform: uppercase;
-  margin-bottom: 4px;
+  margin-bottom: 5px;
 }
 
 .ticket-name {
-  font-size: 28px;
+  font-size: 30px;
   font-weight: 800;
   color: #1a1a2e;
   letter-spacing: -0.5px;
   line-height: 1.1;
+  word-break: break-word;
 }
 
-/* Details row */
+/* Details row — 3 columns on desktop */
 .ticket-details-row {
-  display: flex;
-  gap: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   border: 1px solid #e8eef8;
   border-radius: 14px;
   overflow: hidden;
 }
 
 .ticket-detail-item {
-  flex: 1;
   padding: 14px 16px;
   border-right: 1px solid #e8eef8;
 }
-
 .ticket-detail-item:last-child {
   border-right: none;
 }
@@ -222,18 +225,17 @@
   font-size: 13px;
   font-weight: 600;
   color: #1a1a2e;
-  margin-top: 2px;
-  line-height: 1.3;
+  margin-top: 3px;
+  line-height: 1.35;
 }
 
 /* Perforated divider */
 .ticket-perforation {
   height: 0;
   border-top: 2px dashed #d0daf0;
-  margin: 4px -32px;
+  margin: 0 -36px;
   position: relative;
 }
-
 .ticket-perforation::before,
 .ticket-perforation::after {
   content: "";
@@ -245,7 +247,6 @@
   background: linear-gradient(145deg, #e8f0fe, #f0f4ff);
   border-radius: 50%;
 }
-
 .ticket-perforation::before {
   left: -52px;
 }
@@ -253,12 +254,12 @@
   right: -52px;
 }
 
-/* Bottom: ID + QR */
+/* Bottom: ID + QR side by side */
 .ticket-bottom {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 16px;
+  gap: 20px;
 }
 
 .ticket-id-section {
@@ -267,7 +268,7 @@
 
 .ticket-id-code {
   font-family: "Space Grotesk", monospace;
-  font-size: 18px;
+  font-size: 17px;
   font-weight: 700;
   color: #1a73e8;
   letter-spacing: 1px;
@@ -276,6 +277,7 @@
   padding: 8px 14px;
   border-radius: 10px;
   display: inline-block;
+  word-break: break-all;
 }
 
 .ticket-qr-section {
@@ -283,11 +285,13 @@
   flex-direction: column;
   align-items: center;
   gap: 6px;
+  flex-shrink: 0;
 }
 
 .ticket-qr-section canvas {
   border-radius: 10px;
   border: 3px solid #e8f0ff;
+  display: block;
 }
 
 .ticket-qr-label {
@@ -298,9 +302,7 @@
   text-transform: uppercase;
 }
 
-/* ============================================================
-   Action Buttons
-   ============================================================ */
+/* ── Action Buttons ─────────────────────────────────────────── */
 .ticket-actions {
   display: flex;
   flex-wrap: wrap;
@@ -311,7 +313,7 @@
 
 .ticket-btn {
   flex: 1;
-  min-width: 200px;
+  min-width: 180px;
   text-align: center;
   font-size: 14px;
   white-space: nowrap;
@@ -325,18 +327,67 @@
   line-height: 1.6;
 }
 
-/* ============================================================
-   Responsive
-   ============================================================ */
-@media (max-width: 600px) {
+/* ── Responsive ─────────────────────────────────────────────── */
+
+/* Tablet */
+@media (max-width: 700px) {
   .ticket-body {
-    padding: 20px;
+    padding: 22px 20px;
+    gap: 16px;
   }
   .ticket-name {
     font-size: 22px;
   }
   .ticket-details-row {
+    grid-template-columns: 1fr 1fr;
+  }
+  .ticket-detail-item:nth-child(3) {
+    border-top: 1px solid #e8eef8;
+    grid-column: 1 / -1;
+    border-right: none;
+  }
+  .ticket-tour-badge {
+    width: 56px;
+    height: 56px;
+  }
+  .ticket-tour-num {
+    font-size: 17px;
+  }
+  .ticket-perforation {
+    margin: 0 -20px;
+  }
+  .ticket-perforation::before {
+    left: -42px;
+  }
+  .ticket-perforation::after {
+    right: -42px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .ticket-page-wrapper {
+    padding: 20px 12px 60px;
+  }
+  .ticket-card {
     flex-direction: column;
+  }
+  .ticket-strip {
+    width: 100%;
+    height: 10px;
+    background: linear-gradient(90deg, #1a73e8 0%, #0d47a1 50%, #7b2ff7 100%);
+  }
+  .ticket-strip-text {
+    display: none;
+  }
+  .ticket-body {
+    padding: 20px 16px;
+  }
+  .ticket-name {
+    font-size: 20px;
+  }
+  .ticket-details-row {
+    grid-template-columns: 1fr;
   }
   .ticket-detail-item {
     border-right: none;
@@ -349,20 +400,25 @@
     flex-direction: column-reverse;
     align-items: flex-start;
   }
-  .ticket-tour-badge {
-    width: 56px;
-    height: 56px;
+  .ticket-perforation {
+    margin: 0 -16px;
   }
-  .ticket-tour-num {
-    font-size: 18px;
+  .ticket-perforation::before {
+    left: -38px;
+  }
+  .ticket-perforation::after {
+    right: -38px;
+  }
+  .ticket-id-code {
+    font-size: 13px;
   }
   .ticket-success-banner {
     flex-direction: column;
     text-align: center;
-    padding: 20px;
+    padding: 18px;
   }
   .ticket-btn {
-    min-width: 160px;
+    min-width: 140px;
     font-size: 13px;
   }
 }

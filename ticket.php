@@ -170,41 +170,84 @@ $icsUrl    = "calendar.php?ticket_id=" . urlencode($reg['ticket_id']);
   <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
   <!-- html2canvas for PNG download -->
   <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+  <script src="https://code.iconify.design/iconify-icon/3.0.0/iconify-icon.min.js"></script>
+  <script src="assets/js/main.js?v=2"></script>
 
   <script>
-    const TICKET_ID  = <?= json_encode($reg['ticket_id']) ?>;
-    const TOUR_NUM   = <?= json_encode($tourNum) ?>;
-    const NAME       = <?= json_encode($reg['full_name']) ?>;
+    const TICKET_ID = <?= json_encode($reg['ticket_id']) ?>;
+    const TOUR_NUM  = <?= json_encode($tourNum) ?>;
+    let qrReady     = false;
 
-    // Generate QR code
+    // ── Generate QR Code ──────────────────────────────────────
     QRCode.toCanvas(document.createElement('canvas'), TICKET_ID, {
-      width: 110,
+      width: 120,
       margin: 1,
       color: { dark: '#0d47a1', light: '#ffffff' }
     }, (err, canvas) => {
-      if (!err) document.getElementById('qrCode').appendChild(canvas);
+      if (!err) {
+        canvas.style.borderRadius = '10px';
+        canvas.style.border = '3px solid #e8f0ff';
+        canvas.style.display = 'block';
+        document.getElementById('qrCode').appendChild(canvas);
+        qrReady = true;
+      }
     });
 
-    // Download as PNG
+    // ── Download as PNG ───────────────────────────────────────
+    // We wait until QR is rendered, then use html2canvas.
+    // backgroundColor must be white (not null) for a proper PNG.
     document.getElementById('downloadBtn').addEventListener('click', () => {
       const btn = document.getElementById('downloadBtn');
-      btn.textContent = 'Generating…';
-      btn.disabled = true;
-      html2canvas(document.getElementById('ticketCard'), {
-        scale: 3,
-        useCORS: true,
-        backgroundColor: null,
-      }).then(canvas => {
-        const link = document.createElement('a');
-        link.download = 'CIT-Ticket-' + TICKET_ID + '.png';
-        link.href = canvas.toDataURL('image/png');
-        link.click();
-        btn.textContent = '⬇ Download Ticket (PNG)';
-        btn.disabled = false;
-      });
+
+      function doCapture() {
+        btn.textContent = 'Generating…';
+        btn.disabled = true;
+
+        // Short delay so any pending repaints finish
+        setTimeout(() => {
+          html2canvas(document.getElementById('ticketCard'), {
+            scale: 3,
+            useCORS: true,
+            allowTaint: true,
+            backgroundColor: '#ffffff',
+            logging: false,
+            onclone: (clonedDoc) => {
+              // Make sure the cloned ticket has explicit white bg
+              const el = clonedDoc.getElementById('ticketCard');
+              if (el) el.style.backgroundColor = '#ffffff';
+            }
+          }).then(canvas => {
+            const link      = document.createElement('a');
+            link.download   = 'CIT-Ticket-' + TICKET_ID + '.png';
+            link.href       = canvas.toDataURL('image/png');
+            link.click();
+            btn.innerHTML   = '⬇ Download Ticket (PNG)';
+            btn.disabled    = false;
+          }).catch(err => {
+            console.error('Download failed:', err);
+            btn.innerHTML = '⬇ Download Ticket (PNG)';
+            btn.disabled  = false;
+            alert('Download failed. Please try again or take a screenshot.');
+          });
+        }, 200);
+      }
+
+      // Wait for QR to be ready if not yet
+      if (qrReady) {
+        doCapture();
+      } else {
+        btn.textContent = 'Preparing…';
+        btn.disabled = true;
+        const check = setInterval(() => {
+          if (qrReady) {
+            clearInterval(check);
+            doCapture();
+          }
+        }, 100);
+        // Give up after 3s
+        setTimeout(() => { clearInterval(check); doCapture(); }, 3000);
+      }
     });
   </script>
-  <script src="https://code.iconify.design/iconify-icon/3.0.0/iconify-icon.min.js"></script>
-  <script src="assets/js/main.js?v=2"></script>
 </body>
 </html>

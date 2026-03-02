@@ -36,6 +36,7 @@ $tours = $pdo->query("SELECT id, tour_number, tour_date FROM tours ORDER BY tour
 </head>
 <body class="admin-body">
   <?php include 'partials/sidebar.php'; ?>
+  <?php include 'partials/topbar.php'; ?>
   <main class="admin-main">
     <div class="admin-topbar">
       <div>
@@ -98,6 +99,7 @@ $tours = $pdo->query("SELECT id, tour_number, tour_date FROM tours ORDER BY tour
       </div>
     </div>
   </main>
+  <script src="../assets/js/admin-mobile.js"></script>
 </body>
 </html>
 <?php
