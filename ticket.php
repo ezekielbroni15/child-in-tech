@@ -155,7 +155,17 @@ $icsUrl    = "calendar.php?ticket_id=" . urlencode($reg['ticket_id']);
               <div class="ticket-detail-value">Innoventure <?= $tourNum ?></div>
             </div>
             <div class="ticket-qr-section">
-              <div id="qrCode"></div>
+              <?php
+                $qrData = urlencode($ticket_id);
+                $qrUrl  = "https://api.qrserver.com/v1/create-qr-code/?size=120x120&margin=4&color=0d-47-a1&bgcolor=ffffff&data={$qrData}";
+              ?>
+              <img
+                src="<?= $qrUrl ?>"
+                alt="QR Code for <?= htmlspecialchars($ticket_id) ?>"
+                id="qrCode"
+                width="120" height="120"
+                style="border-radius:10px;border:3px solid #e8f0ff;display:block;"
+              />
               <div class="ticket-qr-label">Scan to verify</div>
             </div>
           </div>
@@ -183,33 +193,12 @@ $icsUrl    = "calendar.php?ticket_id=" . urlencode($reg['ticket_id']);
     </div>
   </main>
 
-  <!-- QR Code library -->
-  <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
   <script src="https://code.iconify.design/iconify-icon/3.0.0/iconify-icon.min.js"></script>
   <script src="assets/js/main.js?v=3"></script>
 
   <script>
-    const TICKET_ID = <?= json_encode($reg['ticket_id']) ?>;
-    const TOUR_NUM  = <?= json_encode($tourNum) ?>;
-
-    // ── Print / Save ticket ───────────────────────────────────────────
-    function printTicket() {
-      window.print();
-    }
-
-    // ── Generate QR Code ──────────────────────────────────────────────
-    QRCode.toCanvas(document.createElement('canvas'), TICKET_ID, {
-      width: 120,
-      margin: 1,
-      color: { dark: '#0d47a1', light: '#ffffff' }
-    }, (err, canvas) => {
-      if (!err) {
-        canvas.style.borderRadius = '10px';
-        canvas.style.border = '3px solid #e8f0ff';
-        canvas.style.display = 'block';
-        document.getElementById('qrCode').appendChild(canvas);
-      }
-    });
+    // ── Print / Save ticket ────────────────────────────────────
+    function printTicket() { window.print(); }
   </script>
 </body>
 </html>
