@@ -1,0 +1,368 @@
+/* ============================================================
+   ticket.css — Ticket Page Styles
+   ============================================================ */
+
+.ticket-page-wrapper {
+  min-height: calc(100vh - 80px);
+  padding: 40px 16px 80px;
+  background: linear-gradient(145deg, #e8f0fe 0%, #f0f4ff 50%, #fce8ff 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Success Banner */
+.ticket-success-banner {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background: white;
+  border-radius: 20px;
+  padding: 24px 32px;
+  max-width: 720px;
+  width: 100%;
+  margin-bottom: 32px;
+  box-shadow: 0 4px 24px rgba(26, 115, 232, 0.12);
+  border-left: 5px solid #1a73e8;
+}
+
+.success-check {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #1a73e8, #0d47a1);
+  color: white;
+  font-size: 24px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.ticket-success-banner h1 {
+  font-size: 22px;
+  margin: 0 0 4px;
+  color: #1a1a2e;
+}
+
+.ticket-success-banner p {
+  margin: 0;
+  color: #4a5568;
+  font-size: 14px;
+}
+
+.ticket-outer {
+  max-width: 720px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+/* ============================================================
+   The Ticket Card
+   ============================================================ */
+.ticket-card {
+  width: 100%;
+  background: white;
+  border-radius: 24px;
+  box-shadow:
+    0 20px 60px rgba(26, 115, 232, 0.2),
+    0 4px 20px rgba(0, 0, 0, 0.08);
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  font-family: "Space Grotesk", "Inter", sans-serif;
+}
+
+/* Left colored strip */
+.ticket-strip {
+  width: 40px;
+  background: linear-gradient(180deg, #1a73e8 0%, #0d47a1 50%, #7b2ff7 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.ticket-strip-text {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  text-transform: uppercase;
+  white-space: nowrap;
+  font-family: "Space Grotesk", monospace;
+}
+
+/* Body */
+.ticket-body {
+  flex: 1;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  position: relative;
+  background:
+    radial-gradient(
+      circle at 90% 10%,
+      rgba(26, 115, 232, 0.05) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 10% 90%,
+      rgba(123, 47, 247, 0.05) 0%,
+      transparent 50%
+    ),
+    white;
+}
+
+/* Header row */
+.ticket-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.ticket-logo-area {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.ticket-logo {
+  height: 44px;
+  width: auto;
+  object-fit: contain;
+}
+
+.ticket-org {
+  font-size: 15px;
+  font-weight: 700;
+  color: #1a1a2e;
+  letter-spacing: -0.3px;
+}
+
+.ticket-event-tag {
+  font-size: 10px;
+  font-weight: 600;
+  color: #1a73e8;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.ticket-tour-badge {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #1a73e8, #7b2ff7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 4px 16px rgba(26, 115, 232, 0.4);
+}
+
+.ticket-tour-num {
+  color: white;
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: -1px;
+}
+
+/* Attendee name */
+.ticket-name-section {
+  padding: 16px 20px;
+  background: linear-gradient(135deg, #f0f4ff, #f8f0ff);
+  border-radius: 14px;
+  border: 1px solid rgba(26, 115, 232, 0.1);
+}
+
+.ticket-label {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #8899bb;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.ticket-name {
+  font-size: 28px;
+  font-weight: 800;
+  color: #1a1a2e;
+  letter-spacing: -0.5px;
+  line-height: 1.1;
+}
+
+/* Details row */
+.ticket-details-row {
+  display: flex;
+  gap: 0;
+  border: 1px solid #e8eef8;
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.ticket-detail-item {
+  flex: 1;
+  padding: 14px 16px;
+  border-right: 1px solid #e8eef8;
+}
+
+.ticket-detail-item:last-child {
+  border-right: none;
+}
+
+.ticket-detail-value {
+  font-size: 13px;
+  font-weight: 600;
+  color: #1a1a2e;
+  margin-top: 2px;
+  line-height: 1.3;
+}
+
+/* Perforated divider */
+.ticket-perforation {
+  height: 0;
+  border-top: 2px dashed #d0daf0;
+  margin: 4px -32px;
+  position: relative;
+}
+
+.ticket-perforation::before,
+.ticket-perforation::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 24px;
+  height: 24px;
+  background: linear-gradient(145deg, #e8f0fe, #f0f4ff);
+  border-radius: 50%;
+}
+
+.ticket-perforation::before {
+  left: -52px;
+}
+.ticket-perforation::after {
+  right: -52px;
+}
+
+/* Bottom: ID + QR */
+.ticket-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.ticket-id-section {
+  flex: 1;
+}
+
+.ticket-id-code {
+  font-family: "Space Grotesk", monospace;
+  font-size: 18px;
+  font-weight: 700;
+  color: #1a73e8;
+  letter-spacing: 1px;
+  margin-top: 4px;
+  background: #f0f4ff;
+  padding: 8px 14px;
+  border-radius: 10px;
+  display: inline-block;
+}
+
+.ticket-qr-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.ticket-qr-section canvas {
+  border-radius: 10px;
+  border: 3px solid #e8f0ff;
+}
+
+.ticket-qr-label {
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: #8899bb;
+  text-transform: uppercase;
+}
+
+/* ============================================================
+   Action Buttons
+   ============================================================ */
+.ticket-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  width: 100%;
+}
+
+.ticket-btn {
+  flex: 1;
+  min-width: 200px;
+  text-align: center;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.ticket-note {
+  text-align: center;
+  font-size: 13px;
+  color: #718096;
+  max-width: 560px;
+  line-height: 1.6;
+}
+
+/* ============================================================
+   Responsive
+   ============================================================ */
+@media (max-width: 600px) {
+  .ticket-body {
+    padding: 20px;
+  }
+  .ticket-name {
+    font-size: 22px;
+  }
+  .ticket-details-row {
+    flex-direction: column;
+  }
+  .ticket-detail-item {
+    border-right: none;
+    border-bottom: 1px solid #e8eef8;
+  }
+  .ticket-detail-item:last-child {
+    border-bottom: none;
+  }
+  .ticket-bottom {
+    flex-direction: column-reverse;
+    align-items: flex-start;
+  }
+  .ticket-tour-badge {
+    width: 56px;
+    height: 56px;
+  }
+  .ticket-tour-num {
+    font-size: 18px;
+  }
+  .ticket-success-banner {
+    flex-direction: column;
+    text-align: center;
+    padding: 20px;
+  }
+  .ticket-btn {
+    min-width: 160px;
+    font-size: 13px;
+  }
+}
