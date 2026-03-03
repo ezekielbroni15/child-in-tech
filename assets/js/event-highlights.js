@@ -49,7 +49,7 @@ const eventsData = {
   },
   innoventure2: {
     title: "Innoventure Tour 2.0",
-    description: `An unforgettable day of exploration at Ghana Code Club! The kids stepped inside a real tech environment, participated in a hands-on mini robotics workshop, asked all their curious questions, and left with exciting souvenirs to remember the experience.`,
+    description: `An unforgettable day at Ghana Code Club — hands-on robotics, real tech, curious minds, and souvenirs to remember it by.`,
     stats: [
       { value: "50+", label: "Students Participants" },
       { value: "5+", label: "Hours Exploring" },
