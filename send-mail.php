@@ -44,7 +44,7 @@ try {
     $mail->isSMTP();
     $mail->Host       = 'mail.childintech.org'; // Your domain SMTP server
     $mail->SMTPAuth   = true;
-    $mai+l->Username   = 'info@childintech.org'; // Your domain email
+    $mail->Username   = 'info@childintech.org'; // Your domain email
     $mail->Password   = 'j$UeC/nCeS7'; // Set your cPanel/hosting email password
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
     $mail->Port       = 465;
