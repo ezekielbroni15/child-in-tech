@@ -3,8 +3,8 @@
 --  Run this in phpMyAdmin on database: cit_innoventure
 -- ============================================================
 
-CREATE DATABASE IF NOT EXISTS cit_innoventure CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-USE cit_innoventure;
+CREATE DATABASE IF NOT EXISTS u275225649_cit_innoventur CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+USE u275225649_cit_innoventur;
 
 -- Tours (created by admin)
 CREATE TABLE IF NOT EXISTS tours (
@@ -49,7 +49,7 @@ CREATE TABLE IF NOT EXISTS admin_users (
 
 -- Seed default admin: username=admin  password=citadmin2026
 INSERT IGNORE INTO admin_users (username, password_hash)
-VALUES ('admin', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi');
+VALUES ('admin', '$2y$10$tGecq8AFWaj3.YH0yDNda.BuDCXxzMF1LDsp5w2yOumEOV/TKNM1Tu');
 -- NOTE: Change this password immediately via phpMyAdmin or the admin portal!
 -- The hash above is for "password" — replace with your real hash.
 -- To generate: php -r "echo password_hash('yourpassword', PASSWORD_DEFAULT);"

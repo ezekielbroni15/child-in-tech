@@ -3,9 +3,9 @@
 //  Database Connection — Child In Tech
 // ============================================================
 define('DB_HOST', 'localhost');
-define('DB_NAME', 'cit_innoventure');
-define('DB_USER', 'root');       // default XAMPP user
-define('DB_PASS', '');           // default XAMPP password (blank)
+define('DB_NAME', 'u275225649_cit_innoventur');
+define('DB_USER', 'u275225649_cit_innoventur');
+define('DB_PASS', 'K3@b34Sh^@d');
 
 try {
     $pdo = new PDO(

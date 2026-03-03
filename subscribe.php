@@ -38,16 +38,16 @@ $mail = new PHPMailer(true);
 try {
     // Server settings
     $mail->isSMTP();
-    $mail->Host       = 'smtp.gmail.com';
+    $mail->Host       = 'mail.childintech.org'; // Your domain SMTP server
     $mail->SMTPAuth   = true;
-    $mail->Username   = 'broniezekiel0@gmail.com'; // Your Gmail address (Sender)
-    $mail->Password   = 'xdas kahv agtl cgdo'; // App Password
+    $mail->Username   = 'support@childintech.org'; // Your domain email
+    $mail->Password   = 'YOUR_EMAIL_PASSWORD_HERE'; // Set your cPanel/hosting email password
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
     $mail->Port       = 465;
 
     // Recipients
-    $mail->setFrom('broniezekiel0@gmail.com', 'Child in Tech Website');
-    $mail->addAddress('broniezekiel0@gmail.com');     // Destination Address
+    $mail->setFrom('support@childintech.org', 'Child in Tech');
+    $mail->addAddress('support@childintech.org');     // Newsletter subscriptions go here
     $mail->addReplyTo($email);
 
     // Content
