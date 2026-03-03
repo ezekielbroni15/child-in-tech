@@ -30,6 +30,28 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $active = (int)($_POST['new_active'] ?? 0);
         $pdo->prepare("UPDATE tours SET is_active = ? WHERE id = ?")->execute([$active, $id]);
         $msg = 'Tour status updated.';
+    } elseif ($action === 'update') {
+        $id         = (int)($_POST['tour_id'] ?? 0);
+        $tour_number = trim($_POST['tour_number'] ?? '');
+        $tour_date   = $_POST['tour_date'] ?? '';
+        $time_start  = $_POST['time_start'] ?? '09:00';
+        $time_end    = $_POST['time_end'] ?? '14:00';
+        $location    = trim($_POST['location'] ?? 'TBA');
+        $max_slots   = max(1, (int)($_POST['max_slots'] ?? 50));
+        $is_active   = isset($_POST['is_active']) ? 1 : 0;
+        if ($id && $tour_number && $tour_date) {
+            try {
+                $stmt = $pdo->prepare("UPDATE tours SET tour_number=?, tour_date=?, time_start=?, time_end=?, location=?, max_slots=?, is_active=? WHERE id=?");
+                $stmt->execute([$tour_number, $tour_date, $time_start, $time_end, $location, $max_slots, $is_active, $id]);
+                $msg = 'Tour ' . htmlspecialchars($tour_number) . ' updated successfully!';
+            } catch (PDOException $e) {
+                $msg = 'Error: ' . $e->getMessage();
+                $msgType = 'error';
+            }
+        } else {
+            $msg = 'Missing required fields for update.';
+            $msgType = 'error';
+        }
     } elseif ($action === 'delete') {
         $id = (int)($_POST['tour_id'] ?? 0);
         $pdo->prepare("DELETE FROM tours WHERE id = ?")->execute([$id]);
@@ -144,6 +166,21 @@ $tours = $pdo->query("
                 </span>
               </td>
               <td class="action-cell">
+                <!-- Edit Button -->
+                <button class="admin-btn-edit" type="button"
+                  onclick="openEditModal({
+                    id:         '<?= $t['id'] ?>',
+                    tour_number:'<?= addslashes(htmlspecialchars($t['tour_number'])) ?>',
+                    tour_date:  '<?= $t['tour_date'] ?>',
+                    time_start: '<?= substr($t['time_start'],0,5) ?>',
+                    time_end:   '<?= substr($t['time_end'],0,5) ?>',
+                    location:   '<?= addslashes(htmlspecialchars($t['location'])) ?>',
+                    max_slots:  '<?= $t['max_slots'] ?>',
+                    is_active:  <?= $t['is_active'] ? 'true' : 'false' ?>
+                  })">
+                  ✏️ Edit
+                </button>
+                <!-- Toggle Active -->
                 <form method="POST" style="display:inline">
                   <input type="hidden" name="action" value="toggle"/>
                   <input type="hidden" name="tour_id" value="<?= $t['id'] ?>"/>
@@ -167,6 +204,88 @@ $tours = $pdo->query("
       </div>
     </div>
   </main>
+
+  <!-- ===== Edit Tour Modal ===== -->
+  <div class="edit-modal-overlay" id="editModalOverlay">
+    <div class="edit-modal-card">
+      <div class="edit-modal-header">
+        <h2>✏️ Edit Tour</h2>
+        <button class="edit-modal-close" onclick="closeEditModal()" title="Close">✕</button>
+      </div>
+      <form method="POST" id="editTourForm">
+        <input type="hidden" name="action" value="update"/>
+        <input type="hidden" name="tour_id" id="edit_tour_id"/>
+        <div class="edit-modal-body">
+          <div class="edit-modal-field">
+            <label>Tour Number *</label>
+            <input type="text" name="tour_number" id="edit_tour_number" placeholder="e.g. 3.0" required/>
+          </div>
+          <div class="edit-modal-field">
+            <label>Date *</label>
+            <input type="date" name="tour_date" id="edit_tour_date" required/>
+          </div>
+          <div class="edit-modal-field">
+            <label>Start Time</label>
+            <input type="time" name="time_start" id="edit_time_start"/>
+          </div>
+          <div class="edit-modal-field">
+            <label>End Time</label>
+            <input type="time" name="time_end" id="edit_time_end"/>
+          </div>
+          <div class="edit-modal-field full">
+            <label>Location</label>
+            <input type="text" name="location" id="edit_location" placeholder="TBA or specific venue"/>
+          </div>
+          <div class="edit-modal-field">
+            <label>Max Slots</label>
+            <input type="number" name="max_slots" id="edit_max_slots" min="1" max="500"/>
+          </div>
+          <div class="edit-modal-field" style="align-self:center">
+            <label class="checkbox-label" style="margin-top:20px">
+              <input type="checkbox" name="is_active" id="edit_is_active"/>
+              Active (visible to users)
+            </label>
+          </div>
+        </div>
+        <div class="edit-modal-footer">
+          <button type="button" class="admin-btn admin-btn-outline" onclick="closeEditModal()">Cancel</button>
+          <button type="submit" class="admin-btn admin-btn-primary">💾 Save Changes</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
   <script src="../assets/js/admin-mobile.js"></script>
+  <script>
+    const overlay = document.getElementById('editModalOverlay');
+
+    function openEditModal(tour) {
+      document.getElementById('edit_tour_id').value     = tour.id;
+      document.getElementById('edit_tour_number').value = tour.tour_number;
+      document.getElementById('edit_tour_date').value   = tour.tour_date;
+      document.getElementById('edit_time_start').value  = tour.time_start;
+      document.getElementById('edit_time_end').value    = tour.time_end;
+      document.getElementById('edit_location').value    = tour.location;
+      document.getElementById('edit_max_slots').value   = tour.max_slots;
+      document.getElementById('edit_is_active').checked = tour.is_active;
+      overlay.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeEditModal() {
+      overlay.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    // Close when clicking the backdrop
+    overlay.addEventListener('click', function(e) {
+      if (e.target === overlay) closeEditModal();
+    });
+
+    // Close with Escape key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeEditModal();
+    });
+  </script>
 </body>
 </html>

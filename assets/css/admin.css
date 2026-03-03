@@ -1124,3 +1124,142 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* ============================================================
+   Edit Tour Modal
+   ============================================================ */
+.edit-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 14, 40, 0.55);
+  backdrop-filter: blur(4px);
+  z-index: 9000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.22s ease;
+}
+.edit-modal-overlay.open {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.edit-modal-card {
+  background: var(--surface);
+  border-radius: 22px;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.25);
+  width: 100%;
+  max-width: 560px;
+  margin: 16px;
+  transform: translateY(20px) scale(0.97);
+  transition: transform 0.22s ease;
+  overflow: hidden;
+}
+.edit-modal-overlay.open .edit-modal-card {
+  transform: translateY(0) scale(1);
+}
+
+.edit-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px 16px;
+  border-bottom: 1px solid var(--border);
+}
+.edit-modal-header h2 {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.edit-modal-close {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: none;
+  background: var(--bg);
+  color: var(--muted);
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    background 0.15s,
+    color 0.15s;
+}
+.edit-modal-close:hover {
+  background: #fef2f2;
+  color: var(--red);
+}
+
+.edit-modal-body {
+  padding: 20px 24px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+.edit-modal-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.edit-modal-field.full {
+  grid-column: 1 / -1;
+}
+.edit-modal-field label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--muted);
+  letter-spacing: 0.3px;
+}
+.edit-modal-field input {
+  padding: 10px 13px;
+  border: 1.5px solid var(--border);
+  border-radius: 10px;
+  font-size: 14px;
+  font-family: inherit;
+  color: var(--text);
+  background: var(--bg);
+  transition: border-color 0.2s;
+}
+.edit-modal-field input:focus {
+  outline: none;
+  border-color: var(--blue);
+  background: white;
+}
+
+.edit-modal-footer {
+  padding: 14px 24px 20px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  border-top: 1px solid var(--border);
+}
+
+/* Edit icon button */
+.admin-btn-edit {
+  background: #f0fdf4;
+  color: #16a34a;
+  border: 1px solid #bbf7d0;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  transition:
+    background 0.15s,
+    border-color 0.15s;
+}
+.admin-btn-edit:hover {
+  background: #dcfce7;
+  border-color: #86efac;
+}
