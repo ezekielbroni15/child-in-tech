@@ -131,8 +131,8 @@ try {
         $mail->isSMTP();
         $mail->Host       = 'mail.childintech.org'; // Your domain SMTP server
         $mail->SMTPAuth   = true;
-        $mail->Username   = 'support@childintech.org';
-        $mail->Password   = 'YOUR_EMAIL_PASSWORD_HERE'; // Set your cPanel/hosting email password
+        $mail->Username   = 'info@childintech.org';
+        $mail->Password   = 'j$UeC/nCeS7'; // Set your cPanel/hosting email password
         $mail->SMTPSecure = PHPMailer\PHPMailer\PHPMailer::ENCRYPTION_SMTPS;
         $mail->Port       = 465;
         $mail->Timeout    = 10;
@@ -144,7 +144,7 @@ try {
             ]
         ];
 
-        $mail->setFrom('support@childintech.org', 'Child In Tech');
+        $mail->setFrom('info@childintech.org', 'Child In Tech');
         $mail->addAddress($email, $full_name);
         $mail->isHTML(true);
 
@@ -203,7 +203,7 @@ function buildEmailHTML($name, $ticket_id, $tour, $tourDate, $timeStart, $timeEn
           <tr><td style='padding: 8px 0; color: #888; font-size: 14px;'>📍 Location</td><td style='padding: 8px 0; font-weight: 600;'>{$location}</td></tr>
         </table>
         <a href='https://childintech.org/ticket.php?id={$ticket_id}' style='display: block; background: linear-gradient(135deg, #1a73e8, #0d47a1); color: white; text-align: center; padding: 14px; border-radius: 10px; text-decoration: none; font-weight: 600; margin-top: 24px;'>View &amp; Download Your Ticket →</a>
-        <p style='color: #aaa; font-size: 12px; text-align: center; margin-top: 24px;'>Child In Tech Academy · support@childintech.org</p>
+        <p style='color: #aaa; font-size: 12px; text-align: center; margin-top: 24px;'>Child In Tech Academy · info@childintech.org</p>
       </div>
     </div>";
 }

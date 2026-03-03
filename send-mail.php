@@ -44,14 +44,14 @@ try {
     $mail->isSMTP();
     $mail->Host       = 'mail.childintech.org'; // Your domain SMTP server
     $mail->SMTPAuth   = true;
-    $mail->Username   = 'support@childintech.org'; // Your domain email
-    $mail->Password   = 'YOUR_EMAIL_PASSWORD_HERE'; // Set your cPanel/hosting email password
+    $mai+l->Username   = 'info@childintech.org'; // Your domain email
+    $mail->Password   = 'j$UeC/nCeS7'; // Set your cPanel/hosting email password
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
     $mail->Port       = 465;
 
     // Recipients
-    $mail->setFrom('support@childintech.org', 'Child in Tech');
-    $mail->addAddress('support@childintech.org');     // Contact form messages go here
+    $mail->setFrom('info@childintech.org', 'Child in Tech');
+    $mail->addAddress('info@childintech.org');     // Contact form messages go here
     $mail->addReplyTo($email, $name);
 
     // Content
