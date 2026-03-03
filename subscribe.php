@@ -38,7 +38,7 @@ $mail = new PHPMailer(true);
 try {
     // Server settings
     $mail->isSMTP();
-    $mail->Host       = 'mail.childintech.org'; // Your domain SMTP server
+    $mail->Host       = 'smtp.hostinger.com'; // Your domain SMTP server
     $mail->SMTPAuth   = true;
     $mail->Username   = 'info@childintech.org'; // Your domain email
     $mail->Password   = 'j$UeC/nCeS7'; // Set your cPanel/hosting email password

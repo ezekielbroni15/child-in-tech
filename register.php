@@ -129,7 +129,7 @@ try {
 
         $mail = new PHPMailer\PHPMailer\PHPMailer(true);
         $mail->isSMTP();
-        $mail->Host       = 'mail.childintech.org'; // Your domain SMTP server
+        $mail->Host       = 'smtp.hostinger.com'; // Your domain SMTP server
         $mail->SMTPAuth   = true;
         $mail->Username   = 'info@childintech.org';
         $mail->Password   = 'j$UeC/nCeS7'; // Set your cPanel/hosting email password
@@ -147,6 +147,7 @@ try {
         $mail->setFrom('info@childintech.org', 'Child In Tech');
         $mail->addAddress($email, $full_name);
         $mail->isHTML(true);
+        $mail->CharSet = 'UTF-8';
 
         $tourDate  = date('l, F j, Y', strtotime($tour['tour_date']));
         $timeStart = date('g:i A', strtotime($tour['time_start']));
@@ -186,7 +187,7 @@ function buildEmailHTML($name, $ticket_id, $tour, $tourDate, $timeStart, $timeEn
     return "
     <div style='font-family: Inter, Arial, sans-serif; max-width: 600px; margin: 0 auto; background: #f8faff; padding: 32px 16px;'>
       <div style='background: linear-gradient(135deg, #1a73e8, #0d47a1); border-radius: 20px 20px 0 0; padding: 40px 32px; text-align: center;'>
-        <img src='https://childintech.com/assets/image/logo.png' alt='CIT Logo' style='height: 50px; margin-bottom: 16px;'>
+        <img src='https://childintech.org/assets/image/logo.png' alt='CIT Logo' style='height: 50px; margin-bottom: 16px;'>
         <h1 style='color: white; margin: 0; font-size: 28px;'>You're Registered! 🎉</h1>
         <p style='color: rgba(255,255,255,0.85); margin-top: 8px;'>Innoventure Tour {$tourNum}</p>
       </div>
