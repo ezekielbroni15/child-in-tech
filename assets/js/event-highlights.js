@@ -49,11 +49,10 @@ const eventsData = {
   },
   innoventure2: {
     title: "Innoventure Tour 2.0",
-    description:
-      "An incredible day of exploration at Ghana Labs — kids experienced real tech companies, hands-on activities, and took home awesome souvenirs!",
+    description: `An unforgettable day of exploration at Ghana Code Club! The kids stepped inside a real tech environment, participated in a hands-on mini robotics workshop, asked all their curious questions, and left with exciting souvenirs to remember the experience.`,
     stats: [
       { value: "50+", label: "Students Participants" },
-      { value: "3+", label: "Hours Exploring" },
+      { value: "5+", label: "Hours Exploring" },
       { value: "8+", label: "Sessions" },
     ],
     images: [

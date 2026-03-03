@@ -105,6 +105,7 @@ if (empty($_SESSION['csrf_token'])) {
       <?php endif; ?>
 
       <form method="POST" class="login-form">
+        <input type="hidden" name="csrf_token" value="<?= htmlspecialchars($_SESSION['csrf_token']) ?>"/>
         <div class="admin-field">
           <label>Username</label>
           <input type="text" name="username" placeholder="admin" required autocomplete="username"/>
