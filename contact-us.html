@@ -143,56 +143,59 @@
         <div class="contact-card animate-on-scroll" data-animate="left">
           <h2>Send us a Message</h2>
 
-          <div class="form-group">
-            <label class="form-label" for="nameInput">Full Name</label>
-            <input
-              type="text"
-              id="nameInput"
-              class="form-input"
-              placeholder="Enter your full name"
-              data-media-type="banani-button"
-            />
-          </div>
+          <form id="contactForm" novalidate>
+            <div class="form-group">
+              <label class="form-label" for="name">Full Name</label>
+              <input
+                type="text"
+                id="name"
+                class="form-input"
+                placeholder="Enter your full name"
+                data-media-type="banani-button"
+              />
+            </div>
 
-          <div class="form-group">
-            <label class="form-label" for="emailInput">Email Address</label>
-            <input
-              type="email"
-              id="emailInput"
-              class="form-input"
-              placeholder="name@example.com"
-              data-media-type="banani-button"
-            />
-          </div>
+            <div class="form-group">
+              <label class="form-label" for="email">Email Address</label>
+              <input
+                type="email"
+                id="email"
+                class="form-input"
+                placeholder="name@example.com"
+                data-media-type="banani-button"
+              />
+            </div>
 
-          <div class="form-group">
-            <label class="form-label" for="subjectInput">Subject</label>
-            <input
-              type="text"
-              id="subjectInput"
-              class="form-input"
-              placeholder="Select a topic..."
-              data-media-type="banani-button"
-            />
-          </div>
+            <div class="form-group">
+              <label class="form-label" for="subject">Subject</label>
+              <input
+                type="text"
+                id="subject"
+                class="form-input"
+                placeholder="Select a topic..."
+                data-media-type="banani-button"
+              />
+            </div>
 
-          <div class="form-group">
-            <label class="form-label" for="messageInput">Message</label>
-            <textarea
-              id="messageInput"
-              class="form-textarea"
-              placeholder="How can we help you?"
-              data-media-type="banani-button"
-            ></textarea>
-          </div>
+            <div class="form-group">
+              <label class="form-label" for="message">Message</label>
+              <textarea
+                id="message"
+                class="form-textarea"
+                placeholder="How can we help you?"
+                data-media-type="banani-button"
+              ></textarea>
+            </div>
 
-          <button
-            class="btn btn-primary btn-full"
-            id="sendMessageBtn"
-            data-media-type="banani-button"
-          >
-            Send Message
-          </button>
+            <button
+              type="submit"
+              class="btn btn-primary btn-full"
+              id="sendBtn"
+              data-media-type="banani-button"
+            >
+              Send Message
+            </button>
+          </form>
         </div>
 
         <!-- Right: Info -->

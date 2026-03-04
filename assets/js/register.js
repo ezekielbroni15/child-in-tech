@@ -52,7 +52,7 @@
       .then((r) => r.json())
       .then((data) => {
         toursData = data.tours || [];
-        tourSel.innerHTML = '<option value="">Select a Saturday →</option>';
+        tourSel.innerHTML = '<option value="">Select a date →</option>';
         if (toursData.length === 0) {
           tourSel.innerHTML =
             '<option value="">No upcoming tours available</option>';
