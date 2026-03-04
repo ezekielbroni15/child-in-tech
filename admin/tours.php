@@ -192,13 +192,15 @@ $tours = $pdo->query("
                     <?= $t['is_active'] ? 'Disable' : 'Enable' ?>
                   </button>
                 </form>
-                <?php if ($reg === 0): ?>
-                <form method="POST" style="display:inline" onsubmit="return confirm('Delete this tour?')">
+                <form method="POST" style="display:inline"
+                  onsubmit="return confirm(<?= $reg > 0
+                    ? "'⚠️ This tour has " . $reg . " registration(s).\nDeleting it will also permanently remove those registrations.\n\nAre you sure you want to delete Tour " . addslashes(htmlspecialchars($t['tour_number'])) . "?'"
+                    : "'Delete Tour " . addslashes(htmlspecialchars($t['tour_number'])) . "? This cannot be undone.'"
+                  ?>)">
                   <input type="hidden" name="action" value="delete"/>
                   <input type="hidden" name="tour_id" value="<?= $t['id'] ?>"/>
-                  <button class="admin-btn-sm admin-btn-danger" type="submit">Delete</button>
+                  <button class="admin-btn-sm admin-btn-danger" type="submit">🗑 Delete</button>
                 </form>
-                <?php endif; ?>
               </td>
             </tr>
             <?php endforeach; ?>

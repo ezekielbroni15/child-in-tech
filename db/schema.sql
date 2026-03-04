@@ -54,18 +54,3 @@ VALUES ('admin', '$2y$10$tGecq8AFWaj3.YH0yDNda.BuDCXxzMF1LDsp5w2yOumEOV/TKNM1Tu'
 -- The hash above is for "password" — replace with your real hash.
 -- To generate: php -r "echo password_hash('yourpassword', PASSWORD_DEFAULT);"
 
--- Seed Tour 3.0 — March 7, 2026
-INSERT IGNORE INTO tours (tour_number, tour_date, time_start, time_end, location, max_slots, is_active)
-VALUES ('3.0', '2026-03-07', '09:00:00', '14:00:00', 'TBA', 50, 1);
-
--- Seed Tour 4.0 — March 14, 2026
-INSERT IGNORE INTO tours (tour_number, tour_date, time_start, time_end, location, max_slots, is_active)
-VALUES ('4.0', '2026-03-14', '09:00:00', '14:00:00', 'TBA', 50, 1);
-
--- Seed Tour 5.0 — March 21, 2026
-INSERT IGNORE INTO tours (tour_number, tour_date, time_start, time_end, location, max_slots, is_active)
-VALUES ('5.0', '2026-03-21', '09:00:00', '14:00:00', 'TBA', 50, 1);
-
--- Seed Tour 6.0 — March 28, 2026
-INSERT IGNORE INTO tours (tour_number, tour_date, time_start, time_end, location, max_slots, is_active)
-VALUES ('6.0', '2026-03-28', '09:00:00', '14:00:00', 'TBA', 50, 1);
