@@ -1,0 +1,12 @@
+# robots.txt — Child-In-Tech (childintech.org)
+
+User-agent: *
+Allow: /
+
+# Block sensitive backend folders
+Disallow: /admin/
+Disallow: /db/
+Disallow: /PHPMailer/
+
+# Sitemap location
+Sitemap: https://childintech.org/sitemap.xml
