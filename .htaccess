@@ -36,8 +36,8 @@
     ExpiresByType text/javascript       "access plus 6 months"
     ExpiresByType application/javascript "access plus 6 months"
 
-    # HTML & PHP — 1 week
-    ExpiresByType text/html "access plus 1 week"
+    # HTML & PHP — never cache (always fetch fresh)
+    ExpiresByType text/html "access plus 0 seconds"
 </IfModule>
 
 # --- Cache-Control Headers ---
@@ -57,7 +57,9 @@
         Header set Cache-Control "public, max-age=15768000"
     </FilesMatch>
     <FilesMatch "\.(html|htm)$">
-        Header set Cache-Control "public, max-age=604800"
+        Header set Cache-Control "no-cache, no-store, must-revalidate"
+        Header set Pragma "no-cache"
+        Header set Expires "0"
     </FilesMatch>
 </IfModule>
 
