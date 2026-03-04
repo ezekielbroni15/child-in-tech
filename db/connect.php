@@ -1,6 +1,6 @@
-<?php
+﻿<?php
 // ============================================================
-//  Database Connection — Child In Tech
+//  Database Connection — Child-In-Tech
 // ============================================================
 define('DB_HOST', 'localhost');
 define('DB_NAME', 'u275225649_cit_innoventur');

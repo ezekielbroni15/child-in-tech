@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 header('Content-Type: application/json');
 
 // prevent direct access
@@ -50,7 +50,7 @@ try {
     $mail->Port       = 465;
 
     // Recipients
-    $mail->setFrom('info@childintech.org', 'Child in Tech');
+    $mail->setFrom('info@childintech.org', 'Child-In-Tech');
     $mail->addAddress('info@childintech.org');     // Contact form messages go here
     $mail->addReplyTo($email, $name);
 

@@ -100,7 +100,7 @@
       const data = new FormData(form);
 
       if (!data.get("tour_id")) {
-        showError("Please select a Saturday tour date.");
+        showError("Please choose a date.");
         return;
       }
       if (!data.get("full_name").trim()) {

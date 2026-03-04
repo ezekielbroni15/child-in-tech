@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 // ============================================================
 //  GET /calendar.php?ticket_id=CIT-20260307-0042
 //  Downloads an .ics calendar file for the event
@@ -32,7 +32,7 @@ try {
     $dtEnd    = date('Ymd', strtotime($reg['tour_date'])) . 'T'
               . str_replace(':', '', substr($reg['time_end'],   0, 5)) . '00';
     $now      = gmdate('Ymd\THis\Z');
-    $summary  = 'Innoventure Tour ' . $reg['tour_number'] . ' — Child In Tech';
+    $summary  = 'Innoventure Tour ' . $reg['tour_number'] . ' — Child-In-Tech';
     $desc     = 'Ticket ID: ' . $reg['ticket_id'] . '\nOne day of exploration at real tech companies!';
 
     header('Content-Type: text/calendar; charset=utf-8');
@@ -40,7 +40,7 @@ try {
 
     echo "BEGIN:VCALENDAR\r\n";
     echo "VERSION:2.0\r\n";
-    echo "PRODID:-//Child In Tech//Innoventure Tour//EN\r\n";
+    echo "PRODID:-//Child-In-Tech//Innoventure Tour//EN\r\n";
     echo "BEGIN:VEVENT\r\n";
     echo "UID:" . $reg['ticket_id'] . "@childintech.com\r\n";
     echo "DTSTAMP:" . $now . "\r\n";

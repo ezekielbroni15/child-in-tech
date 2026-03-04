@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 // ============================================================
 //  ticket.php — Display & Download Ticket
 // ============================================================
@@ -42,7 +42,7 @@ $ticket_id  = htmlspecialchars($reg['ticket_id']);
 // Calendar data
 $calStart  = date('Ymd', strtotime($reg['tour_date'])) . 'T' . str_replace(':', '', substr($reg['time_start'], 0, 5)) . '00';
 $calEnd    = date('Ymd', strtotime($reg['tour_date'])) . 'T' . str_replace(':', '', substr($reg['time_end'],   0, 5)) . '00';
-$calTitle  = urlencode('Innoventure Tour ' . $tourNum . ' — Child In Tech');
+$calTitle  = urlencode('Innoventure Tour ' . $tourNum . ' — Child-In-Tech');
 $calLoc    = urlencode($reg['location']);
 $calDesc   = urlencode('Ticket ID: ' . $reg['ticket_id']);
 $googleCal = "https://calendar.google.com/calendar/render?action=TEMPLATE&text={$calTitle}&dates={$calStart}/{$calEnd}&location={$calLoc}&details={$calDesc}";
@@ -81,7 +81,7 @@ $icsUrl    = "calendar.php?ticket_id=" . urlencode($reg['ticket_id']);
   <nav class="navbar">
     <div class="container nav-content">
       <a href="index.html" class="logo-link">
-        <img src="assets/image/logo.png" alt="Child In Tech Logo" class="logo-img"/>
+        <img src="assets/image/logo.png" alt="Child-In-Tech Logo" class="logo-img"/>
       </a>
       <a href="events.html" class="btn btn-outline" style="font-size:14px">← Back to Events</a>
     </div>
@@ -102,7 +102,7 @@ $icsUrl    = "calendar.php?ticket_id=" . urlencode($reg['ticket_id']);
       <div id="ticketCard" class="ticket-card">
         <!-- Left strip -->
         <div class="ticket-strip">
-          <div class="ticket-strip-text">ADMIT ONE • CHILD IN TECH • INNOVENTURE</div>
+          <div class="ticket-strip-text">ADMIT ONE • Child-In-Tech • INNOVENTURE</div>
         </div>
 
         <!-- Main Content -->
@@ -112,7 +112,7 @@ $icsUrl    = "calendar.php?ticket_id=" . urlencode($reg['ticket_id']);
             <div class="ticket-logo-area">
               <img src="assets/image/logo.png" alt="CIT" class="ticket-logo" crossorigin="anonymous"/>
               <div>
-                <div class="ticket-org">Child In Tech</div>
+                <div class="ticket-org">Child-In-Tech</div>
                 <div class="ticket-event-tag">INNOVENTURE TOUR</div>
               </div>
             </div>

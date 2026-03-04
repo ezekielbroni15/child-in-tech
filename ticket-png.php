@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 // ticket-png.php — Server-side PNG ticket generator using PHP GD
 // Usage: ticket-png.php?id=CIT-XXXXXXX-XXXX
 require_once __DIR__ . '/db/connect.php';
@@ -73,7 +73,7 @@ if (file_exists($logoPath)) {
 }
 
 // Org name + tag
-imagestring($img, 5, $x0, 28,  'Child In Tech',        $dark);
+imagestring($img, 5, $x0, 28,  'Child-In-Tech',        $dark);
 imagestring($img, 2, $x0, 50,  'INNOVENTURE TOUR',     $blue);
 
 // Tour badge circle (top right)
@@ -141,7 +141,7 @@ imagestring($img, 1, $W - 30 - 52, 385, 'Scan to verify', $muted);
 
 // ── Footer strip ─────────────────────────────────────────────
 imagefilledrectangle($img, 70, 405, $W - 20, 415, $border);
-imagestring($img, 1, 72, 420, 'Child In Tech Academy  |  Innoventure Saturday Tour  |  childintech.com', $muted);
+imagestring($img, 1, 72, 420, 'Child-In-Tech Academy  |  Innoventure Saturday Tour  |  childintech.com', $muted);
 
 // ── Output PNG ───────────────────────────────────────────────
 header('Content-Type: image/png');

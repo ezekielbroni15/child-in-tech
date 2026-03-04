@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 // ============================================================
 //  POST /register.php — handle registration form
 // ============================================================
@@ -87,7 +87,7 @@ try {
     // --- Build calendar links
     $calStart = date('Ymd', strtotime($tour['tour_date'])) . 'T' . str_replace(':', '', substr($tour['time_start'], 0, 5)) . '00';
     $calEnd   = date('Ymd', strtotime($tour['tour_date'])) . 'T' . str_replace(':', '', substr($tour['time_end'],   0, 5)) . '00';
-    $calTitle = urlencode('Innoventure Tour ' . $tour['tour_number'] . ' — Child In Tech');
+    $calTitle = urlencode('Innoventure Tour ' . $tour['tour_number'] . ' — Child-In-Tech');
     $calLoc   = urlencode($tour['location']);
     $calDesc  = urlencode('Ticket ID: ' . $ticket_id . '. One day of exploration at real tech companies!');
 
@@ -144,7 +144,7 @@ try {
             ]
         ];
 
-        $mail->setFrom('info@childintech.org', 'Child In Tech');
+        $mail->setFrom('info@childintech.org', 'Child-In-Tech');
         $mail->addAddress($email, $full_name);
         $mail->isHTML(true);
         $mail->CharSet = 'UTF-8';
@@ -204,7 +204,7 @@ function buildEmailHTML($name, $ticket_id, $tour, $tourDate, $timeStart, $timeEn
           <tr><td style='padding: 8px 0; color: #888; font-size: 14px;'>📍 Location</td><td style='padding: 8px 0; font-weight: 600;'>{$location}</td></tr>
         </table>
         <a href='https://childintech.org/ticket.php?id={$ticket_id}' style='display: block; background: linear-gradient(135deg, #1a73e8, #0d47a1); color: white; text-align: center; padding: 14px; border-radius: 10px; text-decoration: none; font-weight: 600; margin-top: 24px;'>View &amp; Download Your Ticket →</a>
-        <p style='color: #aaa; font-size: 12px; text-align: center; margin-top: 24px;'>Child In Tech Academy · info@childintech.org</p>
+        <p style='color: #aaa; font-size: 12px; text-align: center; margin-top: 24px;'>Child-In-Tech Academy · info@childintech.org</p>
       </div>
     </div>";
 }

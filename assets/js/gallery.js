@@ -1,4 +1,4 @@
-const galleryImages = [
+﻿const galleryImages = [
   // Batch 1 (IMG_38xx)
   { src: "IMG_3824.JPG", category: "tech" },
   { src: "IMG_3825.JPG", category: "tech" },
@@ -130,7 +130,7 @@ function renderGallery() {
     <div class="gallery-item" data-category="${img.category}">
       <img
         src="assets/image/${img.src}"
-        alt="Child In Tech Moment"
+        alt="Child-In-Tech Moment"
         loading="lazy"
       />
       <div class="gallery-overlay">

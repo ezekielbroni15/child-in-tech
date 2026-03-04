@@ -1,6 +1,6 @@
-const eventsData = {
+﻿const eventsData = {
   chocolate: {
-    title: "Chocolate with Tech",
+    title: "Chocolate-with-Tech",
     description:
       "A sweet journey into technology and innovation. Relive the moments of discovery and fun!",
     stats: [
@@ -81,7 +81,7 @@ function loadEvent() {
   if (document.getElementById("page-desc")) {
     document.getElementById("page-desc").textContent = data.description;
   }
-  document.title = data.title + " - Child In Tech";
+  document.title = data.title + " - Child-In-Tech";
 
   // Update Stats
   const statsContainer = document.getElementById("stats-container");

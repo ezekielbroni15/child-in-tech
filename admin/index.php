@@ -1,10 +1,13 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Admin Login — Child In Tech</title>
+  <title>Admin Login — Child-In-Tech</title>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="icon" type="image/x-icon" href="../assets/image/favicon_io/favicon.ico"/>
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/image/favicon_io/favicon-32x32.png"/>
+  <link rel="icon" type="image/png" sizes="16x16" href="../assets/image/favicon_io/favicon-16x16.png"/>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="../assets/css/admin.css"/>
 </head>
@@ -92,7 +95,7 @@ if (empty($_SESSION['csrf_token'])) {
     <div class="login-card">
       <!-- Logo -->
       <div class="login-logo">
-        <img src="../assets/image/logo.png" alt="Child In Tech"/>
+        <img src="../assets/image/logo.png" alt="Child-In-Tech"/>
       </div>
 
       <div class="login-header">
