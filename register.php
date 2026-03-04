@@ -55,18 +55,20 @@ try {
         exit;
     }
 
-    // --- Already registered? Return their existing ticket so they can still access it
-    $stmt = $pdo->prepare("SELECT ticket_id FROM registrations WHERE tour_id = ? AND email = ?");
+    // --- Duplicate check: same email on the same tour date → block with clear error
+    $stmt = $pdo->prepare("
+        SELECT ticket_id FROM registrations
+        WHERE tour_id = ? AND email = ?
+    ");
     $stmt->execute([$tour_id, $email]);
     $existing = $stmt->fetch();
     if ($existing) {
         ob_end_clean();
         echo json_encode([
-            'success'            => true,
-            'ticket_id'          => $existing['ticket_id'],
-            'ticket_url'         => 'ticket.php?id=' . urlencode($existing['ticket_id']),
-            'email_sent'         => false,
-            'already_registered' => true,
+            'success' => false,
+            'error'   => "You are already registered for this date using \"$full_name\" ($email). "
+                       . "Your ticket ID is: " . $existing['ticket_id'] . ". "
+                       . "You may register for a different date if you wish.",
         ]);
         exit;
     }
