@@ -1,4 +1,4 @@
-# robots.txt — Child-In-Tech (childintech.org)
+# robots.txt — Child-In-Tech (childintechhq.com)
 
 User-agent: *
 Allow: /
@@ -9,4 +9,4 @@ Disallow: /db/
 Disallow: /PHPMailer/
 
 # Sitemap location
-Sitemap: https://childintech.org/sitemap.xml
+Sitemap: https://childintechhq.com/sitemap.xml

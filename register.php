@@ -1,6 +1,6 @@
-﻿<?php
+<?php
 // ============================================================
-//  POST /register.php — handle registration form
+//  POST /register.php � handle registration form
 // ============================================================
 // Buffer all output so PHP warnings don't corrupt our JSON
 ob_start();
@@ -55,7 +55,7 @@ try {
         exit;
     }
 
-    // --- Duplicate check: same email on the same tour date → block with clear error
+    // --- Duplicate check: same email on the same tour date ? block with clear error
     $stmt = $pdo->prepare("
         SELECT ticket_id FROM registrations
         WHERE tour_id = ? AND email = ?
@@ -89,7 +89,7 @@ try {
     // --- Build calendar links
     $calStart = date('Ymd', strtotime($tour['tour_date'])) . 'T' . str_replace(':', '', substr($tour['time_start'], 0, 5)) . '00';
     $calEnd   = date('Ymd', strtotime($tour['tour_date'])) . 'T' . str_replace(':', '', substr($tour['time_end'],   0, 5)) . '00';
-    $calTitle = urlencode('Innoventure Tour ' . $tour['tour_number'] . ' — Child-In-Tech');
+    $calTitle = urlencode('Innoventure Tour ' . $tour['tour_number'] . ' � Child-In-Tech');
     $calLoc   = urlencode($tour['location']);
     $calDesc  = urlencode('Ticket ID: ' . $ticket_id . '. One day of exploration at real tech companies!');
 
@@ -133,7 +133,7 @@ try {
         $mail->isSMTP();
         $mail->Host       = 'smtp.hostinger.com'; // Your domain SMTP server
         $mail->SMTPAuth   = true;
-        $mail->Username   = 'info@childintech.org';
+        $mail->Username   = 'info@childintechhq.com';
         $mail->Password   = 'j$UeC/nCeS7'; // Set your cPanel/hosting email password
         $mail->SMTPSecure = PHPMailer\PHPMailer\PHPMailer::ENCRYPTION_SMTPS;
         $mail->Port       = 465;
@@ -146,7 +146,7 @@ try {
             ]
         ];
 
-        $mail->setFrom('info@childintech.org', 'Child-In-Tech');
+        $mail->setFrom('info@childintechhq.com', 'Child-In-Tech');
         $mail->addAddress($email, $full_name);
         $mail->isHTML(true);
         $mail->CharSet = 'UTF-8';
@@ -155,7 +155,7 @@ try {
         $timeStart = date('g:i A', strtotime($tour['time_start']));
         $timeEnd   = date('g:i A', strtotime($tour['time_end']));
 
-        $mail->Subject = '🎟 Your Innoventure Tour ' . $tour['tour_number'] . ' Ticket — ' . $ticket_id;
+        $mail->Subject = '?? Your Innoventure Tour ' . $tour['tour_number'] . ' Ticket � ' . $ticket_id;
         $mail->Body    = buildEmailHTML($full_name, $ticket_id, $tour, $tourDate, $timeStart, $timeEnd);
         $mail->send();
 
@@ -189,8 +189,8 @@ function buildEmailHTML($name, $ticket_id, $tour, $tourDate, $timeStart, $timeEn
     return "
     <div style='font-family: Inter, Arial, sans-serif; max-width: 600px; margin: 0 auto; background: #f8faff; padding: 32px 16px;'>
       <div style='background: linear-gradient(135deg, #1a73e8, #0d47a1); border-radius: 20px 20px 0 0; padding: 40px 32px; text-align: center;'>
-        <img src='https://childintech.org/assets/image/logo.png' alt='CIT Logo' style='height: 50px; margin-bottom: 16px;'>
-        <h1 style='color: white; margin: 0; font-size: 28px;'>You're Registered! 🎉</h1>
+        <img src='https://childintechhq.com/assets/image/logo.png' alt='CIT Logo' style='height: 50px; margin-bottom: 16px;'>
+        <h1 style='color: white; margin: 0; font-size: 28px;'>You're Registered! ??</h1>
         <p style='color: rgba(255,255,255,0.85); margin-top: 8px;'>Innoventure Tour {$tourNum}</p>
       </div>
       <div style='background: white; border-radius: 0 0 20px 20px; padding: 32px; box-shadow: 0 4px 20px rgba(0,0,0,0.08);'>
@@ -201,12 +201,12 @@ function buildEmailHTML($name, $ticket_id, $tour, $tourDate, $timeStart, $timeEn
           <div style='color: #888; font-size: 12px; margin-top: 4px;'>Ticket ID</div>
         </div>
         <table style='width: 100%; border-collapse: collapse;'>
-          <tr><td style='padding: 8px 0; color: #888; font-size: 14px;'>📅 Date</td><td style='padding: 8px 0; font-weight: 600;'>{$tourDate}</td></tr>
-          <tr><td style='padding: 8px 0; color: #888; font-size: 14px;'>⏰ Time</td><td style='padding: 8px 0; font-weight: 600;'>{$timeStart} – {$timeEnd}</td></tr>
-          <tr><td style='padding: 8px 0; color: #888; font-size: 14px;'>📍 Location</td><td style='padding: 8px 0; font-weight: 600;'>{$location}</td></tr>
+          <tr><td style='padding: 8px 0; color: #888; font-size: 14px;'>?? Date</td><td style='padding: 8px 0; font-weight: 600;'>{$tourDate}</td></tr>
+          <tr><td style='padding: 8px 0; color: #888; font-size: 14px;'>? Time</td><td style='padding: 8px 0; font-weight: 600;'>{$timeStart} � {$timeEnd}</td></tr>
+          <tr><td style='padding: 8px 0; color: #888; font-size: 14px;'>?? Location</td><td style='padding: 8px 0; font-weight: 600;'>{$location}</td></tr>
         </table>
-        <a href='https://childintech.org/ticket.php?id={$ticket_id}' style='display: block; background: linear-gradient(135deg, #1a73e8, #0d47a1); color: white; text-align: center; padding: 14px; border-radius: 10px; text-decoration: none; font-weight: 600; margin-top: 24px;'>View &amp; Download Your Ticket →</a>
-        <p style='color: #aaa; font-size: 12px; text-align: center; margin-top: 24px;'>Child-In-Tech Academy · info@childintech.org</p>
+        <a href='https://childintechhq.com/ticket.php?id={$ticket_id}' style='display: block; background: linear-gradient(135deg, #1a73e8, #0d47a1); color: white; text-align: center; padding: 14px; border-radius: 10px; text-decoration: none; font-weight: 600; margin-top: 24px;'>View &amp; Download Your Ticket ?</a>
+        <p style='color: #aaa; font-size: 12px; text-align: center; margin-top: 24px;'>Child-In-Tech Academy � info@childintechhq.com</p>
       </div>
     </div>";
 }

@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 header('Content-Type: application/json');
 
 // prevent direct access
@@ -44,14 +44,14 @@ try {
     $mail->isSMTP();
     $mail->Host       = 'smtp.hostinger.com'; // Your domain SMTP server
     $mail->SMTPAuth   = true;
-    $mail->Username   = 'info@childintech.org'; // Your domain email
+    $mail->Username   = 'info@childintechhq.com'; // Your domain email
     $mail->Password   = 'j$UeC/nCeS7'; // Set your cPanel/hosting email password
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
     $mail->Port       = 465;
 
     // Recipients
-    $mail->setFrom('info@childintech.org', 'Child-In-Tech');
-    $mail->addAddress('info@childintech.org');     // Contact form messages go here
+    $mail->setFrom('info@childintechhq.com', 'Child-In-Tech');
+    $mail->addAddress('info@childintechhq.com');     // Contact form messages go here
     $mail->addReplyTo($email, $name);
 
     // Content
