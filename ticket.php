@@ -59,20 +59,18 @@ $icsUrl    = "calendar.php?ticket_id=" . urlencode($reg['ticket_id']);
   <link rel="stylesheet" href="assets/css/global.css"/>
   <link rel="stylesheet" href="assets/css/ticket.css"/>
   <style>
+    /* hide old HTML ticket card from normal view */
+    #ticketCard { display: none; }
+
     @media print {
-      /* Hide everything except the ticket card */
+      /* When printing, show only the PNG preview */
       body * { visibility: hidden; }
-      #ticketCard, #ticketCard * { visibility: visible; }
-      #ticketCard {
+      #ticketPreview, #ticketPreview * { visibility: visible; }
+      #ticketPreview {
         position: fixed;
         top: 0; left: 0;
         width: 100%;
-        box-shadow: none !important;
-        border-radius: 0 !important;
       }
-      .ticket-strip { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-      .ticket-tour-badge { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-      .ticket-name-section { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
     }
   </style>
 </head>
@@ -87,7 +85,10 @@ $icsUrl    = "calendar.php?ticket_id=" . urlencode($reg['ticket_id']);
     </div>
   </nav>
 
-  <main class="ticket-page-wrapper">
+  <?php
+$pngUrl = 'ticket-png.php?id=' . urlencode($ticket_id);
+?>
+<main class="ticket-page-wrapper">
     <!-- Success Banner -->
     <div class="ticket-success-banner">
       <div class="success-check">✓</div>
@@ -97,85 +98,20 @@ $icsUrl    = "calendar.php?ticket_id=" . urlencode($reg['ticket_id']);
       </div>
     </div>
 
-    <!-- Ticket Card (for canvas rendering) -->
+    <!-- Ticket Preview (PNG) -->
     <div class="ticket-outer">
-      <div id="ticketCard" class="ticket-card">
-        <!-- Left strip -->
-        <div class="ticket-strip">
-          <div class="ticket-strip-text">ADMIT ONE • Child-In-Tech • INNOVENTURE</div>
-        </div>
-
-        <!-- Main Content -->
-        <div class="ticket-body">
-          <!-- Header -->
-          <div class="ticket-header">
-            <div class="ticket-logo-area">
-              <img src="assets/image/logo.png" alt="CIT" class="ticket-logo" crossorigin="anonymous"/>
-              <div>
-                <div class="ticket-org">Child-In-Tech</div>
-                <div class="ticket-event-tag">INNOVENTURE TOUR</div>
-              </div>
-            </div>
-            <div class="ticket-tour-badge">
-              <span class="ticket-tour-num"><?= $tourNum ?></span>
-            </div>
-          </div>
-
-          <!-- Name -->
-          <div class="ticket-name-section">
-            <div class="ticket-label">ATTENDEE</div>
-            <div class="ticket-name"><?= $name ?></div>
-          </div>
-
-          <!-- Details Row -->
-          <div class="ticket-details-row">
-            <div class="ticket-detail-item">
-              <div class="ticket-label">DATE</div>
-              <div class="ticket-detail-value"><?= $tourDate ?></div>
-            </div>
-            <div class="ticket-detail-item">
-              <div class="ticket-label">TIME</div>
-              <div class="ticket-detail-value"><?= $timeStart ?> - <?= $timeEnd ?></div>
-            </div>
-            <div class="ticket-detail-item">
-              <div class="ticket-label">LOCATION</div>
-              <div class="ticket-detail-value"><?= $location ?></div>
-            </div>
-          </div>
-
-          <!-- Divider -->
-          <div class="ticket-perforation"></div>
-
-          <!-- Bottom: QR + Ticket ID -->
-          <div class="ticket-bottom">
-            <div class="ticket-id-section">
-              <div class="ticket-label">TICKET ID</div>
-              <div class="ticket-id-code"><?= $ticket_id ?></div>
-              <div class="ticket-label" style="margin-top:8px">TOUR</div>
-              <div class="ticket-detail-value">Innoventure <?= $tourNum ?></div>
-            </div>
-            <div class="ticket-qr-section">
-              <?php
-                $qrData = urlencode($ticket_id);
-                $qrUrl  = "https://api.qrserver.com/v1/create-qr-code/?size=140x140&margin=6&color=0d47a1&bgcolor=ffffff&data={$qrData}";
-              ?>
-              <img
-                src="<?= $qrUrl ?>"
-                alt="QR Code for <?= htmlspecialchars($ticket_id) ?>"
-                id="qrCode"
-                width="120" height="120"
-                style="border-radius:10px;border:3px solid #e8f0ff;display:block;"
-              />
-              <div class="ticket-qr-label">Scan to verify</div>
-            </div>
-          </div>
-        </div>
+      <div class="ticket-preview-wrap" style="text-align:center; margin-bottom:24px;">
+        <img id="ticketPreview" src="<?= htmlspecialchars($pngUrl) ?>" alt="Your ticket" style="max-width:100%;height:auto;box-shadow:0 4px 12px rgba(0,0,0,0.1);border-radius:12px;"/>
       </div>
+
 
       <!-- Action Buttons -->
       <div class="ticket-actions">
-        <button onclick="printTicket()" class="btn btn-primary ticket-btn">
-          🖨️ Download / Print Ticket
+        <button onclick="downloadPNG()" class="btn btn-primary ticket-btn">
+          🎟 Download Ticket (PNG)
+        </button>
+        <button onclick="printTicket()" class="btn btn-outline ticket-btn">
+          🖨️ Print Ticket
         </button>
         <a href="<?= $googleCal ?>" target="_blank" class="btn btn-outline ticket-btn">
           📅 Add to Google Calendar
@@ -197,7 +133,10 @@ $icsUrl    = "calendar.php?ticket_id=" . urlencode($reg['ticket_id']);
   <script src="assets/js/main.js?v=3"></script>
 
   <script>
-    // ── Print / Save ticket ────────────────────────────────────
+    // ── Download or print ticket ───────────────────────────────
+    function downloadPNG() {
+      window.location.href = <?= json_encode($pngUrl) ?>;
+    }
     function printTicket() { window.print(); }
   </script>
 </body>

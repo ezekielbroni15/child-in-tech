@@ -86,7 +86,7 @@ $tours = $pdo->query("
     <div class="admin-topbar">
       <div>
         <h1 class="admin-page-title">Manage Tours</h1>
-        <p class="admin-page-sub">Create and manage Innoventure Saturday tour slots</p>
+        <p class="admin-page-sub">Create and manage Innoventure tour slots</p>
       </div>
     </div>
 

@@ -151,7 +151,7 @@ imagestring($img, 1, $W - 30 - 52, 385, 'Scan to verify', $muted);
 
 // -- Footer strip ---------------------------------------------
 imagefilledrectangle($img, 70, 405, $W - 20, 415, $border);
-imagestring($img, 1, 72, 420, 'Child-In-Tech  |  Innoventure Saturday Tour  |  childintechhq.com', $muted);
+imagestring($img, 1, 72, 420, 'Child-In-Tech  |  Innoventure Tour  |  childintechhq.com', $muted);
 
 // -- Output PNG -----------------------------------------------
 header('Content-Type: image/png');
