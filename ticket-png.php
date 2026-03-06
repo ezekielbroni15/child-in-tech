@@ -105,13 +105,22 @@ imagerectangle($img, 70, $detY, $W - 20, $detY + 70, $border);
 imageline($img, 70 + (int)$col, $detY, 70 + (int)$col, $detY + 70, $border);
 imageline($img, 70 + (int)($col*2), $detY, 70 + (int)($col*2), $detY + 70, $border);
 
+// labels
 imagestring($img, 2, 80,             $detY + 8,  'DATE',     $muted);
 imagestring($img, 2, 80 + (int)$col, $detY + 8,  'TIME',     $muted);
 imagestring($img, 2, 80 + (int)($col*2), $detY + 8, 'LOCATION', $muted);
 
-imagestring($img, 3, 80,             $detY + 30, $tourDate,  $dark);
-imagestring($img, 3, 80 + (int)$col, $detY + 30, $timeRange, $dark);
-imagestring($img, 3, 80 + (int)($col*2), $detY + 30, $location, $dark);
+// values - prefer TTF for better rendering and correct characters
+$valFont = __DIR__ . '/assets/fonts/SpaceGrotesk-Bold.ttf';
+if (function_exists('imagettftext') && file_exists($valFont)) {
+    imagettftext($img, 12, 0, 80, $detY + 30, $dark, $valFont, $tourDate);
+    imagettftext($img, 12, 0, 80 + (int)$col, $detY + 30, $dark, $valFont, $timeRange);
+    imagettftext($img, 12, 0, 80 + (int)($col*2), $detY + 30, $dark, $valFont, $location);
+} else {
+    imagestring($img, 3, 80,             $detY + 30, $tourDate,  $dark);
+    imagestring($img, 3, 80 + (int)$col, $detY + 30, $timeRange, $dark);
+    imagestring($img, 3, 80 + (int)($col*2), $detY + 30, $location, $dark);
+}
 
 // -- Dashed divider -------------------------------------------
 $divY = 265;

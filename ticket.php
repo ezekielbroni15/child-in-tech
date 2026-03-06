@@ -135,7 +135,7 @@ $icsUrl    = "calendar.php?ticket_id=" . urlencode($reg['ticket_id']);
             </div>
             <div class="ticket-detail-item">
               <div class="ticket-label">TIME</div>
-              <div class="ticket-detail-value"><?= $timeStart ?> – <?= $timeEnd ?></div>
+              <div class="ticket-detail-value"><?= $timeStart ?> - <?= $timeEnd ?></div>
             </div>
             <div class="ticket-detail-item">
               <div class="ticket-label">LOCATION</div>

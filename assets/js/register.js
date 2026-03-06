@@ -18,6 +18,22 @@
 
   // ── Open / Close helpers ─────────────────────────────────
   function openModal() {
+    // clear any previous state so users always see a fresh form
+    if (form) {
+      form.reset();
+      submitBtn.disabled = false;
+      submitBtn.classList.remove("loading");
+      submitBtn.querySelector(".reg-btn-text").textContent =
+        "Secure Your Slot →";
+      // hide the slot bar until a new tour is chosen
+      if (slotWrap) slotWrap.classList.remove("visible");
+    }
+    errorMsg.classList.remove("visible");
+    const success = document.getElementById("regSuccessCard");
+    if (success) success.remove();
+    document.getElementById("regFormWrap").style.display = "";
+    document.querySelector(".reg-modal-header").style.display = "";
+
     overlay.classList.add("open");
     document.body.style.overflow = "hidden";
     loadTours();
@@ -32,6 +48,14 @@
     if (success) success.remove();
     document.getElementById("regFormWrap").style.display = "";
     document.querySelector(".reg-modal-header").style.display = "";
+    // clear form values and re-enable button
+    if (form) {
+      form.reset();
+      submitBtn.disabled = false;
+      submitBtn.classList.remove("loading");
+      submitBtn.querySelector(".reg-btn-text").textContent =
+        "Secure Your Slot →";
+    }
   }
 
   // Trigger buttons
@@ -111,8 +135,16 @@
         showError("Please enter a valid email address.");
         return;
       }
+      if (!data.get("phone").trim()) {
+        showError("Please enter a phone number.");
+        return;
+      }
       if (!data.get("age_group").trim()) {
         showError("Please select an age range.");
+        return;
+      }
+      if (!data.get("school").trim()) {
+        showError("Please enter your school or organization.");
         return;
       }
 
@@ -163,15 +195,23 @@
         </p>
         <div class="reg-success-ticket-id">${escapeHtml(res.ticket_id)}</div>
         <div class="reg-success-actions">
-          <a href="${escapeHtml(res.ticket_url)}" target="_blank" class="reg-action-btn reg-action-primary">
+          <button id="viewTicketBtn" class="reg-action-btn reg-action-primary">
             🎟 View My Ticket
-          </a>
+          </button>
         </div>
         <button class="reg-close-success" id="regCloseDone">Close</button>
       </div>
     `;
-
+    // insert the success card once
     modal.appendChild(card);
+    document.getElementById("viewTicketBtn").addEventListener("click", () => {
+      // close the modal first to guarantee form reset even if the
+      // ticket popup is blocked or navigating away
+      closeModal();
+      const url = res.ticket_url || ('ticket.php?id=' + encodeURIComponent(res.ticket_id));
+      window.open(url, '_blank');
+    });
+
     document
       .getElementById("regCloseDone")
       .addEventListener("click", closeModal);

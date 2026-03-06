@@ -1,3 +1,14 @@
+/* hide default scrollbars while preserving scrollability */
+html {
+  overflow-x: hidden; /* already set via body rules but ensure it here */
+  scrollbar-width: none; /* Firefox */
+}
+html::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  background: transparent;
+}
+
 :root {
   /* Primary Colors */
   --primary: #ff7d05; /* Vibrant Orange */

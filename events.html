@@ -861,17 +861,18 @@
             </div>
             <div class="reg-input-row">
               <div class="reg-field">
-                <label for="regPhone">Phone Number</label>
+                <label for="regPhone">Phone Number <span class="required">*</span></label>
                 <input
                   type="tel"
                   id="regPhone"
                   name="phone"
                   placeholder="+233 XX XXX XXXX"
                   autocomplete="tel"
+                  required
                 />
               </div>
               <div class="reg-field">
-                <label for="regAgeGroup">Age Group</label>
+                <label for="regAgeGroup">Age Group <span class="required">*</span></label>
                 <select id="regAgeGroup" name="age_group" required>
                   <option value="">Select age range</option>
                   <option value="6-9">6–9 years</option>
@@ -883,13 +884,14 @@
               </div>
             </div>
             <div class="reg-field">
-              <label for="regSchool">School / Organization</label>
+              <label for="regSchool">School / Organization <span class="required">*</span></label>
               <input
                 type="text"
                 id="regSchool"
                 name="school"
                 placeholder="e.g. Accra Academy"
                 autocomplete="organization"
+                required
               />
             </div>
             <div class="reg-error-msg" id="regError" role="alert"></div>
