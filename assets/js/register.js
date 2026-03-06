@@ -111,6 +111,10 @@
         showError("Please enter a valid email address.");
         return;
       }
+      if (!data.get("age_group").trim()) {
+        showError("Please select an age range.");
+        return;
+      }
 
       submitBtn.disabled = true;
       submitBtn.classList.add("loading");
@@ -159,7 +163,7 @@
         </p>
         <div class="reg-success-ticket-id">${escapeHtml(res.ticket_id)}</div>
         <div class="reg-success-actions">
-          <a href="${escapeHtml(res.ticket_url)}" class="reg-action-btn reg-action-primary">
+          <a href="${escapeHtml(res.ticket_url)}" target="_blank" class="reg-action-btn reg-action-primary">
             🎟 View My Ticket
           </a>
         </div>

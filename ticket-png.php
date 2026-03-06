@@ -1,5 +1,5 @@
 <?php
-// ticket-png.php — Server-side PNG ticket generator using PHP GD
+// ticket-png.php â€“ Server-side PNG ticket generator using PHP GD
 // Usage: ticket-png.php?id=CIT-XXXXXXX-XXXX
 require_once __DIR__ . '/db/connect.php';
 
@@ -18,7 +18,7 @@ if (!$reg) { http_response_code(404); exit('Not found'); }
 $name      = $reg['full_name'];
 $tourNum   = $reg['tour_number'];
 $tourDate  = date('D, M j, Y', strtotime($reg['tour_date']));
-$timeRange = date('g:i A', strtotime($reg['time_start'])) . ' – ' . date('g:i A', strtotime($reg['time_end']));
+$timeRange = date('g:i A', strtotime($reg['time_start'])) . ' â€“ ' . date('g:i A', strtotime($reg['time_end']));
 $location  = $reg['location'];
 $ticketId  = $reg['ticket_id'];
 
@@ -88,7 +88,7 @@ imagerectangle($img, $sectionX, $sectionY, $W - 20, $sectionY + 65, $border);
 
 imagestring($img, 2, $sectionX + 10, $sectionY + 8,  'ATTENDEE', $muted);
 
-// Name — use imagettftext for quality if font available
+// Name â€“ use imagettftext for quality if font available
 $fontPath = __DIR__ . '/assets/fonts/SpaceGrotesk-Bold.ttf';
 if (function_exists('imagettftext') && file_exists($fontPath)) {
     imagettftext($img, 22, 0, $sectionX + 10, $sectionY + 52, $dark, $fontPath, $name);
