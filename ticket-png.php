@@ -18,7 +18,8 @@ if (!$reg) { http_response_code(404); exit('Not found'); }
 $name      = $reg['full_name'];
 $tourNum   = $reg['tour_number'];
 $tourDate  = date('D, M j, Y', strtotime($reg['tour_date']));
-$timeRange = date('g:i A', strtotime($reg['time_start'])) . ' – ' . date('g:i A', strtotime($reg['time_end']));
+// use plain hyphen to avoid font encoding issues
+$timeRange = date('g:i A', strtotime($reg['time_start'])) . ' - ' . date('g:i A', strtotime($reg['time_end']));
 $location  = $reg['location'];
 $ticketId  = $reg['ticket_id'];
 
