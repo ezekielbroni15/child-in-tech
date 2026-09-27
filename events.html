@@ -21,7 +21,7 @@
     />
     <meta
       name="keywords"
-      content="child-in-tech, childintech events, fintech conference Ghana, tech events kids Ghana, CIT conference, Girls Tech World Ghana, Boys Tech World Ghana"
+      content="child-in-tech events, fintech conference Ghana, tech events kids Ghana, CIT conference, Girls Tech World Ghana, Boys Tech World Ghana"
     />
     <meta name="author" content="Child-In-Tech" />
     <meta name="robots" content="index, follow" />
@@ -90,6 +90,7 @@
     <link rel="stylesheet" href="assets/css/global.css" />
     <link rel="stylesheet" href="assets/css/register.css" />
     <link rel="stylesheet" href="assets/css/events.css" />
+    <link rel="stylesheet" href="assets/css/closing-cta.css" />
   </head>
   <body>
     <!-- Navbar -->
@@ -188,7 +189,7 @@
                   icon="lucide:clock"
                   style="font-size: 20px; color: var(--secondary)"
                 ></iconify-icon>
-                Time TBA
+                10 AM–2 PM
               </div>
             </div>
             <div style="display: flex; gap: 16px">
@@ -216,12 +217,12 @@
         Upcoming Events &amp; LearnLab Sessions
       </h2>
       <div class="events-grid animate-on-scroll" data-animate="up">
-        <!-- Main Conference -->
+        <!-- Fintech Conference -->
         <div class="event-card">
           <div class="event-img-wrap">
             <img
               src="assets/image/IMG_3894.JPG"
-              alt="Main Conference"
+              alt="Fintech Conference"
               class="event-img"
               data-query="tech conference kids"
             />
@@ -232,14 +233,14 @@
           </div>
           <div class="event-content">
             <div class="event-category">Conference</div>
-            <h3 class="event-title">MAIN CONFERENCE</h3>
+            <h3 class="event-title">FINTECH CONFERENCE</h3>
             <div class="event-details">
               <div class="event-detail-item">
                 <iconify-icon
                   icon="lucide:clock"
                   style="font-size: 16px"
                 ></iconify-icon>
-                Time TBA
+                10 AM–2 PM
               </div>
               <div class="event-detail-item">
                 <iconify-icon
@@ -562,35 +563,27 @@
       </div>
 
       <!-- Newsletter Strip -->
-      <section class="newsletter-section animate-on-scroll" data-animate="up">
-        <div class="newsletter-bg-circle"></div>
-        <div class="newsletter-bg-circle-2"></div>
-        <div style="position: relative; z-index: 2">
-          <h2 style="color: white; margin-bottom: 16px; font-size: 32px">
-            Don't Miss Out!
-          </h2>
-          <p style="opacity: 0.9; font-size: 18px">
-            Subscribe to get notified about new LearnLab sessions and free
-            events.
-          </p>
-          <form class="newsletter-form" id="subscribeForm">
+      <section class="closing-cta closing-cta--events animate-on-scroll" data-animate="up" aria-labelledby="subscribeTitle">
+          <p class="closing-cta__eyebrow">Stay connected</p>
+          <h2 id="subscribeTitle">Don't Miss Out!</h2>
+          <p class="closing-cta__copy">Subscribe to get notified about new LearnLab sessions and free events.</p>
+          <form class="closing-cta__form" id="subscribeForm">
             <input
               type="email"
               id="subscribeEmail"
-              class="newsletter-input"
+              class="closing-cta__input"
+              aria-label="Email address"
               placeholder="Enter your email address"
             />
             <button
               id="subscribeBtn"
-              class="btn"
-              style="background: var(--secondary); color: white"
+              class="btn closing-cta__button"
               type="submit"
               data-media-type="banani-button"
             >
               Subscribe
             </button>
           </form>
-        </div>
       </section>
     </main>
 

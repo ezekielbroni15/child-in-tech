@@ -19,7 +19,7 @@
     />
     <meta
       name="keywords"
-      content="child-in-tech, childintech gallery, child in tech photos, CIT Ghana pictures, kids tech conference photos"
+      content="child-in-tech gallery, child-in-tech photos, CIT Ghana pictures, kids tech conference photos"
     />
     <meta name="author" content="Child-In-Tech" />
     <meta name="robots" content="index, follow" />
@@ -75,6 +75,7 @@
     <!-- CSS -->
     <link rel="stylesheet" href="assets/css/global.css" />
     <link rel="stylesheet" href="assets/css/gallery.css" />
+    <link rel="stylesheet" href="assets/css/closing-cta.css" />
   </head>
   <body>
     <!-- Navbar -->
@@ -110,228 +111,45 @@
       </div>
     </nav>
 
-    <!-- Header -->
     <header class="page-header">
       <div class="container">
-        <h1 class="animate-on-scroll" data-animate="up">Moments of Joy</h1>
-        <p class="animate-on-scroll" data-animate="up">
-          Peek inside our conferences and see the future innovators at work.
-        </p>
+        <p class="gallery-eyebrow">Child-In-Tech in action</p>
+        <h1>Gallery</h1>
+        <p>Real moments from our workshops, game sessions and tech events.</p>
       </div>
-      <svg
-        class="header-wave"
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 1440 120"
-        preserveAspectRatio="none"
-      >
-        <path
-          fill="#FFFFFF"
-          fill-opacity="1"
-          d="M0,64L80,69.3C160,75,320,85,480,80C640,75,800,53,960,48C1120,43,1280,53,1360,58.7L1440,64L1520,69.3C1600,75,1760,85,1920,80C2080,75,2240,53,2400,48C2560,43,2720,53,2800,58.7L2880,64L2880,320L0,320Z"
-        ></path>
-      </svg>
     </header>
 
-    <main class="container gallery-section">
-      <!-- Decorations -->
-      <div class="decoration-circle circle-1"></div>
-      <div class="decoration-circle circle-2"></div>
-      <div class="decoration-circle circle-3"></div>
-
-      <!-- Filters -->
-      <div class="gallery-filters">
-        <button
-          class="filter-btn active"
-          data-filter="all"
-          data-media-type="banani-button"
-        >
-          All Moments
-        </button>
-        <button
-          class="filter-btn"
-          data-filter="tech"
-          data-media-type="banani-button"
-        >
-          Tech LearnLab
-        </button>
-        <button
-          class="filter-btn"
-          data-filter="creative"
-          data-media-type="banani-button"
-        >
-          Creative Activities
-        </button>
-        <button
-          class="filter-btn"
-          data-filter="events"
-          data-media-type="banani-button"
-        >
-          Events & Conferences
-        </button>
-        <button
-          class="filter-btn"
-          data-filter="fun"
-          data-media-type="banani-button"
-        >
-          Fun & Games
-        </button>
-      </div>
-
-      <!-- Grid -->
-      <div class="gallery-grid" id="galleryGrid">
-        <!-- New items will be injected here by JS -->
-      </div>
-
-      <script src="assets/js/gallery.js"></script>
-
-      <!-- Video Highlight -->
-      <!-- Videos Library -->
-      <!-- <section class="video-section">
-        <div class="video-header animate-on-scroll" data-animate="left">
-          <div>
-            <div class="video-title">Video Library</div>
-            <div class="video-subtitle">
-              Browse highlights from our classes, projects, and events. Each
-              short clip captures the joy of learning at Child-In-Tech.
-            </div>
-          </div>
-          <button class="btn btn-primary" data-media-type="banani-button">
-            View All Videos
-          </button>
+    <main class="gallery-page">
+      <section class="container featured-section" aria-labelledby="featuredTitle">
+        <div class="gallery-section-heading">
+          <h2 id="featuredTitle">Featured experiences</h2>
         </div>
+        <div class="featured-gallery" id="featuredGallery"></div>
+      </section>
 
-        <div class="videos-grid animate-on-scroll" data-animate="up">
-          <div class="video-card" data-media-type="banani-button">
-            <div class="video-thumb">
-              <img
-                data-query="kids coding class video thumbnail"
-                alt="Kids coding video thumbnail"
-                src="https://images.unsplash.com/photo-1642436751413-95d51a3d95aa?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w2MjYyMDB8MHwxfHNlYXJjaHwxfHxraWRzJTIwY29kaW5nJTIwY2xhc3MlMjB2aWRlbyUyMHRodW1ibmFpbHxlbnwwfHx8fDE3Njc2OTY3ODV8MA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080"
-              />
-              <div class="video-play-icon">
-                <iconify-icon
-                  icon="lucide:play"
-                  style="font-size: 24px"
-                ></iconify-icon>
-              </div>
-            </div>
-            <div class="video-info">
-              <div class="video-info-title">
-                Intro to Coding: Scratch Adventures
-              </div>
-              <div class="video-info-meta">
-                2:15 – Beginner – Classroom recap
-              </div>
-            </div>
-          </div>
-
-          <div class="video-card" data-media-type="banani-button">
-            <div class="video-thumb">
-              <img
-                data-query="kids robotics workshop video thumbnail"
-                alt="Past robotics LearnLab session"
-                src="https://images.unsplash.com/photo-1676764589917-e1e659bd9774?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w2MjYyMDB8MHwxfHNlYXJjaHwxfHxraWRzJTIwcm9ib3RpY3MlMjB3b3Jrc2hvcCUyMHZpZGVvJTIwdGh1bWJuYWlsfGVufDB8fHx8MTc2NzY5Njc4N3ww&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080"
-              />
-              <div class="video-play-icon">
-                <iconify-icon
-                  icon="lucide:play"
-                  style="font-size: 24px"
-                ></iconify-icon>
-              </div>
-            </div>
-            <div class="video-info">
-              <div class="video-info-title">
-                Robotics Lab: Meet the Mini-Bots
-              </div>
-              <div class="video-info-meta">
-                3:02 – Robotics – Project showcase
-              </div>
-            </div>
-          </div>
-
-          <div class="video-card" data-media-type="banani-button">
-            <div class="video-thumb">
-              <img
-                data-query="kid using vr headset classroom video thumbnail"
-                alt="VR learning video thumbnail"
-                src="https://images.unsplash.com/photo-1737131821355-2c9fc3958e1f?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w2MjYyMDB8MHwxfHNlYXJjaHwxfHxraWQlMjB1c2luZyUyMHZyJTIwaGVhZHNldCUyMGNsYXNzcm9vbSUyMHZpZGVvJTIwdGh1bWJuYWlsfGVufDB8fHx8MTc2NzY5Njc4OXww&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080"
-              />
-              <div class="video-play-icon">
-                <iconify-icon
-                  icon="lucide:play"
-                  style="font-size: 24px"
-                ></iconify-icon>
-              </div>
-            </div>
-            <div class="video-info">
-              <div class="video-info-title">VR Field Trip: Journey to Mars</div>
-              <div class="video-info-meta">
-                1:48 – VR &amp; AR – Experience highlight
-              </div>
-            </div>
-          </div>
-
-          <div class="video-card" data-media-type="banani-button">
-            <div class="video-thumb">
-              <img
-                data-query="happy kids tech camp video thumbnail"
-                alt="Tech camp video thumbnail"
-                src="https://images.unsplash.com/photo-1640544634610-fac94ff37c21?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w2MjYyMDB8MHwxfHNlYXJjaHwxfHxoYXBweSUyMGtpZHMlMjB0ZWNoJTIwY2FtcCUyMHZpZGVvJTIwdGh1bWJuYWlsfGVufDB8fHx8MTc2NzY5Njc4OXww&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080"
-              />
-              <div class="video-play-icon">
-                <iconify-icon
-                  icon="lucide:play"
-                  style="font-size: 24px"
-                ></iconify-icon>
-              </div>
-            </div>
-            <div class="video-info">
-              <div class="video-info-title">
-                Summer Tech Camp Highlights 2026
-              </div>
-              <div class="video-info-meta">
-                2:59 – Events – Parent favorites
-              </div>
-            </div>
-          </div>
+      <section class="container gallery-section" aria-labelledby="galleryTitle">
+        <div class="gallery-section-heading gallery-browse-heading">
+          <h2 id="galleryTitle">Explore the gallery</h2>
+          <span class="gallery-count" id="galleryCount" aria-live="polite"></span>
         </div>
-      </section> -->
-
-      <!-- Mini CTA -->
-      <div class="newsletter-section animate-on-scroll" data-animate="up">
-        <div style="position: relative; z-index: 2">
-          <h2 style="color: white; margin-bottom: 24px; font-size: 32px">
-            Want to be part of the fun?
-          </h2>
-          <p
-            style="
-              opacity: 0.95;
-              font-size: 18px;
-              max-width: 600px;
-              margin: 0 auto 32px;
-            "
-          >
-            Follow us on Instagram for daily updates or Join Our Programs today.
-          </p>
-          <a
-            href="https://www.instagram.com/child_intech?igsh=MTh3azFmNGx1dTY2dA=="
-            target="_blank"
-            class="btn"
-            style="
-              background: white;
-              color: var(--primary);
-              padding: 16px 40px;
-              display: inline-block;
-              text-decoration: none;
-            "
-            data-media-type="banani-button"
-          >
-            Follow on Instagram
-          </a>
+        <div class="gallery-filters" role="group" aria-label="Filter photos">
+          <button class="filter-btn" type="button" data-filter="all" aria-pressed="true">All</button>
+          <button class="filter-btn" type="button" data-filter="stem" aria-pressed="false">STEM &amp; Robotics</button>
+          <button class="filter-btn" type="button" data-filter="coding" aria-pressed="false">Coding</button>
+          <button class="filter-btn" type="button" data-filter="gaming" aria-pressed="false">Gaming</button>
+          <button class="filter-btn" type="button" data-filter="vr" aria-pressed="false">VR</button>
+          <button class="filter-btn" type="button" data-filter="events" aria-pressed="false">Events &amp; Tours</button>
         </div>
-      </div>
+        <div class="gallery-grid" id="galleryGrid"></div>
+        <button class="gallery-load-more" id="galleryLoadMore" type="button" hidden>Show more photos</button>
+      </section>
 
-      <!-- Lightbox Modal -->
+      <section class="closing-cta closing-cta--gallery" aria-labelledby="galleryContactTitle">
+        <p class="closing-cta__eyebrow">For schools and partners</p>
+        <h2 id="galleryContactTitle">Let's make more moments like these.</h2>
+        <p class="closing-cta__copy">Bring a Child-In-Tech workshop to your school or community.</p>
+        <a href="contact-us.html" class="btn closing-cta__button">Get in touch</a>
+      </section>
     </main>
 
     <!-- Footer -->
@@ -493,37 +311,28 @@
       <a href="programs.html" class="btn btn-primary">Join Our Programs</a>
     </div>
 
-    <!-- Lightbox Modal -->
-    <div id="lightboxModal" class="lightbox-modal">
-      <!-- Duplicate removed, we will rely on keypress and js logic targeting #lightbox -->
-      <!-- Actually, looking at main.js, it targets #lightbox. 
-           The simpler lightbox block (lines 942-961) is the one actively used by JS lines 140+.
-           BUT, wait. The JS at line 140 targets `lightbox` (id).
-           The HTML at 942 has id="lightbox".
-           The HTML at 1069 has id="lightboxModal".
-           The JS targets `lightbox`. So the block at 942 is the one being used.
-           The block at 1069 is UNUSED by the current JS (unless there's other JS).
-           I will remove the block at 1069 completely.
-           I will also Modify the block at 942 to move the close button.
-      -->
-    </div>
-
-    <!-- Lightbox Modal -->
-    <div class="lightbox" id="lightbox">
-      <button class="lightbox-nav lightbox-prev" aria-label="Previous image">
+    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Gallery photo" hidden>
+      <button class="lightbox-nav lightbox-prev" type="button" aria-label="Previous image">
         <iconify-icon icon="lucide:chevron-left" class="icon-lg"></iconify-icon>
       </button>
-      <button class="lightbox-nav lightbox-next" aria-label="Next image">
+      <button class="lightbox-nav lightbox-next" type="button" aria-label="Next image">
         <iconify-icon
           icon="lucide:chevron-right"
           class="icon-lg"
         ></iconify-icon>
       </button>
       <div class="lightbox-content">
-        <button class="lightbox-close" aria-label="Close lightbox">
+        <button class="lightbox-close" type="button" aria-label="Close lightbox">
           <iconify-icon icon="lucide:x" class="icon-lg"></iconify-icon>
         </button>
-        <img src="" alt="Gallery image" id="lightboxImage" />
+        <img src="" alt="" id="lightboxImage" />
+        <div class="lightbox-details">
+          <div>
+            <p id="lightboxExperience"></p>
+            <strong id="lightboxCaption"></strong>
+          </div>
+          <span id="lightboxCounter"></span>
+        </div>
       </div>
     </div>
 
@@ -532,5 +341,6 @@
       defer
     ></script>
     <script src="assets/js/main.js?v=3" defer></script>
+    <script src="assets/js/gallery.js" defer></script>
   </body>
 </html>

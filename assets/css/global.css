@@ -795,9 +795,6 @@ a {
 /* Blob Animation */
 .hero-blob,
 .blob-decoration,
-.cta-bg-shape,
-.newsletter-bg-circle,
-.newsletter-bg-circle-2,
 .decoration-circle {
   animation: float 6s ease-in-out infinite;
 }

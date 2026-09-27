@@ -1,0 +1,141 @@
+.closing-cta {
+  --cta-background: #173d3c;
+  --cta-label: #8de4dc;
+  --cta-foreground: #fff;
+  --cta-button-text: var(--cta-background);
+  --cta-focus: #fff;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 1000px;
+  margin: 72px auto 80px;
+  padding: 42px 54px;
+  border-radius: 28px;
+  background: var(--cta-background);
+  color: var(--cta-foreground);
+  text-align: center;
+}
+
+.closing-cta--gallery,
+.closing-cta--about {
+  width: calc(100% - 48px);
+}
+
+.closing-cta--gallery {
+  margin-bottom: 0;
+}
+
+.closing-cta--about {
+  --cta-background: var(--primary);
+  --cta-label: #fff;
+  --cta-foreground: #fff;
+  --cta-button-text: #a64400;
+  --cta-focus: #fff;
+}
+
+.closing-cta--events {
+  --cta-background: #275b89;
+  --cta-label: #d8efff;
+}
+
+.closing-cta--programs {
+  --cta-background: #117a72;
+  --cta-label: #dcf7f2;
+}
+
+.closing-cta__eyebrow {
+  margin: 0 0 11px;
+  color: var(--cta-label);
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.closing-cta h2 {
+  margin: 0 0 12px;
+  color: var(--cta-foreground);
+  font-size: 34px;
+}
+
+.closing-cta__copy {
+  max-width: 620px;
+  margin: 0 auto 24px;
+  color: var(--cta-foreground);
+  font-size: 17px;
+}
+
+.closing-cta__button {
+  width: fit-content;
+  padding: 14px 32px;
+  background: #fff;
+  color: var(--cta-button-text);
+}
+
+.closing-cta__button:hover {
+  background: #fff;
+  color: var(--cta-button-text);
+}
+
+.closing-cta__button:focus-visible,
+.closing-cta__input:focus-visible {
+  outline: 3px solid var(--cta-focus);
+  outline-offset: 3px;
+}
+
+.closing-cta__form {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  max-width: 540px;
+  margin: 0 auto;
+}
+
+.closing-cta__input {
+  flex: 1;
+  min-width: 0;
+  padding: 12px 20px;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  font: inherit;
+}
+
+.closing-cta__input::placeholder {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+@media (max-width: 680px) {
+  .closing-cta {
+    margin-top: 52px;
+    margin-bottom: 60px;
+    padding: 32px 28px;
+    border-radius: 24px;
+  }
+
+  .closing-cta--gallery,
+  .closing-cta--about {
+    width: calc(100% - 32px);
+  }
+
+  .closing-cta--gallery {
+    margin-bottom: 0;
+  }
+
+  .closing-cta h2 {
+    font-size: 28px;
+  }
+
+  .closing-cta__copy {
+    font-size: 16px;
+  }
+
+  .closing-cta__form {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .closing-cta__input {
+    width: 100%;
+    flex: none;
+  }
+}
