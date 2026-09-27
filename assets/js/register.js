@@ -79,7 +79,7 @@
         tourSel.innerHTML = '<option value="">Select a date →</option>';
         if (toursData.length === 0) {
           tourSel.innerHTML =
-            '<option value="">No upcoming tours available</option>';
+            '<option value="">No upcoming events available</option>';
           return;
         }
         toursData.forEach((tour) => {
